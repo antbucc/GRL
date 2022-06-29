@@ -1,0 +1,42 @@
+declare Action
+    name: String
+end
+
+declare PointConcept
+    name: String
+    score: Integer
+end
+
+declare BadgeCollectionConcept
+    name: String
+    earnedBadges: java.util.List
+end
+
+declare ChallengeConcept
+    modelName: String
+    completed: Boolean
+end
+
+declare InputData
+    data: java.util.Map
+end
+
+rule "ruleDefinition"
+    when
+        (Action(name == "run") or Action(name == "used_bike"))
+        PointConcept(name == "steps", score >= 10000)
+        BadgeCollectionConcept(name == "bronze", earnedBadges not contains "silver")
+        ChallengeConcept(modelName == "schoolWithoutCar", completed == true)
+        InputData(data["key"] == null, data["key2"] != "value")
+    then
+        // Do something
+end
+
+rule "ruleBinding"
+    when
+        $runAction : Action (name == "run")
+        Action ($actionName : name, name == "used_bike")
+        Action ($hasMoved : name == "moved")
+    then
+        // Do something
+end
