@@ -25,26 +25,32 @@
         <!-- https://mvnrepository.com/artifact/org.drools/drools-core -->
         <dependency>
             <groupId>org.drools</groupId>
-            <artifactId>drools-core</artifactId>
+            <artifactId>drools-engine</artifactId>
             <version>7.71.0.Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.drools/drools-compiler -->
+        <!-- Gamification core -->
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-compiler</artifactId>
-            <version>7.71.0.Final</version>
+            <groupId>it.smartcommunitylab.gamification</groupId>
+            <artifactId>game-engine.core</artifactId>
+            <version>4.0.0-SNAPSHOT</version>
         </dependency>
-
-        <!-- TODO: Remove -->
-        <!-- https://mvnrepository.com/artifact/org.drools/drools-mvel -->
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-mvel</artifactId>
-            <version>7.71.0.Final</version>
-        </dependency>
-
 
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>SmartCommunityLab</id>
+            <url>https://repository.smartcommunitylab.it/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>clojars.org</id>
+            <url>https://clojars.org/repo</url>
+        </repository>
+        <repository> <!-- distribute quartz-mongo -->
+            <id>michaelklishin</id>
+            <url>https://dl.bintray.com/michaelklishin/maven/</url>
+        </repository>
+    </repositories>
 
 </project>

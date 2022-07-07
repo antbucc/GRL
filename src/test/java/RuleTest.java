@@ -1,78 +1,51 @@
-import it.univaq.gamification.dsl.Operator;
-import it.univaq.gamification.dsl.impl.RuleBuilderImpl;
-import it.univaq.gamification.dsl.utils.Action;
-import it.univaq.gamification.dsl.utils.Badge;
-import it.univaq.gamification.dsl.utils.Challenge;
-import it.univaq.gamification.dsl.utils.Point;
-import org.drools.compiler.lang.api.DescrFactory;
-import org.drools.compiler.lang.descr.PackageDescr;
-import org.drools.mvel.DrlDumper;
+import it.univaq.gamification.dsl.ConstraintType;
+import it.univaq.gamification.dsl.builders.impl.GRLRuleBuilderImpl;
+import org.drools.model.Rule;
 import org.junit.Test;
+
 
 public class RuleTest {
 
+    Rule rule;
+
     @Test
-    public void testSimpleRuleDefinition() {
-        new RuleBuilderImpl()
-            .name("testSimpleRule")
-            .when()
-                .action().name(Operator.EQ, Action.MOVED).end()
-                .point().name(Operator.EQ, Point.STEPS).score(Operator.GTE, 10000).end()
-            .end();
+    public void TestExecutableModelSimpleGeneration() {
+        rule = new GRLRuleBuilderImpl()
+                .name("simple_rule")
+                .when()
+                    .action().name(ConstraintType.EQ, "Walk").end()
+                    .point().name(ConstraintType.EQ, "Robert").score(ConstraintType.EQ, 20).end()
+                .end()
+                .build();
+
+        System.out.println(rule);
     }
 
     @Test
-    public void testRuleDefinition() {
-        new RuleBuilderImpl()
-            .name("ruleDefinition")
-            .when()
-                .or()
+    public void TestExecutableModelGeneration() {
+        rule = new GRLRuleBuilderImpl()
+                .name("ce_rule")
+                .when()
+                    .point().name(ConstraintType.EQ, "Walter").score(ConstraintType.EQ, 10).end()
                     .and()
-                        .action().name(Operator.EQ, Action.RUN).end()
-                        .action().name(Operator.EQ, Action.USED_BIKE).end()
+                        .action().name(ConstraintType.EQ, "Eleven").end()
+                        .point().name(ConstraintType.EQ, "Bart").score(ConstraintType.EQ, 20).end()
+                        .or()
+                            .point().name(ConstraintType.EQ, "Kate").score(ConstraintType.EQ, 30).end()
+                            .point().name(ConstraintType.EQ, "Nick").score(ConstraintType.EQ, 40).end()
+                        .end()
                     .end()
-                    .action().name(Operator.EQ, Action.WALKED).end()
-                .end()
-                .point().name(Operator.EQ, Point.STEPS).score(Operator.GTE, 10000).end()
-                .badgeCollection().name(Operator.EQ, Badge.BRONZE).earned(Operator.NOT_CONTAINS, Badge.SILVER).end()
-                .challenge().modelName(Operator.EQ, Challenge.SCHOOL_WITHOUT_CAR).completed(true).end()
-                .inputData().attribute("key1", Operator.EQ, null).attribute("key2", Operator.NEQ, "value").end()
-            .end();
-    }
-
-    @Test
-    public void testRuleBinding() {
-        new RuleBuilderImpl()
-            .name("ruleBinding")
-            .when()
-                // $runAction : Action (name == "RUN")
-                .action("$runAction").name(Operator.EQ, Action.RUN).end()
-                // Action ($actionName : name, name == "USED_BIKE")
-                .action().bindName("$actionName").name(Operator.EQ, Action.USED_BIKE).end()
-                // Action ($hasMoved : name == "MOVED")
-                .action().name(Operator.EQ, Action.MOVED, "$hasMoved").end()
-            .end();
-    }
-
-    @Test
-    public void testDroolsFluentApi() {
-        PackageDescr pkg = DescrFactory.newPackage()
-                .name("org.drools")
-                .newRule().name("test")
-                .lhs()
-                    .or()
-                        .pattern("Action").bind("$name", "name", false).constraint("name == \"walked\"").end()
-                        .pattern("Action").constraint("name == \"moved\"").end()
+                    .not()
+                        .action().name(ConstraintType.EQ, "Run").end()
                     .end()
-                    .pattern("Point").constraint("name == \"steps\"").end()
+                    .exists()
+                        .point().name(ConstraintType.EQ, "Sam").score(ConstraintType.EQ, 50).end()
+                        .point().name(ConstraintType.EQ, "Ronny").score(ConstraintType.EQ, 60).end()
+                    .end()
                 .end()
-                .rhs("// Do something")
-                .namedRhs("c1", "// Do something else")
-            .end()
-            .getDescr();
+                .build();
 
-        String drl = new DrlDumper().dump(pkg);
-        System.out.println(drl);
+        System.out.println(rule);
     }
 
 }

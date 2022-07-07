@@ -4,7 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="" />
+    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ConstraintType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLCEBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLRuleBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/ActionBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/BadgeCollectionBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/ChallengeBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/InputDataBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/PointBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/CEBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/DescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/Operator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/RuleBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/ActionBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/BadgeCollectionBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/ChallengeBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/GamificationElementBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/InputDataBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/PointBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/ActionBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/BadgeCollectionBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/CEBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/ChallengeBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/InputDataBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/PointBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/RuleBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Action.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Badge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Challenge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Point.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +46,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -24,6 +57,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
   </component>
   <component name="ProjectId" id="2AeHeLamDF6ARdBOqSGUkBcxjLI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -39,7 +75,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/stefanomartella/Desktop/Tesi/code/gamification-dsl&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/stefanomartella/Desktop/Tesi/code/drools&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -48,7 +84,8 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;a558ca155dcf35c8f036df2564c26067&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -60,7 +97,15 @@
       <recent name="it.univaq.gamification.dsl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RuleTest">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+      <command value="mvn clean install -D" />
+      <command value="mvn install" />
+      <command value="mvn dependency:purge-local-repository" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.RuleTest.TestExecutableModelGeneration">
     <configuration name="RuleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <option name="PACKAGE_NAME" value="" />
@@ -70,11 +115,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleTest.testDroolsFluentApi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleTest.TestExecutableModelGeneration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="METHOD_NAME" value="testDroolsFluentApi" />
+      <option name="METHOD_NAME" value="TestExecutableModelGeneration" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RuleTest.TestExecutableModelSimpleGeneration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RuleTest" />
+      <option name="METHOD_NAME" value="TestExecutableModelSimpleGeneration" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RuleTest.testLambdaFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RuleTest" />
+      <option name="METHOD_NAME" value="testLambdaFunction" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -90,33 +155,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleTest.testSimpleRuleDefinition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="METHOD_NAME" value="testSimpleRuleDefinition" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RuleTest.testTRuleDefinition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="METHOD_NAME" value="testTRuleDefinition" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RuleTest.TestExecutableModelGeneration" />
         <item itemvalue="JUnit.RuleTest" />
-        <item itemvalue="JUnit.RuleTest.testSimpleRuleDefinition" />
+        <item itemvalue="JUnit.RuleTest.TestExecutableModelSimpleGeneration" />
+        <item itemvalue="JUnit.RuleTest.testLambdaFunction" />
         <item itemvalue="JUnit.RuleTest.testRuleDefinition" />
-        <item itemvalue="JUnit.RuleTest.testDroolsFluentApi" />
-        <item itemvalue="JUnit.RuleTest.testTRuleDefinition" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +188,18 @@
       <workItem from="1656494094681" duration="460000" />
       <workItem from="1656494572275" duration="259000" />
       <workItem from="1656494843640" duration="106000" />
-      <workItem from="1656494961790" duration="14000" />
+      <workItem from="1656494961790" duration="4096000" />
+      <workItem from="1656534864619" duration="5007000" />
+      <workItem from="1656620273603" duration="2333000" />
+      <workItem from="1656680085660" duration="11579000" />
+      <workItem from="1656745777048" duration="11211000" />
+      <workItem from="1656779951699" duration="1478000" />
+      <workItem from="1656915394181" duration="3000" />
+      <workItem from="1656915400066" duration="2000" />
+      <workItem from="1656915422820" duration="1664000" />
+      <workItem from="1656939450004" duration="17764000" />
+      <workItem from="1657086810028" duration="9392000" />
+      <workItem from="1657173542212" duration="9860000" />
     </task>
     <servers />
   </component>
@@ -165,6 +221,29 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/RuleTest.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/RuleTest.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="it.univaq.gamification.dsl.builders.impl.GRLRuleBuilderImpl" memberName="rule" />
+        <PinnedItemInfo parentTag="org.drools.model.patterns.CompositePatterns" memberName="patterns" />
+        <PinnedItemInfo parentTag="org.drools.model.impl.RuleImpl" memberName="view" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
