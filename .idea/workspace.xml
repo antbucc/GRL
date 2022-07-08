@@ -5,38 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ConstraintType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLCEBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLRuleBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/ActionBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/BadgeCollectionBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/ChallengeBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/InputDataBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/PointBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/CEBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/DescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/Operator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/RuleBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/ActionBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/BadgeCollectionBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/ChallengeBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/GamificationElementBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/InputDataBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ge/PointBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLRuleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLRuleBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/impl/ActionBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/impl/ActionBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/impl/PointBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/impl/PointBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GRLRuleBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GRLRuleBuilderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/ActionBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/BadgeCollectionBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/CEBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/ChallengeBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/InputDataBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/PointBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/impl/RuleBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Action.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Badge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Challenge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Point.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +79,7 @@
       <command value="mvn dependency:purge-local-repository" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleTest.TestExecutableModelGeneration">
+  <component name="RunManager" selected="JUnit.RuleTest">
     <configuration name="RuleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <option name="PACKAGE_NAME" value="" />
@@ -157,9 +131,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RuleTest.TestExecutableModelGeneration" />
         <item itemvalue="JUnit.RuleTest" />
         <item itemvalue="JUnit.RuleTest.TestExecutableModelSimpleGeneration" />
+        <item itemvalue="JUnit.RuleTest.TestExecutableModelGeneration" />
         <item itemvalue="JUnit.RuleTest.testLambdaFunction" />
         <item itemvalue="JUnit.RuleTest.testRuleDefinition" />
       </list>
@@ -199,7 +173,8 @@
       <workItem from="1656915422820" duration="1664000" />
       <workItem from="1656939450004" duration="17764000" />
       <workItem from="1657086810028" duration="9392000" />
-      <workItem from="1657173542212" duration="9860000" />
+      <workItem from="1657173542212" duration="10184000" />
+      <workItem from="1657261243464" duration="1601000" />
     </task>
     <servers />
   </component>

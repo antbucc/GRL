@@ -24,8 +24,8 @@ public class PointBuilderImpl<P> extends GRLDescrBuilderImpl<P> implements Point
 
     public PointBuilderImpl(P parent, String bindName, CELambda<ViewItemBuilder<?>> ceLambda) {
         super(parent ,ceLambda);
-        // TODO: Add binding to the Action
-        // this.actionPattern = pattern(declarationOf(PointConcept.class));
+        // TODO: Add binding to the Point
+        // this.pointPattern = pattern(declarationOf(PointConcept.class));
     }
 
     @Override

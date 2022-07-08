@@ -10,8 +10,7 @@ public interface GRLRuleBuilder {
 
     GRLRuleBuilder then();
 
-    GRLRuleBuilder end();
+    Rule end();
 
-    Rule build();
 
 }

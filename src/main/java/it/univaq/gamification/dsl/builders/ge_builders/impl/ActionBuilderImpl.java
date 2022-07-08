@@ -24,7 +24,7 @@ public class ActionBuilderImpl<P> extends GRLDescrBuilderImpl<P> implements Acti
 
     public ActionBuilderImpl(P parent, String bindName, CELambda<ViewItemBuilder<?>> ceLambda) {
         super(parent, ceLambda);
-        // Add binding to the Action
+        // TODO: Add binding to the Action
         // this.actionPattern = pattern(declarationOf(Action.class));
     }
 
@@ -46,8 +46,13 @@ public class ActionBuilderImpl<P> extends GRLDescrBuilderImpl<P> implements Acti
 
     @Override
     public ActionBuilder<P> bindName(String bindName) {
+        return null;
+    }
+
+    @Override
+    public P end() {
         this.viewItemBuilders.add(this.actionPattern);
-        return this;
+        return super.end();
     }
 
 }

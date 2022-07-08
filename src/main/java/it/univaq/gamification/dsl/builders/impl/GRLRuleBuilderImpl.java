@@ -38,12 +38,7 @@ public class GRLRuleBuilderImpl implements GRLRuleBuilder {
     }
 
     @Override
-    public GRLRuleBuilder end() {
-        return this;
-    }
-
-    @Override
-    public Rule build() {
+    public Rule end() {
         return this.rule.build(this.viewItemBuilders.toArray(new RuleItemBuilder[0]));
     }
 
