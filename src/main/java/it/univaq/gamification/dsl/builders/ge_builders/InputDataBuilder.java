@@ -5,7 +5,7 @@ import it.univaq.gamification.dsl.ConstraintType;
 
 public interface InputDataBuilder<P> extends GRLDescrBuilder<P> {
 
-    // TODO: value could be also a number, etc.
+    // TODO: Use method overload for int, double, etc
     InputDataBuilder<P> attribute(String key, ConstraintType constraintType, String value);
 
 }
