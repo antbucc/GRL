@@ -1,12 +1,36 @@
 import it.univaq.gamification.dsl.ConstraintType;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import org.drools.compiler.lang.descr.PackageDescr;
+import org.drools.core.io.impl.ByteArrayResource;
+import org.drools.verifier.Verifier;
+import org.drools.verifier.VerifierError;
+import org.drools.verifier.builder.VerifierBuilder;
+import org.drools.verifier.builder.VerifierBuilderFactory;
+import org.junit.Assert;
 import org.junit.Test;
+import org.kie.api.io.ResourceType;
 
 
 public class RuleTest {
 
     PackageDescr pkg;
+
+    private void verifyRule(PackageDescr packageDescr) {
+        VerifierBuilder verifierBuilder = VerifierBuilderFactory.newVerifierBuilder();
+        Verifier verifier = verifierBuilder.newVerifier();
+        String rule = new DrlDumper().dump(packageDescr);
+        System.out.println(rule);
+        verifier.addResourcesToVerify(new ByteArrayResource(rule.getBytes()), ResourceType.DRL);
+        try {
+            Assert.assertTrue("The rule has some error", verifier.getErrors().isEmpty());
+        } catch (AssertionError e) {
+            for (VerifierError error : verifier.getErrors()) {
+                System.out.println(error.getMessage());
+            }
+            throw e;
+        }
+    }
+
 
     @Test
     public void TestInputData() {
@@ -25,7 +49,7 @@ public class RuleTest {
                 .end()
                 .getDescr();
 
-        System.out.println(new DrlDumper().dump(pkg));
+        verifyRule(pkg);
     }
 
     @Test
@@ -44,7 +68,7 @@ public class RuleTest {
                 .end()
                 .getDescr();
 
-        System.out.println(new DrlDumper().dump(pkg));
+        verifyRule(pkg);
     }
 
     @Test
@@ -71,7 +95,7 @@ public class RuleTest {
                 .end()
                 .getDescr();
 
-        System.out.println(new DrlDumper().dump(pkg));
+        verifyRule(pkg);
     }
 
     @Test
@@ -88,7 +112,7 @@ public class RuleTest {
                 .end()
                 .getDescr();
 
-        System.out.println(new DrlDumper().dump(pkg));
+        verifyRule(pkg);
     }
 
     @Test
@@ -111,14 +135,13 @@ public class RuleTest {
                             .action().name(ConstraintType.EQ, "Run").end()
                         .end()
                         .exists()
-                            .point().name(ConstraintType.EQ, "Sam").score(ConstraintType.EQ, 50).end()
                             .point().name(ConstraintType.EQ, "Ronny").score(ConstraintType.EQ, 60).end()
                         .end()
                     .end()
             .end()
             .getDescr();
 
-        System.out.println(new DrlDumper().dump(pkg));
+        verifyRule(pkg);
     }
 
     @Test
@@ -141,7 +164,7 @@ public class RuleTest {
                 .end()
                 .getDescr();
 
-        System.out.println(new DrlDumper().dump(pkg));
+        verifyRule(pkg);
     }
 
     @Test
@@ -163,7 +186,7 @@ public class RuleTest {
                 .end()
                 .getDescr();
 
-        System.out.println(new DrlDumper().dump(pkg));
+        verifyRule(pkg);
     }
 
 }

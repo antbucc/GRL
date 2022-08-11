@@ -40,4 +40,8 @@ public class ConstraintHelper {
         descr.addConstraint(bindingConstraint);
     }
 
+    public static <T> void addDeclareConstraint(PatternDescr descr, T field, String bindName) {
+        ConstraintHelper.addConstraint(descr, bindName + ": " + (field instanceof String ? "\"" + field + "\"" : field));
+    }
+
 }

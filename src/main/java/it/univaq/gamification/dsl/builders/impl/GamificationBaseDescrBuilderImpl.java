@@ -16,8 +16,14 @@ public class GamificationBaseDescrBuilderImpl<P extends DescrBuilder<?, ? extend
     }
 
     @Override
-    public T declare(String bindName, String value) {
+    public T bind(String bindName, String value) {
         ConstraintHelper.addBindConstraint(this.descr, value, bindName);
+        return (T) this;
+    }
+
+    @Override
+    public <T1> T declare(String bindName, T1 value) {
+        ConstraintHelper.addDeclareConstraint(this.descr, value, bindName);
         return (T) this;
     }
 

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="Testing real rules and related fixes">
+    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="Add propagation element">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GamificationElementDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GamificationElementDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/CEDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/CEDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GamificationBaseDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GamificationBaseDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GamificationBaseDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GamificationBaseDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/ConstraintHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/ConstraintHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +33,9 @@
   </component>
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2AeHeLamDF6ARdBOqSGUkBcxjLI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -78,13 +83,12 @@
       <command value="mvn dependency:purge-local-repository" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleTest.TestRealRule2When">
-    <configuration name="RuleTest.TestChallenge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.RuleTest">
+    <configuration name="RuleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="METHOD_NAME" value="TestChallenge" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -119,11 +123,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleTest.TestSimpleRuleGeneration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleTest.TestRuleGeneration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="METHOD_NAME" value="TestSimpleRuleGeneration" />
+      <option name="METHOD_NAME" value="TestRuleGeneration" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,17 +136,17 @@
     <list>
       <item itemvalue="JUnit.RuleTest.TestRealRule2When" />
       <item itemvalue="JUnit.RuleTest.TestRealRuleWhen" />
-      <item itemvalue="JUnit.RuleTest.TestSimpleRuleGeneration" />
-      <item itemvalue="JUnit.RuleTest.TestChallenge" />
+      <item itemvalue="JUnit.RuleTest.TestRuleGeneration" />
       <item itemvalue="JUnit.RuleTest.TestInputData" />
+      <item itemvalue="JUnit.RuleTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RuleTest" />
+        <item itemvalue="JUnit.RuleTest.TestRuleGeneration" />
+        <item itemvalue="JUnit.RuleTest.TestInputData" />
         <item itemvalue="JUnit.RuleTest.TestRealRule2When" />
         <item itemvalue="JUnit.RuleTest.TestRealRuleWhen" />
-        <item itemvalue="JUnit.RuleTest.TestInputData" />
-        <item itemvalue="JUnit.RuleTest.TestSimpleRuleGeneration" />
-        <item itemvalue="JUnit.RuleTest.TestChallenge" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +206,7 @@
       <workItem from="1660199235264" duration="3065000" />
       <workItem from="1660224369179" duration="5000" />
       <workItem from="1660224427077" duration="6138000" />
-      <workItem from="1660235586357" duration="7921000" />
+      <workItem from="1660235586357" duration="10799000" />
     </task>
     <task id="LOCAL-00001" summary="From executable model generation to DRL generation">
       <created>1660230104764</created>
@@ -246,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660244213450</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add propagation element">
+      <created>1660249018873</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660249018873</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +283,8 @@
     <MESSAGE value="Reusing code" />
     <MESSAGE value="Add reward concept" />
     <MESSAGE value="Testing real rules and related fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing real rules and related fixes" />
+    <MESSAGE value="Add propagation element" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add propagation element" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
