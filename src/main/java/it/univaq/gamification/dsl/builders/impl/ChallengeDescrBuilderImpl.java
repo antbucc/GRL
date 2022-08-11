@@ -64,14 +64,14 @@ public class ChallengeDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ChallengeDescrBuilder<P> fieldsEntry(ConstraintType constraintType, String key, String value) {
-        ConstraintHelper.addConstraint(this.descr, constraintType, FIELDS + "[\"" +key + "\"]", value, null, true);
+    public <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, FIELDS + "[\"" +key + "\"]", value, null, value instanceof String);
         return this;
     }
 
     @Override
-    public ChallengeDescrBuilder<P> fieldsEntry(ConstraintType constraintType, String key, String value, String bindName) {
-        ConstraintHelper.addConstraint(this.descr, constraintType, FIELDS + "[\"" +key + "\"]", value, bindName, true);
+    public <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value, String bindName) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, FIELDS + "[\"" +key + "\"]", value, bindName, value instanceof String);
         return this;
     }
 

@@ -11,6 +11,7 @@ public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         extends GamificationBaseDescrBuilderImpl<P, ActionDescrBuilder<P>>
         implements ActionDescrBuilder<P> {
 
+    private final String ID = "id";
     private final String NAME = "name";
 
     protected ActionDescrBuilderImpl(P parent) {
@@ -21,6 +22,24 @@ public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     protected ActionDescrBuilderImpl(P parent, String bindName) {
         this(parent);
         this.descr.setIdentifier(bindName);
+    }
+
+    @Override
+    public ActionDescrBuilder<P> id(ConstraintType constraintType, String name) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, ID, name, null, true);
+        return this;
+    }
+
+    @Override
+    public ActionDescrBuilder<P> id(ConstraintType constraintType, String name, String bindName) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, ID, name, bindName, true);
+        return this;
+    }
+
+    @Override
+    public ActionDescrBuilder<P> bindId(String bindName) {
+        ConstraintHelper.addBindConstraint(this.descr, ID, bindName);
+        return this;
     }
 
     @Override

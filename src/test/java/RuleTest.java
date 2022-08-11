@@ -59,8 +59,8 @@ public class RuleTest {
                             .declareFromField("$counter", "counterName")
                             .declareFromField("$target", "target")
                             .declareFromField("$vp", "virtualPrice")
-                            .fieldsEntry(ConstraintType.EQ, "target", "aTarget")
-                            .fieldsEntry(ConstraintType.EQ, "target", "aTarget", "$isTargetATarget")
+                            .fromFields(ConstraintType.EQ, "target", "aTarget")
+                            .fromFields(ConstraintType.EQ, "target", "aTarget", "$isTargetATarget")
                             .constraint("$endTime: end.getTime()")
                             .constraint("$startTime: start.getTime()")
                             .constraint("$now: System.currentTimeMillis()")
@@ -117,6 +117,51 @@ public class RuleTest {
                     .end()
             .end()
             .getDescr();
+
+        System.out.println(new DrlDumper().dump(pkg));
+    }
+
+    @Test
+    public void TestRealRuleWhen() {
+        pkg = new PackageDescrBuilderImpl()
+                .name("it.gamification.something")
+                .newRule()
+                    .name("real_rule")
+                        .when()
+                            .challenge("$challenge")
+                                .modelName(ConstraintType.EQ, "incentiveGroupChallengeReward")
+                                .declareFromField("$bonusScore", "bonusScore")
+                                .declareFromField("$bonusPointType", "bonusPointType")
+                                .isCompleted(false)
+                            .end()
+                            .reward("$reward").end()
+                            .point("$pcBonus").constraint("name == (String) $bonusPointType").end()
+                        .end()
+                    .end()
+                .end()
+                .getDescr();
+
+        System.out.println(new DrlDumper().dump(pkg));
+    }
+
+    @Test
+    public void TestRealRule2When() {
+        pkg = new PackageDescrBuilderImpl()
+                .name("it.gamification.something")
+                .newRule()
+                    .name("real_rule2")
+                    .when()
+                        .action().id(ConstraintType.EQ, "taskCompleted").end()
+                        .inputData()
+                            .fromData(ConstraintType.EQ, "moves", 5.0, "$moves")
+                            .fromData(ConstraintType.EQ, "errors", 0.0, "$errors")
+                        .end()
+                        .point("$movesScore").name(ConstraintType.EQ, "moves").end()
+                        .point("$errorsScore").name(ConstraintType.EQ, "errors").end()
+                        .customData("$customData").constraint("this[\"level\"] == null").end()
+                    .end()
+                .end()
+                .getDescr();
 
         System.out.println(new DrlDumper().dump(pkg));
     }

@@ -22,7 +22,7 @@ public class ConstraintHelper {
         if (value == null) {
             valueToInterpolate = "null";
         } else {
-            valueToInterpolate = quoted ? "\"" + value + "\n" : value.toString();
+            valueToInterpolate = quoted ? "\"" + value + "\"" : value.toString();
         }
 
         // Checking if a binding is needed

@@ -24,14 +24,14 @@ public class CustomDataDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public CustomDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, String value) {
-        ConstraintHelper.addConstraint(this.descr, constraintType, DATA + "[\"" +key + "\"]", value, null, true);
+    public <T> CustomDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, T value) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, DATA + "[\"" +key + "\"]", value, null, value instanceof String);
         return this;
     }
 
     @Override
-    public CustomDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, String value, String bindName) {
-        ConstraintHelper.addConstraint(this.descr, constraintType, DATA + "[\"" +key + "\"]", value, bindName, true);
+    public <T> CustomDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, T value, String bindName) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, DATA + "[\"" +key + "\"]", value, bindName, value instanceof String);
         return this;
     }
 

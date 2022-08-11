@@ -7,9 +7,10 @@ import org.drools.compiler.lang.descr.PatternDescr;
 public interface InputDataDescrBuilder<P extends DescrBuilder<?, ?>>
         extends DescrBuilder<P, PatternDescr>, GamificationBaseDescrBuilder<InputDataDescrBuilder<P>> {
 
-    InputDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, String value);
+    <T> InputDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, T value);
 
-    InputDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, String value, String bindName);
+    <T> InputDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, T value, String bindName);
+
 
     InputDataDescrBuilder<P> declareFromData(String bindName, String value);
 

@@ -19,9 +19,9 @@ public interface ChallengeDescrBuilder<P extends DescrBuilder<?, ?>>
 
     ChallengeDescrBuilder<P> bindIsCompleted(String bindName);
 
-    ChallengeDescrBuilder<P> fieldsEntry(ConstraintType constraintType, String key, String value);
+    <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value);
 
-    ChallengeDescrBuilder<P> fieldsEntry(ConstraintType constraintType, String key, String value, String bindName);
+    <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value, String bindName);
 
     ChallengeDescrBuilder<P> declareFromField(String bindName, String value);
 
