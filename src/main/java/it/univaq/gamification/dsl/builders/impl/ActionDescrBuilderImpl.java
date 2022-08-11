@@ -5,11 +5,10 @@ import it.univaq.gamification.dsl.ConstraintType;
 import it.univaq.gamification.dsl.builders.ActionDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
-import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.PatternDescr;
 
 public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
-        extends BaseDescrBuilderImpl<P, PatternDescr>
+        extends GamificationBaseDescrBuilderImpl<P, ActionDescrBuilder<P>>
         implements ActionDescrBuilder<P> {
 
     private final String NAME = "name";
@@ -42,15 +41,4 @@ public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         return this;
     }
 
-    @Override
-    public ActionDescrBuilder<P> declare(String bindName, String value) {
-        ConstraintHelper.addBindConstraint(this.descr, value, bindName);
-        return this;
-    }
-
-    @Override
-    public ActionDescrBuilder<P> constraint(String constraint) {
-        ConstraintHelper.addConstraint(this.descr, constraint);
-        return this;
-    }
 }

@@ -5,11 +5,10 @@ import it.univaq.gamification.dsl.ConstraintType;
 import it.univaq.gamification.dsl.builders.InputDataDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
-import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.PatternDescr;
 
 public class InputDataDescrBuilderImpl<P extends DescrBuilder<?, ?>>
-        extends BaseDescrBuilderImpl<P, PatternDescr>
+        extends GamificationBaseDescrBuilderImpl<P, InputDataDescrBuilder<P>>
         implements InputDataDescrBuilder<P> {
 
     private final String DATA = "data";
@@ -42,15 +41,4 @@ public class InputDataDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         return this;
     }
 
-    @Override
-    public InputDataDescrBuilder<P> declare(String bindName, String value) {
-        ConstraintHelper.addBindConstraint(this.descr, value, bindName);
-        return this;
-    }
-
-    @Override
-    public InputDataDescrBuilder<P> constraint(String constraint) {
-        ConstraintHelper.addConstraint(this.descr, constraint);
-        return this;
-    }
 }

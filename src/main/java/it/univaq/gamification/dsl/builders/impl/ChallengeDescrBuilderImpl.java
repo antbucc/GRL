@@ -5,11 +5,10 @@ import it.univaq.gamification.dsl.ConstraintType;
 import it.univaq.gamification.dsl.builders.ChallengeDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
-import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.PatternDescr;
 
 public class ChallengeDescrBuilderImpl<P extends DescrBuilder<?, ?>>
-        extends BaseDescrBuilderImpl<P, PatternDescr>
+        extends GamificationBaseDescrBuilderImpl<P, ChallengeDescrBuilder<P>>
         implements ChallengeDescrBuilder<P> {
 
     private final String MODEL_NAME = "modelName";
@@ -82,15 +81,4 @@ public class ChallengeDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         return this;
     }
 
-    @Override
-    public ChallengeDescrBuilder<P> declare(String bindName, String value) {
-        ConstraintHelper.addBindConstraint(this.descr, value, bindName);
-        return this;
-    }
-
-    @Override
-    public ChallengeDescrBuilder<P> constraint(String constraint) {
-        ConstraintHelper.addConstraint(this.descr, constraint);
-        return this;
-    }
 }

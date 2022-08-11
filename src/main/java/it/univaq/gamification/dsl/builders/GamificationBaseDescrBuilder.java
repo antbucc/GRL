@@ -1,6 +1,6 @@
 package it.univaq.gamification.dsl.builders;
 
-public interface GamificationElement<P> {
+public interface GamificationBaseDescrBuilder<P> {
 
     P declare(String bindName, String value);
 

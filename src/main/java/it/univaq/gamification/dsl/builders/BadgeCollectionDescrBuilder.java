@@ -5,7 +5,7 @@ import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
 
 public interface BadgeCollectionDescrBuilder<P extends DescrBuilder<?, ?>>
-        extends DescrBuilder<P, PatternDescr>, GamificationElement<BadgeCollectionDescrBuilder<P>> {
+        extends DescrBuilder<P, PatternDescr>, GamificationBaseDescrBuilder<BadgeCollectionDescrBuilder<P>> {
 
     BadgeCollectionDescrBuilder<P> name(ConstraintType constraintType, String name);
 

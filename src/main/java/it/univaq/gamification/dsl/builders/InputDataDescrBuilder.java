@@ -5,7 +5,7 @@ import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
 
 public interface InputDataDescrBuilder<P extends DescrBuilder<?, ?>>
-        extends DescrBuilder<P, PatternDescr>, GamificationElement<InputDataDescrBuilder<P>> {
+        extends DescrBuilder<P, PatternDescr>, GamificationBaseDescrBuilder<InputDataDescrBuilder<P>> {
 
     InputDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, String value);
 
