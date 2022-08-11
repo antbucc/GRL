@@ -150,4 +150,18 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
         ((ConditionalElementDescr) descr).addDescr(game.getDescr());
         return game;
     }
+
+    @Override
+    public RewardDescrBuilder<CEDescrBuilder<P, T>> reward() {
+        RewardDescrBuilder<CEDescrBuilder<P, T>> reward = new RewardDescrBuilderImpl<>(this);
+        ((ConditionalElementDescr) descr).addDescr(reward.getDescr());
+        return reward;
+    }
+
+    @Override
+    public RewardDescrBuilder<CEDescrBuilder<P, T>> reward(String bindName) {
+        RewardDescrBuilder<CEDescrBuilder<P, T>> reward = new RewardDescrBuilderImpl<>(this, bindName);
+        ((ConditionalElementDescr) descr).addDescr(reward.getDescr());
+        return reward;
+    }
 }
