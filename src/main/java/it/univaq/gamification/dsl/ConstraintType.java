@@ -1,24 +1,23 @@
 package it.univaq.gamification.dsl;
 
-import org.drools.model.Index;
-
 public enum ConstraintType {
-    LT(Index.ConstraintType.LESS_THAN),
-    LTE(Index.ConstraintType.LESS_OR_EQUAL),
-    GT(Index.ConstraintType.GREATER_THAN),
-    GTE(Index.ConstraintType.GREATER_OR_EQUAL),
-    EQ(Index.ConstraintType.EQUAL),
-    NEQ(Index.ConstraintType.NOT_EQUAL);
-    // CONTAINS,
-    // NOT_CONTAINS;
+    LT("<"),
+    LTE("<="),
+    GT(">"),
+    GTE(">="),
+    EQ("=="),
+    NEQ("!="),
+    CONTAINS("contains"),
+    NOT_CONTAINS("not contains");
 
-    private final Index.ConstraintType constraintType;
+    private final String value;
 
-    ConstraintType(Index.ConstraintType constraintType) {
-        this.constraintType = constraintType;
+    ConstraintType (String value) {
+        this.value = value;
     }
 
-    public Index.ConstraintType getConstraintType() {
-        return this.constraintType;
+    public String getValue() {
+        return this.value;
     }
+
 }

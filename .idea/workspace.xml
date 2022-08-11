@@ -5,8 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ActionDescrBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/ActionDescrBuilderImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PointDescrBuilderImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/ConstraintHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/InputDataBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/InputDataBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/CELambda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ConstraintType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ConstraintType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLCEBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLDescrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLRuleBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/ActionBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/BadgeCollectionBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/BadgeCollectionDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/ChallengeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ChallengeDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/InputDataBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/InputDataDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/PointBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/PointDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/impl/ActionBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/impl/PointBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GRLCEBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GRLDescrBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GRLRuleBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/Helpers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,31 +59,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ToolWindowRun.ShowToolbar": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/stefanomartella/Desktop/KeyPartner/Projects",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "spring.configuration.checksum": "a558ca155dcf35c8f036df2564c26067"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/stefanomartella/Desktop/KeyPartner/Projects&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;a558ca155dcf35c8f036df2564c26067&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\stefanomartella\Desktop\Tesi\code\gamification-dsl\src\test\resources" />
+      <recent name="C:\Users\stefanomartella\Desktop\Tesi\code\gamification-dsl\src\test\resources\org.drools.lang" />
       <recent name="C:\Users\stefanomartella\Desktop\Tesi\code\gamification-dsl\src\main\java\it\univaq\gamification\gamification_elements" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="it.univaq.gamification.dsl" />
     </key>
   </component>
@@ -75,18 +97,43 @@
       <command value="mvn dependency:purge-local-repository" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleTest.TestExecutableModelGeneration">
+  <component name="RunManager" selected="JUnit.RuleTest.TestInputData">
     <configuration name="RuleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (Windows)" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RuleTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RuleTest.TestBadgeCollection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="TestBadgeCollection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RuleTest.TestChallenge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RuleTest" />
+      <option name="METHOD_NAME" value="TestChallenge" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="RuleTest.TestExecutableModelGeneration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (Windows)" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RuleTest" />
       <option name="METHOD_NAME" value="TestExecutableModelGeneration" />
@@ -95,43 +142,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleTest.TestExecutableModelSimpleGeneration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleTest.TestInputData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="METHOD_NAME" value="TestExecutableModelSimpleGeneration" />
+      <option name="METHOD_NAME" value="TestInputData" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleTest.testLambdaFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="METHOD_NAME" value="testLambdaFunction" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RuleTest.testRuleDefinition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RuleTest" />
-      <option name="METHOD_NAME" value="testRuleDefinition" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="JUnit.RuleTest.TestChallenge" />
+      <item itemvalue="JUnit.RuleTest.TestInputData" />
+      <item itemvalue="JUnit.RuleTest.TestBadgeCollection" />
+      <item itemvalue="JUnit.RuleTest" />
+      <item itemvalue="JUnit.RuleTest.TestExecutableModelGeneration" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RuleTest.TestExecutableModelGeneration" />
+        <item itemvalue="JUnit.RuleTest.TestInputData" />
+        <item itemvalue="JUnit.RuleTest.TestChallenge" />
         <item itemvalue="JUnit.RuleTest" />
-        <item itemvalue="JUnit.RuleTest.TestExecutableModelSimpleGeneration" />
-        <item itemvalue="JUnit.RuleTest.testLambdaFunction" />
-        <item itemvalue="JUnit.RuleTest.testRuleDefinition" />
+        <item itemvalue="JUnit.RuleTest.TestBadgeCollection" />
+        <item itemvalue="JUnit.RuleTest.TestExecutableModelGeneration" />
       </list>
     </recent_temporary>
   </component>
@@ -179,6 +213,18 @@
       <workItem from="1657699060600" duration="1738000" />
       <workItem from="1657794882835" duration="161000" />
       <workItem from="1657880618893" duration="97000" />
+      <workItem from="1659383646658" duration="370000" />
+      <workItem from="1659384027116" duration="84000" />
+      <workItem from="1659421616952" duration="177000" />
+      <workItem from="1659598630842" duration="662000" />
+      <workItem from="1659617202953" duration="161000" />
+      <workItem from="1659965944699" duration="4624000" />
+      <workItem from="1660075135907" duration="4199000" />
+      <workItem from="1660135937523" duration="4771000" />
+      <workItem from="1660150675117" duration="4827000" />
+      <workItem from="1660199235264" duration="3065000" />
+      <workItem from="1660224369179" duration="5000" />
+      <workItem from="1660224427077" duration="5306000" />
     </task>
     <servers />
   </component>
@@ -202,20 +248,6 @@
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/RuleTest.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/RuleTest.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="it.univaq.gamification.dsl.builders.impl.GRLRuleBuilderImpl" memberName="rule" />

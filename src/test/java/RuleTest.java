@@ -1,30 +1,102 @@
 import it.univaq.gamification.dsl.ConstraintType;
-import it.univaq.gamification.dsl.builders.impl.GRLRuleBuilderImpl;
-import org.drools.model.Rule;
+import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
+import org.drools.compiler.lang.descr.PackageDescr;
 import org.junit.Test;
 
 
 public class RuleTest {
 
-    Rule rule;
+    PackageDescr pkg;
 
     @Test
-    public void TestExecutableModelSimpleGeneration() {
-        rule = new GRLRuleBuilderImpl()
-                .name("simple_rule")
+    public void TestInputData() {
+        pkg = new PackageDescrBuilderImpl()
+                .name("it.gamification.something")
+                .newRule()
+                    .name("input_data_test")
                     .when()
-                        .action().name(ConstraintType.EQ, "Walk").end()
-                        .point().name(ConstraintType.EQ, "Robert").score(ConstraintType.EQ, 20).end()
+                        .inputData("$inputData")
+                            .fromData(ConstraintType.NEQ, "mode", null, "$mode")
+                            .constraint("$mode != \"absent\"")
+                            .fromData(ConstraintType.NEQ, "meteo", null, "$meteo")
+                            .fromData(ConstraintType.NEQ, "school-date", null, "$date")
+                        .end()
                     .end()
-                .end();
+                .end()
+                .getDescr();
 
-        System.out.println(rule);
+        System.out.println(new DrlDumper().dump(pkg));
     }
 
     @Test
-    public void TestExecutableModelGeneration() {
-        rule = new GRLRuleBuilderImpl()
-                .name("ce_rule")
+    public void TestBadgeCollection() {
+        pkg = new PackageDescrBuilderImpl()
+                .name("it.gamification.something")
+                .newRule()
+                    .name("badge_collection_test")
+                    .when()
+                        .badgeCollection("$bc")
+                            .name(ConstraintType.EQ, "medaglie")
+                            .declare("$badge", "Green Medal")
+                            .badgeEarned(ConstraintType.NOT_CONTAINS, "$badge")
+                        .end()
+                    .end()
+                .end()
+                .getDescr();
+
+        System.out.println(new DrlDumper().dump(pkg));
+    }
+
+    @Test
+    public void TestChallenge() {
+        pkg = new PackageDescrBuilderImpl()
+                .name("it.gamification.something")
+                .newRule()
+                    .name("challenge_test")
+                    .when()
+                        .challenge()
+                            .modelName(ConstraintType.EQ, "kmSettimanali")
+                            .declareFromField("$counter", "counterName")
+                            .declareFromField("$target", "target")
+                            .declareFromField("$vp", "virtualPrice")
+                            .fieldsEntry(ConstraintType.EQ, "target", "aTarget")
+                            .fieldsEntry(ConstraintType.EQ, "target", "aTarget", "$isTargetATarget")
+                            .constraint("$endTime: end.getTime()")
+                            .constraint("$startTime: start.getTime()")
+                            .constraint("$now: System.currentTimeMillis()")
+                            .isCompleted(false)
+                        .end()
+                    .end()
+                    .end()
+                .end()
+                .getDescr();
+
+        System.out.println(new DrlDumper().dump(pkg));
+    }
+
+    @Test
+    public void TestSimpleRuleGeneration() {
+         pkg = new PackageDescrBuilderImpl()
+                .name("it.gamification.something")
+                .newRule()
+                    .name("simple_rule")
+                    .when()
+                        .action().name(ConstraintType.NEQ, "Walk").end()
+                        .action("$action2").bindName("$actionName").name(ConstraintType.EQ, "Walk", "$isActionWalk").end()
+                        .point().name(ConstraintType.EQ, "Robert").score(ConstraintType.EQ, 20).end()
+                    .end()
+                .end()
+                .getDescr();
+
+        System.out.println(new DrlDumper().dump(pkg));
+    }
+
+    @Test
+    public void TestRuleGeneration() {
+        pkg = new PackageDescrBuilderImpl()
+                .name("it.gamification.something")
+                .newRule()
+                    .name("rule")
                     .when()
                         .point().name(ConstraintType.EQ, "Walter").score(ConstraintType.EQ, 10).end()
                         .and()
@@ -43,9 +115,10 @@ public class RuleTest {
                             .point().name(ConstraintType.EQ, "Ronny").score(ConstraintType.EQ, 60).end()
                         .end()
                     .end()
-                .end();
+            .end()
+            .getDescr();
 
-        System.out.println(rule);
+        System.out.println(new DrlDumper().dump(pkg));
     }
 
 }
