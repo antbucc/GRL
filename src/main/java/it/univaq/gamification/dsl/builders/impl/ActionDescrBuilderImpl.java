@@ -8,14 +8,14 @@ import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.PatternDescr;
 
-    public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
-            extends BaseDescrBuilderImpl<P, PatternDescr>
-            implements ActionDescrBuilder<P> {
+public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
+        extends BaseDescrBuilderImpl<P, PatternDescr>
+        implements ActionDescrBuilder<P> {
 
     private final String NAME = "name";
 
     protected ActionDescrBuilderImpl(P parent) {
-        super(parent, new PatternDescr(Action.class.getName()));
+        super(parent, new PatternDescr(Action.class.getSimpleName()));
         this.parent = parent;
     }
 

@@ -25,6 +25,18 @@ public interface GamificationElementBuilder<P extends DescrBuilder<? , ?>, T ext
 
     InputDataDescrBuilder<P> inputData(String bindName);
 
+    CustomDataDescrBuilder<P> customData();
+
+    CustomDataDescrBuilder<P> customData(String bindName);
+
+    PlayerDescrBuilder<P> player();
+
+    PlayerDescrBuilder<P> player(String bindName);
+
+    GameDescrBuilder<P> game();
+
+    GameDescrBuilder<P> game(String bindName);
+
     T getDescr();
 
 }

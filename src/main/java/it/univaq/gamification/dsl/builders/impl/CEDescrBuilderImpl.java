@@ -108,4 +108,46 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
         ((ConditionalElementDescr) descr).addDescr(inputData.getDescr());
         return inputData;
     }
+
+    @Override
+    public CustomDataDescrBuilder<CEDescrBuilder<P, T>> customData() {
+        CustomDataDescrBuilder<CEDescrBuilder<P, T>> customData = new CustomDataDescrBuilderImpl<>(this);
+        ((ConditionalElementDescr) descr).addDescr(customData.getDescr());
+        return customData;
+    }
+
+    @Override
+    public CustomDataDescrBuilder<CEDescrBuilder<P, T>> customData(String bindName) {
+        CustomDataDescrBuilder<CEDescrBuilder<P, T>> customData = new CustomDataDescrBuilderImpl<>(this, bindName);
+        ((ConditionalElementDescr) descr).addDescr(customData.getDescr());
+        return customData;
+    }
+
+    @Override
+    public PlayerDescrBuilder<CEDescrBuilder<P, T>> player() {
+        PlayerDescrBuilder<CEDescrBuilder<P, T>> player = new PlayerDescrBuilderImpl<>(this);
+        ((ConditionalElementDescr) descr).addDescr(player.getDescr());
+        return player;
+    }
+
+    @Override
+    public PlayerDescrBuilder<CEDescrBuilder<P, T>> player(String bindName) {
+        PlayerDescrBuilder<CEDescrBuilder<P, T>> player = new PlayerDescrBuilderImpl<>(this, bindName);
+        ((ConditionalElementDescr) descr).addDescr(player.getDescr());
+        return player;
+    }
+
+    @Override
+    public GameDescrBuilder<CEDescrBuilder<P, T>> game() {
+        GameDescrBuilder<CEDescrBuilder<P, T>> game = new GameDescrBuilderImpl<>(this);
+        ((ConditionalElementDescr) descr).addDescr(game.getDescr());
+        return game;
+    }
+
+    @Override
+    public GameDescrBuilder<CEDescrBuilder<P, T>> game(String bindName) {
+        GameDescrBuilder<CEDescrBuilder<P, T>> game = new GameDescrBuilderImpl<>(this, bindName);
+        ((ConditionalElementDescr) descr).addDescr(game.getDescr());
+        return game;
+    }
 }

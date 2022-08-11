@@ -5,28 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ActionDescrBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/ActionDescrBuilderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PointDescrBuilderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/ConstraintHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/CELambda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ConstraintType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ConstraintType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLCEBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLDescrBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GRLRuleBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/ActionBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/BadgeCollectionBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/BadgeCollectionDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/ChallengeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ChallengeDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/InputDataBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/InputDataDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/PointBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/PointDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/impl/ActionBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/ge_builders/impl/PointBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GRLCEBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GRLDescrBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GRLRuleBuilderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/Helpers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GamificationElementBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/GamificationElementBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/ActionDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/ActionDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/BadgeCollectionDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/BadgeCollectionDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/CEDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/CEDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/ChallengeDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/ChallengeDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/InputDataDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/InputDataDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PointDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PointDescrBuilderImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,8 +210,24 @@
       <workItem from="1660150675117" duration="4827000" />
       <workItem from="1660199235264" duration="3065000" />
       <workItem from="1660224369179" duration="5000" />
-      <workItem from="1660224427077" duration="5306000" />
+      <workItem from="1660224427077" duration="6138000" />
+      <workItem from="1660235586357" duration="1412000" />
     </task>
+    <task id="LOCAL-00001" summary="From executable model generation to DRL generation">
+      <created>1660230104764</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660230104764</updated>
+    </task>
+    <task id="LOCAL-00002" summary="From executable model generation to DRL generation">
+      <created>1660230180805</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660230180805</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +248,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="From executable model generation to DRL generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="From executable model generation to DRL generation" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -16,7 +16,7 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     private final String BADGE_EARNED = "badgeEarned";
 
     protected BadgeCollectionDescrBuilderImpl(P parent) {
-        super(parent, new PatternDescr(BadgeCollectionConcept.class.getName()));
+        super(parent, new PatternDescr(BadgeCollectionConcept.class.getSimpleName()));
         this.parent = parent;
     }
 

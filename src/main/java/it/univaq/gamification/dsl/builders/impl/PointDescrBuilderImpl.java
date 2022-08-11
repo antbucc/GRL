@@ -16,7 +16,7 @@ public class PointDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     private final String SCORE = "score";
 
     protected PointDescrBuilderImpl(P parent) {
-        super(parent, new PatternDescr(PointConcept.class.getName()));
+        super(parent, new PatternDescr(PointConcept.class.getSimpleName()));
         this.parent = parent;
     }
 

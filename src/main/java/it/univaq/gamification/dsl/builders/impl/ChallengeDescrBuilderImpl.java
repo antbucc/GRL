@@ -19,7 +19,7 @@ public class ChallengeDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     private final String END = "end";
 
     protected ChallengeDescrBuilderImpl(P parent) {
-        super(parent, new PatternDescr(ChallengeConcept.class.getName()));
+        super(parent, new PatternDescr(ChallengeConcept.class.getSimpleName()));
         this.parent = parent;
     }
 
