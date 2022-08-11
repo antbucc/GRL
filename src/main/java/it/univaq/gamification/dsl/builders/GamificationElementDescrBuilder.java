@@ -41,6 +41,10 @@ public interface GamificationElementDescrBuilder<P extends DescrBuilder<? , ?>, 
 
     RewardDescrBuilder<P> reward(String bindName);
 
+    PropagationDescrBuilder<P> propagation();
+
+    PropagationDescrBuilder<P> propagation(String bindName);
+
     T getDescr();
 
 }
