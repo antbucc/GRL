@@ -6,14 +6,14 @@ import org.drools.compiler.lang.descr.PackageDescr;
 
 public interface PackageDescrBuilder extends DescrBuilder<PackageDescrBuilder, PackageDescr> {
 
-    public PackageDescrBuilder name( String name );
+    PackageDescrBuilder name(String name);
 
-    public ImportDescrBuilder newImport();
+    PackageDescrBuilder newImport(String target);
 
-    public GlobalDescrBuilder newGlobal();
+    PackageDescrBuilder newGlobal(String type, String identifier);
 
-    public RuleDescrBuilder newRule();
+    RuleDescrBuilder newRule();
 
-    public PackageDescrBuilder end();
+    PackageDescrBuilder end();
 
 }

@@ -6,17 +6,11 @@ import it.univaq.gamification.dsl.builders.PackageDescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.ImportDescr;
 
-public class ImportDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBuilder, ImportDescr>
-        implements
-        ImportDescrBuilder {
+public class ImportDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBuilder, ImportDescr> implements ImportDescrBuilder {
 
-    protected ImportDescrBuilderImpl(PackageDescrBuilder parent) {
+    protected ImportDescrBuilderImpl(PackageDescrBuilder parent, String target) {
         super(parent, new ImportDescr());
-    }
-
-    public ImportDescrBuilder target(String target) {
-        descr.setTarget(target);
-        return this;
+        this.descr.setTarget(target);
     }
 
 }

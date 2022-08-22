@@ -23,28 +23,28 @@ public class PackageDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBu
 
     @Override
     public PackageDescrBuilder name(String name) {
-        this.descr.setNamespace( name );
+        this.descr.setNamespace(name);
         return this;
     }
 
     @Override
-    public ImportDescrBuilder newImport() {
-        ImportDescrBuilder impl = new ImportDescrBuilderImpl(this);
-        descr.addImport(initDescr(impl));
-        return impl;
+    public PackageDescrBuilder newImport(String target) {
+        ImportDescrBuilder impl = new ImportDescrBuilderImpl(this, target);
+        this.descr.addImport(initDescr(impl));
+        return this;
     }
 
     @Override
-    public GlobalDescrBuilder newGlobal() {
-        GlobalDescrBuilder global = new GlobalDescrBuilderImpl( this );
-        descr.addGlobal( initDescr(global) );
-        return global;
+    public PackageDescrBuilder newGlobal(String type, String identifier) {
+        GlobalDescrBuilder global = new GlobalDescrBuilderImpl(this, type, identifier );
+        this.descr.addGlobal(initDescr(global));
+        return this;
     }
 
     public RuleDescrBuilder newRule() {
         RuleDescrBuilder rule = new RuleDescrBuilderImpl( this );
-        descr.addRule(initDescr(rule));
-        rule.getDescr().setUnit(descr.getUnit());
+        this.descr.addRule(initDescr(rule));
+        rule.getDescr().setUnit(this.descr.getUnit());
         return rule;
     }
 

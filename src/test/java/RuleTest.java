@@ -23,9 +23,9 @@ public class RuleTest {
 
         pkg = new PackageDescrBuilderImpl()
                 .name("package_name")
-                .newImport().target("eu.trentorise.game.notification.BadgeNotification").end()
-                .newGlobal().type(Double.class.getSimpleName()).identifier(GLOBAL_VERONA_DISTANCE).end()
-                .newGlobal().type(String.class.getSimpleName()).identifier(GLOBAL_SCHOOL_NAME).end()
+                .newImport("eu.trentorise.game.notification.BadgeNotification")
+                .newGlobal(Double.class.getSimpleName(), GLOBAL_VERONA_DISTANCE)
+                .newGlobal(String.class.getSimpleName(), GLOBAL_SCHOOL_NAME)
                 .newRule()
                     .name("R-add-badge Verona")
                     .attribute("salience", "-1000")
@@ -43,9 +43,8 @@ public class RuleTest {
                 .getDescr();
 
         String expectedResult = "packagepackage_nameimporteu.trentorise.game.notification.BadgeNotificationglobalDoubleVerona_distanceglobalStringconst_school_namerule\"R-add-badgeVerona\"salience-1000whenPointConcept(name==\"total_distance\",score>=Verona_distance)$bc:BadgeCollectionConcept(name==\"silver_collection\",badgeEarnednotcontains\"Verona\")Game($gameId:id)Player($teamId:id,$teamId==const_school_name,team==true)then$bc.getBadgeEarned().add(Verona);insert(newBadgeNotification($gameId,$teamId,$bc.getName(),\"Verona\"));update($bc);end";
-
         String drl = new DrlDumper().dump(pkg);
-        System.out.println(new DrlDumper().dump(pkg));
+        // System.out.println(new DrlDumper().dump(pkg));
         Assert.assertEquals(StringUtils.deleteWhitespace(drl), StringUtils.deleteWhitespace(expectedResult));
 
     }
