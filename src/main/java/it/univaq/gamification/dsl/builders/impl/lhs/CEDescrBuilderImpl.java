@@ -178,4 +178,18 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
         ((ConditionalElementDescr) descr).addDescr(propagation.getDescr());
         return propagation;
     }
+
+    @Override
+    public ClassificationDescrBuilder<CEDescrBuilder<P, T>> classification() {
+        ClassificationDescrBuilder<CEDescrBuilder<P, T>> classification = new ClassificationDescrBuilderImpl<>(this);
+        ((ConditionalElementDescr) descr).addDescr(classification.getDescr());
+        return classification;
+    }
+
+    @Override
+    public ClassificationDescrBuilder<CEDescrBuilder<P, T>> classification(String bindName) {
+        ClassificationDescrBuilder<CEDescrBuilder<P, T>> classification = new ClassificationDescrBuilderImpl<>(this, bindName);
+        ((ConditionalElementDescr) descr).addDescr(classification.getDescr());
+        return classification;
+    }
 }

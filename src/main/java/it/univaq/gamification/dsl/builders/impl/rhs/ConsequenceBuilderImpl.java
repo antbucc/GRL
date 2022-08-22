@@ -13,7 +13,9 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
 
     protected P parent;
     private StringBuilder stringBuilder;
-    VelocityEngine velocityEngine;
+    private VelocityEngine velocityEngine;
+
+    private final String ADD_BADGE_TEMPLATE = "templates/addBadge.vm";
 
     public ConsequenceBuilderImpl(P parent) {
         this.parent = parent;
@@ -46,7 +48,7 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
         velocityContext.put("badgeCollection", badgeCollectionRef);
         velocityContext.put("badge", badge);
 
-        this.addConsequence("templates/addBadge.vm", velocityContext);
+        this.addConsequence(ADD_BADGE_TEMPLATE, velocityContext);
 
         return this;
     }
@@ -59,7 +61,7 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
         velocityContext.put("teamId", teamIdRef);
         velocityContext.put("badge", badge);
 
-        this.addConsequence("templates/addBadge.vm", velocityContext);
+        this.addConsequence(ADD_BADGE_TEMPLATE, velocityContext);
 
         return this;
     }
