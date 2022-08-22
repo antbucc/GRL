@@ -1,6 +1,6 @@
-package it.univaq.gamification.dsl.builders;
+package it.univaq.gamification.dsl.builders.lhs;
 
-import it.univaq.gamification.dsl.ConstraintType;
+import it.univaq.gamification.dsl.utils.ConstraintType;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
 

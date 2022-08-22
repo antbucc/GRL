@@ -1,6 +1,6 @@
-package it.univaq.gamification.dsl.builders;
+package it.univaq.gamification.dsl.builders.lhs;
 
-import it.univaq.gamification.dsl.ConstraintType;
+import it.univaq.gamification.dsl.utils.ConstraintType;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
 
@@ -12,6 +12,6 @@ public interface InputDataDescrBuilder<P extends DescrBuilder<?, ?>>
     <T> InputDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, T value, String bindName);
 
 
-    InputDataDescrBuilder<P> declareFromData(String bindName, String value);
+    InputDataDescrBuilder<P> bindFromData(String bindName, String value);
 
 }

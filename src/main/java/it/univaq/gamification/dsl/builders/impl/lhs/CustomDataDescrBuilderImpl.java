@@ -1,8 +1,8 @@
-package it.univaq.gamification.dsl.builders.impl;
+package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.CustomData;
-import it.univaq.gamification.dsl.ConstraintType;
-import it.univaq.gamification.dsl.builders.CustomDataDescrBuilder;
+import it.univaq.gamification.dsl.utils.ConstraintType;
+import it.univaq.gamification.dsl.builders.lhs.CustomDataDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
@@ -36,7 +36,7 @@ public class CustomDataDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public CustomDataDescrBuilder<P> declareFromData(String bindName, String value) {
+    public CustomDataDescrBuilder<P> bindFromData(String bindName, String value) {
         ConstraintHelper.addBindConstraint(this.descr, DATA + "[\"" + value + "\"]", bindName);
         return this;
     }

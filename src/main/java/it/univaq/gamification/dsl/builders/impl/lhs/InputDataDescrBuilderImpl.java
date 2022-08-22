@@ -1,8 +1,8 @@
-package it.univaq.gamification.dsl.builders.impl;
+package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.InputData;
-import it.univaq.gamification.dsl.ConstraintType;
-import it.univaq.gamification.dsl.builders.InputDataDescrBuilder;
+import it.univaq.gamification.dsl.utils.ConstraintType;
+import it.univaq.gamification.dsl.builders.lhs.InputDataDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
@@ -36,7 +36,7 @@ public class InputDataDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public InputDataDescrBuilder<P> declareFromData(String bindName, String value) {
+    public InputDataDescrBuilder<P> bindFromData(String bindName, String value) {
         ConstraintHelper.addBindConstraint(this.descr, DATA + "[\"" + value + "\"]", bindName);
         return this;
     }

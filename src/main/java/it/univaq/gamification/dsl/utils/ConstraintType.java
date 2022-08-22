@@ -1,4 +1,4 @@
-package it.univaq.gamification.dsl;
+package it.univaq.gamification.dsl.utils;
 
 public enum ConstraintType {
     LT("<"),

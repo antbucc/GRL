@@ -1,7 +1,7 @@
-package it.univaq.gamification.dsl.builders.impl;
+package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.Game;
-import it.univaq.gamification.dsl.builders.GameDescrBuilder;
+import it.univaq.gamification.dsl.builders.lhs.GameDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;

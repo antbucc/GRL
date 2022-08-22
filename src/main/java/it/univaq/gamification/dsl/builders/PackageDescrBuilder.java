@@ -8,6 +8,8 @@ public interface PackageDescrBuilder extends DescrBuilder<PackageDescrBuilder, P
 
     public PackageDescrBuilder name( String name );
 
+    public GlobalDescrBuilder newGlobal();
+
     public RuleDescrBuilder newRule();
 
     public PackageDescrBuilder end();

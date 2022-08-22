@@ -1,8 +1,8 @@
-package it.univaq.gamification.dsl.builders.impl;
+package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.PointConcept;
-import it.univaq.gamification.dsl.ConstraintType;
-import it.univaq.gamification.dsl.builders.PointDescrBuilder;
+import it.univaq.gamification.dsl.utils.ConstraintType;
+import it.univaq.gamification.dsl.builders.lhs.PointDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
@@ -46,6 +46,12 @@ public class PointDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     @Override
     public PointDescrBuilder<P> score(ConstraintType constraintType, double score) {
         ConstraintHelper.addConstraint(this.descr, constraintType, SCORE, score, null, false);
+        return this;
+    }
+
+    @Override
+    public PointDescrBuilder<P> score(ConstraintType constraintType, String globalName) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, SCORE, globalName, null, false);
         return this;
     }
 

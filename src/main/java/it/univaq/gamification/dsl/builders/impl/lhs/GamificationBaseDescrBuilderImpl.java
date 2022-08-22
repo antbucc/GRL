@@ -1,6 +1,6 @@
-package it.univaq.gamification.dsl.builders.impl;
+package it.univaq.gamification.dsl.builders.impl.lhs;
 
-import it.univaq.gamification.dsl.builders.GamificationBaseDescrBuilder;
+import it.univaq.gamification.dsl.builders.lhs.GamificationBaseDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;

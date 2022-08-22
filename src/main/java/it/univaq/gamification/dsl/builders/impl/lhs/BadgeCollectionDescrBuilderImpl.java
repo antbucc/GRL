@@ -1,8 +1,8 @@
-package it.univaq.gamification.dsl.builders.impl;
+package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.BadgeCollectionConcept;
-import it.univaq.gamification.dsl.ConstraintType;
-import it.univaq.gamification.dsl.builders.BadgeCollectionDescrBuilder;
+import it.univaq.gamification.dsl.utils.ConstraintType;
+import it.univaq.gamification.dsl.builders.lhs.BadgeCollectionDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
@@ -68,7 +68,7 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
 
     @Override
     public BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge) {
-        ConstraintHelper.addConstraint(this.descr, ConstraintType.NOT_CONTAINS, BADGE_EARNED, badge, null, false);
+        ConstraintHelper.addConstraint(this.descr, ConstraintType.NOT_CONTAINS, BADGE_EARNED, badge, null, true);
         return this;
     }
 
