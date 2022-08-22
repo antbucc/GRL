@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl;
 
 import it.univaq.gamification.dsl.builders.GlobalDescrBuilder;
+import it.univaq.gamification.dsl.builders.ImportDescrBuilder;
 import it.univaq.gamification.dsl.builders.PackageDescrBuilder;
 import it.univaq.gamification.dsl.builders.RuleDescrBuilder;
 import org.drools.compiler.lang.api.DescrBuilder;
@@ -14,10 +15,23 @@ public class PackageDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBu
         super(null, new PackageDescr());
     }
 
+    private <T extends BaseDescr> T initDescr(DescrBuilder<PackageDescrBuilder, T> builder) {
+        T descr = builder.getDescr();
+        descr.setNamespace(this.descr.getNamespace());
+        return descr;
+    }
+
     @Override
     public PackageDescrBuilder name(String name) {
         this.descr.setNamespace( name );
         return this;
+    }
+
+    @Override
+    public ImportDescrBuilder newImport() {
+        ImportDescrBuilder impl = new ImportDescrBuilderImpl(this);
+        descr.addImport(initDescr(impl));
+        return impl;
     }
 
     @Override
@@ -32,12 +46,6 @@ public class PackageDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBu
         descr.addRule(initDescr(rule));
         rule.getDescr().setUnit(descr.getUnit());
         return rule;
-    }
-
-    private <T extends BaseDescr> T initDescr(DescrBuilder<PackageDescrBuilder, T> builder) {
-        T descr = builder.getDescr();
-        descr.setNamespace(this.descr.getNamespace());
-        return descr;
     }
 
     public PackageDescrBuilder end() {
