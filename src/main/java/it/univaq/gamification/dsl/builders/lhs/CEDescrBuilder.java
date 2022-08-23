@@ -4,7 +4,7 @@ import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.*;
 
 public interface CEDescrBuilder<P extends DescrBuilder<?, ?>, T extends AnnotatedBaseDescr> extends
-        GamificationElementDescrBuilder<CEDescrBuilder<P, T>, T>,
+        GamificationConceptDescrBuilder<CEDescrBuilder<P, T>, T>,
         DescrBuilder<P, T> {
 
     CEDescrBuilder<CEDescrBuilder<P, T>, AndDescr> and();

@@ -1,6 +1,8 @@
+package dsl;
+
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
-import it.univaq.gamification.dsl.utils.DrlDumper;
+import it.univaq.gamification.utils.DrlDumper;
 import org.drools.compiler.lang.descr.PackageDescr;
 import org.drools.core.io.impl.ByteArrayResource;
 import org.drools.verifier.Verifier;

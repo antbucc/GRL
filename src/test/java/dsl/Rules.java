@@ -1,20 +1,40 @@
+package dsl;
+
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
-import it.univaq.gamification.dsl.utils.DrlDumper;
-import org.apache.commons.lang.StringUtils;
 import org.drools.compiler.lang.descr.PackageDescr;
-import org.junit.Assert;
-import org.junit.Test;
 
 import static it.univaq.gamification.dsl.utils.ConstraintType.EQ;
 import static it.univaq.gamification.dsl.utils.ConstraintType.GTE;
 
-public class RuleTest {
+public class Rules {
 
-    PackageDescr pkg;
+    public static PackageDescr getBadgeSimplifiedRule() {
+        final String BADGE_NAME = "Verona";
+        final String BADGE_COLLECTION_REF = "$bc";
+        final String GAME_ID_REF = "$gameId";
 
-    @Test
-    public void testAddBadge() {
+        return new PackageDescrBuilderImpl()
+                .name("dsl")
+                .newImport("eu.trentorise.game.model.PointConcept")
+                .newImport("eu.trentorise.game.model.BadgeCollectionConcept")
+                .newImport("eu.trentorise.game.model.Game")
+                .newImport("eu.trentorise.game.model.Player")
+                .newRule()
+                    .name("R-add-badge Verona")
+                    .when()
+                        .point().name(EQ, "total_distance").score(GTE, 10.0).end()
+                        .badgeCollection(BADGE_COLLECTION_REF).name(EQ, "silver_collection").badgeEarnedNotContains(BADGE_NAME).end()
+                        .game().bindId(GAME_ID_REF).end()
+                        .player().team(true).end()
+                    .end()
+                    .then()
+                        .addBadge(BADGE_COLLECTION_REF, BADGE_NAME)
+                    .end()
+                .end()
+                .getDescr();
+    }
 
+    public static PackageDescr getBadgeRule() {
         final String BADGE_NAME = "Verona";
         final String BADGE_COLLECTION_REF = "$bc";
         final String TEAM_ID_REF = "$teamId";
@@ -22,7 +42,7 @@ public class RuleTest {
         final String GLOBAL_VERONA_DISTANCE = "Verona_distance";
         final String GLOBAL_SCHOOL_NAME = "const_school_name";
 
-        pkg = new PackageDescrBuilderImpl()
+        return new PackageDescrBuilderImpl()
                 .name("package_name")
                 .newImport("eu.trentorise.game.notification.BadgeNotification")
                 .newGlobal(Double.class.getSimpleName(), GLOBAL_VERONA_DISTANCE)
@@ -42,12 +62,6 @@ public class RuleTest {
                     .end()
                 .end()
                 .getDescr();
-
-        String expectedResult = "packagepackage_nameimporteu.trentorise.game.notification.BadgeNotificationglobalDoubleVerona_distanceglobalStringconst_school_namerule\"R-add-badgeVerona\"salience-1000whenPointConcept(name==\"total_distance\",score>=Verona_distance)$bc:BadgeCollectionConcept(name==\"silver_collection\",badgeEarnednotcontains\"Verona\")Game($gameId:id)Player($teamId:id,$teamId==const_school_name,team==true)then$bc.getBadgeEarned().add(Verona);insert(newBadgeNotification($gameId,$teamId,$bc.getName(),\"Verona\"));update($bc);end";
-        String drl = new DrlDumper().dump(pkg);
-        // System.out.println(new it.univaq.gamification.dsl.utils.DrlDumper().dump(pkg));
-        Assert.assertEquals(StringUtils.deleteWhitespace(drl), StringUtils.deleteWhitespace(expectedResult));
-
     }
 
 }

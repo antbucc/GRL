@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="Add Classification concept">
+    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DrlDumper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/DrlDumper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RuleThenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleThenTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RuleWhenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleWhenTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Action.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Badge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Challenge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/drl.mvel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/rule_examples.drl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/CEDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/CEDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/GamificationElementDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/GamificationConceptDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/DrlDumper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/utils/DrlDumper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/utils/CheckExpectationLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/utils/CheckExpectationLambda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addBadge.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addBadge.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleThenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleWhenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleWhenTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -66,7 +65,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;a558ca155dcf35c8f036df2564c26067&quot;
   }
 }</component>
@@ -82,6 +81,7 @@
       <recent name="C:\Users\stefanomartella\Desktop\Tesi\code\gamification-dsl\src\main\java\it\univaq\gamification\gamification_elements" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="it.univaq.gamification.simulation.builders.impl" />
       <recent name="it.univaq.gamification.dsl.utils" />
       <recent name="" />
       <recent name="it.univaq.gamification.dsl" />
@@ -95,67 +95,99 @@
       <command value="mvn dependency:purge-local-repository" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleTest.testAddBadge">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="JUnit.SimulationTest.TestSimulation">
+    <configuration name="RuleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="RuleTest.testAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RuleTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
       <option name="METHOD_NAME" value="testAddBadge" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleThenTest.TestAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SimulationBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RuleThenTest" />
-      <option name="METHOD_NAME" value="TestAddBadge" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RuleWhenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RuleWhenTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simulation" />
+      <option name="MAIN_CLASS_NAME" value="simulation.SimulationBuilderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleWhenTest.TestInputData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SimulationBuilderTest.TestBuilders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RuleWhenTest" />
-      <option name="METHOD_NAME" value="TestInputData" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simulation" />
+      <option name="MAIN_CLASS_NAME" value="simulation.SimulationBuilderTest" />
+      <option name="METHOD_NAME" value="TestBuilders" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulationTest.TestSimulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simulation" />
+      <option name="MAIN_CLASS_NAME" value="simulation.SimulationTest" />
+      <option name="METHOD_NAME" value="TestSimulation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.RuleTest" />
+      <item itemvalue="JUnit.SimulationBuilderTest" />
+      <item itemvalue="JUnit.SimulationBuilderTest.TestBuilders" />
+      <item itemvalue="JUnit.SimulationTest.TestSimulation" />
       <item itemvalue="JUnit.RuleTest.testAddBadge" />
-      <item itemvalue="JUnit.RuleThenTest.TestAddBadge" />
-      <item itemvalue="JUnit.RuleWhenTest" />
-      <item itemvalue="JUnit.RuleWhenTest.TestInputData" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SimulationTest.TestSimulation" />
+        <item itemvalue="JUnit.SimulationBuilderTest.TestBuilders" />
+        <item itemvalue="JUnit.SimulationBuilderTest" />
         <item itemvalue="JUnit.RuleTest.testAddBadge" />
-        <item itemvalue="JUnit.RuleThenTest.TestAddBadge" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.RuleWhenTest.TestInputData" />
-        <item itemvalue="JUnit.RuleWhenTest" />
+        <item itemvalue="JUnit.RuleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +252,8 @@
       <workItem from="1661103846287" duration="2584000" />
       <workItem from="1661150639855" duration="11333000" />
       <workItem from="1661170727480" duration="7872000" />
-      <workItem from="1661240261476" duration="302000" />
+      <workItem from="1661240261476" duration="22244000" />
+      <workItem from="1661271435684" duration="7586000" />
     </task>
     <task id="LOCAL-00001" summary="From executable model generation to DRL generation">
       <created>1660230104764</created>
@@ -313,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661177299578</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Minor refactor">
+      <created>1661240745827</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1661240745827</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +386,8 @@
     <MESSAGE value="Add import and globals support" />
     <MESSAGE value="Imports and globals less verbose" />
     <MESSAGE value="Add Classification concept" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Classification concept" />
+    <MESSAGE value="Minor refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor refactor" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

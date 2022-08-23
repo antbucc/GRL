@@ -3,7 +3,7 @@ package it.univaq.gamification.dsl.builders.lhs;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.BaseDescr;
 
-public interface GamificationElementDescrBuilder<P extends DescrBuilder<? , ?>, T extends BaseDescr> {
+public interface GamificationConceptDescrBuilder<P extends DescrBuilder<? , ?>, T extends BaseDescr> {
 
     ActionDescrBuilder<P> action();
 
