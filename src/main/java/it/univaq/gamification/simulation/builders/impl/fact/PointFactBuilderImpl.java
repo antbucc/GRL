@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PointFactBuilderImpl extends GameFactBuilderImpl<PointConcept> {
+public class PointFactBuilderImpl extends GameConceptFactBuilderImpl<PointConcept> {
     private Double score;
     private PointConcept pointConcept;
 

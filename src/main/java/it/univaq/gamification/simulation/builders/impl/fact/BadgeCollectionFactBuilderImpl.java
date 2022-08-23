@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class BadgeCollectionFactBuilderImpl extends GameFactBuilderImpl<BadgeCollectionConcept> {
+public class BadgeCollectionFactBuilderImpl extends GameConceptFactBuilderImpl<BadgeCollectionConcept> {
     private List<String> badgeEarned;
     private BadgeCollectionConcept badgeCollectionConcept;
 

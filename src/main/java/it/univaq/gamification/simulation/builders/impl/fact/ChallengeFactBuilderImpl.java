@@ -10,7 +10,7 @@ import java.util.*;
 
 @Getter
 @Setter
-public class ChallengeFactBuilderImpl extends GameFactBuilderImpl<ChallengeConcept> {
+public class ChallengeFactBuilderImpl extends GameConceptFactBuilderImpl<ChallengeConcept> {
     private Map<String, Object> fields;
     private boolean completed;
     private Map<ChallengeConcept.ChallengeState, Date> stateDate;

@@ -1,5 +1,6 @@
 package simulation;
 
+import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import it.univaq.gamification.simulation.builders.impl.fact.*;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class SimulationBuilderTest {
 
     @Test
     public void TestBuilders() {
-        GameFactBuilderImpl.gameBuilder().name("game1").id("1").build();
+        GameFactBuilderImpl.builder().id("1").build();
         ActionFactBuilderImpl.builder().id("run").build();
         BadgeCollectionFactBuilderImpl.builder().id("badgeCollection").badgeEarned(new ArrayList<>(Collections.singleton("prova"))).build();
         ChallengeFactBuilderImpl.builder().id("challenge").fields(new HashMap<>()).build();
