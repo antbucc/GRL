@@ -15,7 +15,7 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     private StringBuilder stringBuilder;
     private VelocityEngine velocityEngine;
 
-    private final String ADD_BADGE_TEMPLATE = "templates/addBadge.vm";
+    private final String ADD_BADGE_TEMPLATE = "/templates/addBadge.vm";
 
     public ConsequenceBuilderImpl(P parent) {
         this.parent = parent;

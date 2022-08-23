@@ -1,4 +1,5 @@
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
+import it.univaq.gamification.dsl.utils.DrlDumper;
 import org.apache.commons.lang.StringUtils;
 import org.drools.compiler.lang.descr.PackageDescr;
 import org.junit.Assert;
@@ -44,7 +45,7 @@ public class RuleTest {
 
         String expectedResult = "packagepackage_nameimporteu.trentorise.game.notification.BadgeNotificationglobalDoubleVerona_distanceglobalStringconst_school_namerule\"R-add-badgeVerona\"salience-1000whenPointConcept(name==\"total_distance\",score>=Verona_distance)$bc:BadgeCollectionConcept(name==\"silver_collection\",badgeEarnednotcontains\"Verona\")Game($gameId:id)Player($teamId:id,$teamId==const_school_name,team==true)then$bc.getBadgeEarned().add(Verona);insert(newBadgeNotification($gameId,$teamId,$bc.getName(),\"Verona\"));update($bc);end";
         String drl = new DrlDumper().dump(pkg);
-        // System.out.println(new DrlDumper().dump(pkg));
+        // System.out.println(new it.univaq.gamification.dsl.utils.DrlDumper().dump(pkg));
         Assert.assertEquals(StringUtils.deleteWhitespace(drl), StringUtils.deleteWhitespace(expectedResult));
 
     }

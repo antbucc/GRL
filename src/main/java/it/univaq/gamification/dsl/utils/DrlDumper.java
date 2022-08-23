@@ -1,3 +1,5 @@
+package it.univaq.gamification.dsl.utils;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -22,18 +24,18 @@ public class DrlDumper  {
         OptimizerFactory.setDefaultOptimizer( "reflective" );
 
         REPORT_REGISTRY.addNamedTemplate( "drl",
-                TemplateCompiler.compileTemplate(Objects.requireNonNull(DrlDumper.class.getResourceAsStream("drl.mvel")),
-                        (Map<String, Class< ? extends Node>>) null ) );
+                TemplateCompiler.compileTemplate(Objects.requireNonNull(DrlDumper.class.getResourceAsStream("/drl.mvel")),
+                        (Map<String, Class< ? extends Node>>) null));
 
-        TemplateRuntime.execute( REPORT_REGISTRY.getNamedTemplate( "drl" ), null, REPORT_REGISTRY);
+        TemplateRuntime.execute( REPORT_REGISTRY.getNamedTemplate("drl"), null, REPORT_REGISTRY);
     }
 
-    public String dump( final PackageDescr pkg ) {
+    public String dump(final PackageDescr pkg) {
         Map<String, Object> context = new HashMap<>();
         context.put("pkg", pkg);
         context.put("mvel",mvel);
 
-        return (String) TemplateRuntime.execute( REPORT_REGISTRY.getNamedTemplate( "drl" ),
+        return (String) TemplateRuntime.execute( REPORT_REGISTRY.getNamedTemplate("drl"),
                 null,
                 new MapVariableResolverFactory(context),
                 REPORT_REGISTRY

@@ -1,4 +1,5 @@
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
+import it.univaq.gamification.dsl.utils.DrlDumper;
 import org.drools.compiler.lang.descr.PackageDescr;
 import org.junit.Test;
 

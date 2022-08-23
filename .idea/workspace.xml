@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="Imports and globals less verbose">
+    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="Add Classification concept">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/rhs/ConsequenceBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/rhs/ConsequenceBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/ClassificationDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/ClassificationDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DrlDumper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/utils/DrlDumper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleThenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleThenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RuleWhenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RuleWhenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Action.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Badge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Challenge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/univaq/gamification/dsl/utils/Point.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/drl.mvel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/rule_examples.drl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +82,7 @@
       <recent name="C:\Users\stefanomartella\Desktop\Tesi\code\gamification-dsl\src\main\java\it\univaq\gamification\gamification_elements" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="it.univaq.gamification.dsl.utils" />
       <recent name="" />
       <recent name="it.univaq.gamification.dsl" />
     </key>
@@ -210,7 +219,8 @@
       <workItem from="1660294779910" duration="85000" />
       <workItem from="1661103846287" duration="2584000" />
       <workItem from="1661150639855" duration="11333000" />
-      <workItem from="1661170727480" duration="4877000" />
+      <workItem from="1661170727480" duration="7872000" />
+      <workItem from="1661240261476" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="From executable model generation to DRL generation">
       <created>1660230104764</created>
@@ -296,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661173768450</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add Classification concept">
+      <created>1661177299578</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1661177299578</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,7 +345,8 @@
     <MESSAGE value="Update test" />
     <MESSAGE value="Add import and globals support" />
     <MESSAGE value="Imports and globals less verbose" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imports and globals less verbose" />
+    <MESSAGE value="Add Classification concept" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Classification concept" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
