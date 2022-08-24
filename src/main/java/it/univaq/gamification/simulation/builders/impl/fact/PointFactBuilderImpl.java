@@ -2,13 +2,9 @@ package it.univaq.gamification.simulation.builders.impl.fact;
 
 import eu.trentorise.game.model.PointConcept;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class PointFactBuilderImpl extends GameConceptFactBuilderImpl<PointConcept> {
-    private Double score;
+    private final Double score;
     private PointConcept pointConcept;
 
     @Builder
@@ -25,5 +21,13 @@ public class PointFactBuilderImpl extends GameConceptFactBuilderImpl<PointConcep
             this.pointConcept.setScore(this.score);
         }
         return this.pointConcept;
+    }
+
+    public Double getScore() {
+        return this.asOriginalPojo().getScore();
+    }
+
+    public void setScore(Double score) {
+        this.asOriginalPojo().setScore(score);
     }
 }

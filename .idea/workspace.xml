@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="First implementation of rules simulation">
+    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="Add GameConceptFactBuilderImpl.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/SimulationBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/SimulationBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/ActionFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/ActionFactBuilderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/BadgeCollectionFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/BadgeCollectionFactBuilderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/ChallengeFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/ChallengeFactBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/GameFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/GameConceptFactBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/CustomDataFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/CustomDataFactBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/GameConceptFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/GameConceptFactBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/GameFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/GameFactBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/InputDataFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/InputDataFactBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/PlayerFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/PlayerFactBuilderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/PointFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/PointFactBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addBadge.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addBadge.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/PropagationFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/PropagationFactBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/RewardFactBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/fact/RewardFactBuilderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/simulation/SimulationBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/simulation/SimulationBuilderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" afterDir="false" />
     </list>
@@ -94,22 +103,7 @@
       <command value="mvn dependency:purge-local-repository" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleTest.testAddBadge">
-    <configuration name="RuleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dsl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dsl" />
-      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.SimulationTest">
     <configuration name="RuleTest.testAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
@@ -157,6 +151,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SimulationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simulation" />
+      <option name="MAIN_CLASS_NAME" value="simulation.SimulationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SimulationTest.TestSimulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
@@ -174,7 +183,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.RuleTest" />
+      <item itemvalue="JUnit.SimulationTest" />
       <item itemvalue="JUnit.SimulationBuilderTest" />
       <item itemvalue="JUnit.SimulationBuilderTest.TestBuilders" />
       <item itemvalue="JUnit.SimulationTest.TestSimulation" />
@@ -182,11 +191,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RuleTest.testAddBadge" />
+        <item itemvalue="JUnit.SimulationTest" />
         <item itemvalue="JUnit.SimulationTest.TestSimulation" />
+        <item itemvalue="JUnit.RuleTest.testAddBadge" />
         <item itemvalue="JUnit.SimulationBuilderTest.TestBuilders" />
         <item itemvalue="JUnit.SimulationBuilderTest" />
-        <item itemvalue="JUnit.RuleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +261,8 @@
       <workItem from="1661150639855" duration="11333000" />
       <workItem from="1661170727480" duration="7872000" />
       <workItem from="1661240261476" duration="22244000" />
-      <workItem from="1661271435684" duration="9488000" />
+      <workItem from="1661271435684" duration="9628000" />
+      <workItem from="1661324946132" duration="9044000" />
     </task>
     <task id="LOCAL-00001" summary="From executable model generation to DRL generation">
       <created>1660230104764</created>
@@ -359,7 +369,21 @@
       <option name="project" value="LOCAL" />
       <updated>1661294951308</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fix GameConcept related problem">
+      <created>1661296905675</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1661296905675</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add GameConceptFactBuilderImpl.java">
+      <created>1661296926683</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1661296926683</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +418,9 @@
     <MESSAGE value="Add Classification concept" />
     <MESSAGE value="Minor refactor" />
     <MESSAGE value="First implementation of rules simulation" />
-    <option name="LAST_COMMIT_MESSAGE" value="First implementation of rules simulation" />
+    <MESSAGE value="Fix GameConcept related problem" />
+    <MESSAGE value="Add GameConceptFactBuilderImpl.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add GameConceptFactBuilderImpl.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

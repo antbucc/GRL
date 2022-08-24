@@ -3,13 +3,9 @@ package it.univaq.gamification.simulation.builders.impl.fact;
 import eu.trentorise.game.model.Propagation;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class PropagationFactBuilderImpl implements GameFactBuilder<PropagationFactBuilderImpl, Propagation> {
-    private String action;
+    private final String action;
     @Builder.Default
     private int level = 1;
     private Propagation propagation;
@@ -32,5 +28,21 @@ public class PropagationFactBuilderImpl implements GameFactBuilder<PropagationFa
             this.propagation = new Propagation(this.action, this.level);
         }
         return this.propagation;
+    }
+
+    public String getAction() {
+        return this.asOriginalPojo().getAction();
+    }
+
+    public void setAction(String action) {
+        this.asOriginalPojo().setAction(action);
+    }
+
+    public int getLevel() {
+        return this.asOriginalPojo().getLevel();
+    }
+
+    public void setLevel(int level) {
+        this.asOriginalPojo().setLevel(level);
     }
 }

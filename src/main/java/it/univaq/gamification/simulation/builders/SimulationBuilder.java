@@ -6,12 +6,14 @@ import org.drools.compiler.lang.descr.PackageDescr;
 
 public interface SimulationBuilder {
 
-    SimulationBuilder addFacts(GameFactBuilder<?, ?>... conceptBuilders);
+    SimulationBuilder addFacts(GameFactBuilder<?, ?>... factBuilders);
+
+    SimulationBuilder addFacts(Object... facts);
 
     SimulationBuilder addRules(PackageDescr... packageDescrs);
 
     SimulationBuilder addExpectations(CheckExpectationLambda... expectations);
 
-    void simulate();
+    SimulationBuilder simulate();
 
 }

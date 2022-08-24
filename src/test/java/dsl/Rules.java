@@ -8,7 +8,7 @@ import static it.univaq.gamification.dsl.utils.ConstraintType.GTE;
 
 public class Rules {
 
-    public static PackageDescr getBadgeSimplifiedRule() {
+    public static PackageDescr getAddBadgeRule() {
         final String BADGE_NAME = "Verona";
         final String BADGE_COLLECTION_REF = "$bc";
         final String GAME_ID_REF = "$gameId";
@@ -25,7 +25,7 @@ public class Rules {
                         .point().name(EQ, "total_distance").score(GTE, 10.0).end()
                         .badgeCollection(BADGE_COLLECTION_REF).name(EQ, "silver_collection").badgeEarnedNotContains(BADGE_NAME).end()
                         .game().bindId(GAME_ID_REF).end()
-                        .player().team(true).end()
+                        .player().team(false).end()
                     .end()
                     .then()
                         .addBadge(BADGE_COLLECTION_REF, BADGE_NAME)
@@ -34,7 +34,7 @@ public class Rules {
                 .getDescr();
     }
 
-    public static PackageDescr getBadgeRule() {
+    public static PackageDescr getAddBadgeRuleWithNotification() {
         final String BADGE_NAME = "Verona";
         final String BADGE_COLLECTION_REF = "$bc";
         final String TEAM_ID_REF = "$teamId";

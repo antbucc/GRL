@@ -3,13 +3,9 @@ package it.univaq.gamification.simulation.builders.impl.fact;
 import eu.trentorise.game.model.Action;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class ActionFactBuilderImpl implements GameFactBuilder<ActionFactBuilderImpl, Action> {
-    private String id;
+    private final String id;
     private Action action;
 
     @Builder
@@ -29,5 +25,13 @@ public class ActionFactBuilderImpl implements GameFactBuilder<ActionFactBuilderI
             this.action = new Action(this.id);
         }
         return this.action;
+    }
+
+    public String getId() {
+        return this.asOriginalPojo().getId();
+    }
+
+    public void setId(String id) {
+        this.asOriginalPojo().setId(id);
     }
 }

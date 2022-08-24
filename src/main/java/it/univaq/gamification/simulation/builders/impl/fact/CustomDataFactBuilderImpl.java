@@ -3,14 +3,10 @@ package it.univaq.gamification.simulation.builders.impl.fact;
 import eu.trentorise.game.model.CustomData;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Getter
-@Setter
 public class CustomDataFactBuilderImpl implements GameFactBuilder<CustomDataFactBuilderImpl, CustomData> {
     @Builder.Default
     private Map<String, Object> data = new HashMap<>();
@@ -35,4 +31,13 @@ public class CustomDataFactBuilderImpl implements GameFactBuilder<CustomDataFact
         }
         return this.customData;
     }
+
+    public Map<String, Object> getData() {
+        return this.asOriginalPojo();
+    }
+
+    public void setData(Map<String, Object> data) {
+        this.asOriginalPojo().putAll(data);
+    }
+
 }

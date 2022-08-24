@@ -3,16 +3,12 @@ package it.univaq.gamification.simulation.builders.impl.fact;
 
 import eu.trentorise.game.model.BadgeCollectionConcept;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
 public class BadgeCollectionFactBuilderImpl extends GameConceptFactBuilderImpl<BadgeCollectionConcept> {
-    private List<String> badgeEarned;
+    private final List<String> badgeEarned;
     private BadgeCollectionConcept badgeCollectionConcept;
 
     @Builder
@@ -30,5 +26,13 @@ public class BadgeCollectionFactBuilderImpl extends GameConceptFactBuilderImpl<B
             this.badgeCollectionConcept.setBadgeEarned(this.badgeEarned);
         }
         return this.badgeCollectionConcept;
+    }
+
+    public List<String> getBadgeEarned() {
+        return this.asOriginalPojo().getBadgeEarned();
+    }
+
+    public void setBadgeEarned(List<String> badgeEarned) {
+       this.asOriginalPojo().setBadgeEarned(badgeEarned);
     }
 }

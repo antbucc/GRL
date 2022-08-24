@@ -34,9 +34,17 @@ public class SimulationBuilderImpl implements SimulationBuilder {
     }
 
     @Override
-    public SimulationBuilder addFacts(GameFactBuilder<?, ?>... conceptBuilders) {
-        for (GameFactBuilder<?, ?> conceptBuilder : conceptBuilders) {
-            kieSession.insert(conceptBuilder.asOriginalPojo());
+    public SimulationBuilder addFacts(GameFactBuilder<?, ?>... factBuilders) {
+        for (GameFactBuilder<?, ?> factBuilder : factBuilders) {
+            kieSession.insert(factBuilder.asOriginalPojo());
+        }
+        return this;
+    }
+
+    @Override
+    public SimulationBuilder addFacts(Object... facts) {
+        for (Object fact : facts) {
+            kieSession.insert(fact);
         }
         return this;
     }
@@ -56,11 +64,12 @@ public class SimulationBuilderImpl implements SimulationBuilder {
     }
 
     @Override
-    public void simulate() {
+    public SimulationBuilder simulate() {
         knowledgeBase.addPackages(knowledgeBuilder.getKnowledgePackages());
         kieSession.fireAllRules();
         this.expectations.forEach(CheckExpectationLambda::check);
         // TODO: Remove all expectations and rules in order to run other tests
         // TODO: assert knowledgeBuilder.getErrors()
+        return this;
     }
 }

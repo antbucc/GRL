@@ -3,21 +3,15 @@ package it.univaq.gamification.simulation.builders.impl.fact;
 import eu.trentorise.game.core.Clock;
 import eu.trentorise.game.model.ChallengeConcept;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.*;
 
-@Getter
-@Setter
 public class ChallengeFactBuilderImpl extends GameConceptFactBuilderImpl<ChallengeConcept> {
-    private Map<String, Object> fields;
-    private boolean completed;
-    private Map<ChallengeConcept.ChallengeState, Date> stateDate;
-    private int priority;
-    private Date objectCreationDate;
-    private Clock clock;
-
+    private final Map<String, Object> fields;
+    private final boolean completed;
+    private final Map<ChallengeConcept.ChallengeState, Date> stateDate;
+    private final int priority;
+    private final Clock clock;
     private ChallengeConcept challengeConcept;
 
     @Builder
@@ -35,7 +29,6 @@ public class ChallengeFactBuilderImpl extends GameConceptFactBuilderImpl<Challen
         this.stateDate = stateDate != null ? stateDate : new HashMap<>();
         this.priority = priority;
         this.clock = clock;
-        this.objectCreationDate = new Date();
     }
 
     @Override
@@ -53,5 +46,41 @@ public class ChallengeFactBuilderImpl extends GameConceptFactBuilderImpl<Challen
             this.challengeConcept.setClock(this.clock);
         }
         return this.challengeConcept;
+    }
+
+    public Map<String, Object> getFields() {
+        return this.asOriginalPojo().getFields();
+    }
+
+    public void setFields(Map<String, Object> fields) {
+        this.asOriginalPojo().setFields(fields);
+    }
+
+    public boolean isCompleted() {
+        return this.asOriginalPojo().isCompleted();
+    }
+
+    public Map<ChallengeConcept.ChallengeState, Date> getStateDate() {
+        return this.asOriginalPojo().getStateDate();
+    }
+
+    public void setStateDate(Map<ChallengeConcept.ChallengeState, Date> stateDate) {
+        this.asOriginalPojo().setStateDate(stateDate);
+    }
+
+    public int getPriority() {
+        return this.asOriginalPojo().getPriority();
+    }
+
+    public void setPriority(int priority) {
+        this.asOriginalPojo().setPriority(priority);
+    }
+
+    public Clock getClock() {
+        return this.asOriginalPojo().getClock();
+    }
+
+    public void setClock(Clock clock) {
+        this.asOriginalPojo().setClock(clock);
     }
 }

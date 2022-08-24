@@ -3,12 +3,8 @@ package it.univaq.gamification.simulation.builders.impl.fact;
 import eu.trentorise.game.model.core.GameConcept;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
 
-@Getter
-@Setter
 @AllArgsConstructor
 public class GameConceptFactBuilderImpl<P> implements GameFactBuilder<GameConceptFactBuilderImpl<P>, GameConcept> {
     protected String id;
@@ -25,4 +21,19 @@ public class GameConceptFactBuilderImpl<P> implements GameFactBuilder<GameConcep
         return null;
     }
 
+    public String getId() {
+        return this.asOriginalPojo().getId();
+    }
+
+    public void setId(String id) {
+        this.asOriginalPojo().setId(id);
+    }
+
+    public String getName() {
+        return this.asOriginalPojo().getName();
+    }
+
+    public void setName(String name) {
+        this.asOriginalPojo().setName(name);
+    }
 }
