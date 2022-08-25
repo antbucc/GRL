@@ -8,6 +8,8 @@ public interface ConsequenceBuilder<P> {
 
     ConsequenceBuilder<P> addBadgeWithNotification(String badgeCollectionRef, String gameIdRef, String teamIdRef, String badge);
 
+    ConsequenceBuilder<P> levelError(String errorScoreRef, String errorsRef, String customDataRef, String level);
+
     P end();
 
 }

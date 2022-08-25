@@ -12,10 +12,11 @@ import java.io.StringWriter;
 public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
 
     protected P parent;
-    private StringBuilder stringBuilder;
+    private final StringBuilder stringBuilder;
     private VelocityEngine velocityEngine;
 
     private final String ADD_BADGE_TEMPLATE = "/templates/addBadge.vm";
+    private final String LEVEL_ERROR = "/templates/levelError.vm";
 
     public ConsequenceBuilderImpl(P parent) {
         this.parent = parent;
@@ -62,6 +63,19 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
         velocityContext.put("badge", badge);
 
         this.addConsequence(ADD_BADGE_TEMPLATE, velocityContext);
+
+        return this;
+    }
+
+    @Override
+    public ConsequenceBuilder<P> levelError(String errorScoreRef, String errorsRef, String customDataRef, String level) {
+        VelocityContext velocityContext = new VelocityContext();
+        velocityContext.put("errorsScore", errorScoreRef);
+        velocityContext.put("errors", errorsRef);
+        velocityContext.put("customData", customDataRef);
+        velocityContext.put("level", level);
+
+        this.addConsequence(LEVEL_ERROR, velocityContext);
 
         return this;
     }

@@ -7,6 +7,7 @@ import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.BaseDescr;
 import org.drools.compiler.lang.descr.PatternDescr;
 
+@SuppressWarnings("unchecked")
 public class GamificationBaseDescrBuilderImpl<P extends DescrBuilder<?, ? extends BaseDescr>, T>
         extends BaseDescrBuilderImpl<P, PatternDescr>
         implements GamificationBaseDescrBuilder<T> {
