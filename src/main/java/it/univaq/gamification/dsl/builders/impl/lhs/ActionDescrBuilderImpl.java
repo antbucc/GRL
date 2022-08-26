@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.Action;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.lhs.ActionDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
@@ -19,9 +20,9 @@ public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected ActionDescrBuilderImpl(P parent, String bindName) {
+    protected ActionDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
@@ -31,13 +32,13 @@ public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ActionDescrBuilder<P> id(ConstraintType constraintType, String name, String bindName) {
+    public ActionDescrBuilder<P> id(ConstraintType constraintType, String name, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, ID, name, bindName, true);
         return this;
     }
 
     @Override
-    public ActionDescrBuilder<P> bindId(String bindName) {
+    public ActionDescrBuilder<P> bindId(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, ID, bindName);
         return this;
     }
@@ -49,13 +50,13 @@ public class ActionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ActionDescrBuilder<P> name(ConstraintType constraintType, String name, String bindName) {
+    public ActionDescrBuilder<P> name(ConstraintType constraintType, String name, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, NAME, name, bindName, true);
         return this;
     }
 
     @Override
-    public ActionDescrBuilder<P> bindName(String bindName) {
+    public ActionDescrBuilder<P> bindName(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, NAME, bindName);
         return this;
     }

@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.ChallengeConcept;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.lhs.ChallengeDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
@@ -22,9 +23,9 @@ public class ChallengeDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected ChallengeDescrBuilderImpl(P parent, String bindName) {
+    protected ChallengeDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
@@ -34,13 +35,13 @@ public class ChallengeDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ChallengeDescrBuilder<P> modelName(ConstraintType constraintType, String modelName, String bindName) {
+    public ChallengeDescrBuilder<P> modelName(ConstraintType constraintType, String modelName, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, MODEL_NAME, modelName, bindName, true);
         return this;
     }
 
     @Override
-    public ChallengeDescrBuilder<P> bindModelName(String bindName) {
+    public ChallengeDescrBuilder<P> bindModelName(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, MODEL_NAME, bindName);
         return this;
     }
@@ -52,13 +53,13 @@ public class ChallengeDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ChallengeDescrBuilder<P> isCompleted(Boolean completed, String bindName) {
+    public ChallengeDescrBuilder<P> isCompleted(Boolean completed, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, ConstraintType.EQ, IS_COMPLETED, completed, bindName, false);
         return this;
     }
 
     @Override
-    public ChallengeDescrBuilder<P> bindIsCompleted(String bindName) {
+    public ChallengeDescrBuilder<P> bindIsCompleted(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, IS_COMPLETED, bindName);
         return this;
     }
@@ -70,13 +71,13 @@ public class ChallengeDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value, String bindName) {
+    public <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, FIELDS + "[\"" +key + "\"]", value, bindName, value instanceof String);
         return this;
     }
 
     @Override
-    public ChallengeDescrBuilder<P> bindFromField(String bindName, String value) {
+    public ChallengeDescrBuilder<P> bindFromField(BindName bindName, String value) {
         ConstraintHelper.addBindConstraint(this.descr, FIELDS + "[\"" + value + "\"]", bindName);
         return this;
     }

@@ -1,5 +1,6 @@
 package it.univaq.gamification.dsl.builders.lhs;
 
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
@@ -9,20 +10,20 @@ public interface ChallengeDescrBuilder<P extends DescrBuilder<?, ?>>
 
     ChallengeDescrBuilder<P> modelName(ConstraintType constraintType, String modelName);
 
-    ChallengeDescrBuilder<P> modelName(ConstraintType constraintType, String modelName, String bindName);
+    ChallengeDescrBuilder<P> modelName(ConstraintType constraintType, String modelName, BindName bindName);
 
-    ChallengeDescrBuilder<P> bindModelName(String bindName);
+    ChallengeDescrBuilder<P> bindModelName(BindName bindName);
 
     ChallengeDescrBuilder<P> isCompleted(Boolean completed);
 
-    ChallengeDescrBuilder<P> isCompleted(Boolean completed, String bindName);
+    ChallengeDescrBuilder<P> isCompleted(Boolean completed, BindName bindName);
 
-    ChallengeDescrBuilder<P> bindIsCompleted(String bindName);
+    ChallengeDescrBuilder<P> bindIsCompleted(BindName bindName);
 
     <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value);
 
-    <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value, String bindName);
+    <T> ChallengeDescrBuilder<P> fromFields(ConstraintType constraintType, String key, T value, BindName bindName);
 
-    ChallengeDescrBuilder<P> bindFromField(String bindName, String value);
+    ChallengeDescrBuilder<P> bindFromField(BindName bindName, String value);
 
 }

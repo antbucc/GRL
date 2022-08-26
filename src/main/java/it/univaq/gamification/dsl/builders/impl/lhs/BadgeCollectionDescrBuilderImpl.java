@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.BadgeCollectionConcept;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.lhs.BadgeCollectionDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
@@ -19,9 +20,9 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected BadgeCollectionDescrBuilderImpl(P parent, String bindName) {
+    protected BadgeCollectionDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
@@ -31,13 +32,13 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public BadgeCollectionDescrBuilder<P> name(ConstraintType constraintType, String name, String bindName) {
+    public BadgeCollectionDescrBuilder<P> name(ConstraintType constraintType, String name, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, NAME, name, bindName, true);
         return this;
     }
 
     @Override
-    public BadgeCollectionDescrBuilder<P> bindName(String bindName) {
+    public BadgeCollectionDescrBuilder<P> bindName(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, NAME, bindName);
         return this;
     }
@@ -49,7 +50,7 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public BadgeCollectionDescrBuilder<P> badgeEarned(ConstraintType constraintType, String badge, String bindName) {
+    public BadgeCollectionDescrBuilder<P> badgeEarned(ConstraintType constraintType, String badge, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, BADGE_EARNED, badge, bindName, false);
         return this;
     }
@@ -61,7 +62,7 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge, String bindName) {
+    public BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, ConstraintType.CONTAINS, BADGE_EARNED, badge, bindName, false);
         return this;
     }
@@ -73,13 +74,13 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge, String bindName) {
+    public BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, ConstraintType.NOT_CONTAINS, BADGE_EARNED, badge, bindName, false);
         return this;
     }
 
     @Override
-    public BadgeCollectionDescrBuilder<P> bindBadgeEarned(String bindName) {
+    public BadgeCollectionDescrBuilder<P> bindBadgeEarned(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, BADGE_EARNED, bindName);
         return this;
     }

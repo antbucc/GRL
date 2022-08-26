@@ -1,5 +1,6 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.builders.lhs.*;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
@@ -47,7 +48,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public ActionDescrBuilder<CEDescrBuilder<P, T>> action(String bindName) {
+    public ActionDescrBuilder<CEDescrBuilder<P, T>> action(BindName bindName) {
         ActionDescrBuilder<CEDescrBuilder<P, T>> action = new ActionDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(action.getDescr());
         return action;
@@ -61,7 +62,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public PointDescrBuilder<CEDescrBuilder<P, T>> point(String bindName) {
+    public PointDescrBuilder<CEDescrBuilder<P, T>> point(BindName bindName) {
         PointDescrBuilder<CEDescrBuilder<P, T>> point = new PointDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(point.getDescr());
         return point;
@@ -75,7 +76,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public BadgeCollectionDescrBuilder<CEDescrBuilder<P, T>> badgeCollection(String bindName) {
+    public BadgeCollectionDescrBuilder<CEDescrBuilder<P, T>> badgeCollection(BindName bindName) {
         BadgeCollectionDescrBuilder<CEDescrBuilder<P, T>> badgeCollection = new BadgeCollectionDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(badgeCollection.getDescr());
         return badgeCollection;
@@ -89,7 +90,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public ChallengeDescrBuilder<CEDescrBuilder<P, T>> challenge(String bindName) {
+    public ChallengeDescrBuilder<CEDescrBuilder<P, T>> challenge(BindName bindName) {
         ChallengeDescrBuilder<CEDescrBuilder<P, T>> challenge = new ChallengeDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(challenge.getDescr());
         return challenge;
@@ -103,7 +104,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public InputDataDescrBuilder<CEDescrBuilder<P, T>> inputData(String bindName) {
+    public InputDataDescrBuilder<CEDescrBuilder<P, T>> inputData(BindName bindName) {
         InputDataDescrBuilder<CEDescrBuilder<P, T>> inputData = new InputDataDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(inputData.getDescr());
         return inputData;
@@ -117,7 +118,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public CustomDataDescrBuilder<CEDescrBuilder<P, T>> customData(String bindName) {
+    public CustomDataDescrBuilder<CEDescrBuilder<P, T>> customData(BindName bindName) {
         CustomDataDescrBuilder<CEDescrBuilder<P, T>> customData = new CustomDataDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(customData.getDescr());
         return customData;
@@ -131,7 +132,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public PlayerDescrBuilder<CEDescrBuilder<P, T>> player(String bindName) {
+    public PlayerDescrBuilder<CEDescrBuilder<P, T>> player(BindName bindName) {
         PlayerDescrBuilder<CEDescrBuilder<P, T>> player = new PlayerDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(player.getDescr());
         return player;
@@ -145,7 +146,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public GameDescrBuilder<CEDescrBuilder<P, T>> game(String bindName) {
+    public GameDescrBuilder<CEDescrBuilder<P, T>> game(BindName bindName) {
         GameDescrBuilder<CEDescrBuilder<P, T>> game = new GameDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(game.getDescr());
         return game;
@@ -159,7 +160,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public RewardDescrBuilder<CEDescrBuilder<P, T>> reward(String bindName) {
+    public RewardDescrBuilder<CEDescrBuilder<P, T>> reward(BindName bindName) {
         RewardDescrBuilder<CEDescrBuilder<P, T>> reward = new RewardDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(reward.getDescr());
         return reward;
@@ -173,7 +174,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public PropagationDescrBuilder<CEDescrBuilder<P, T>> propagation(String bindName) {
+    public PropagationDescrBuilder<CEDescrBuilder<P, T>> propagation(BindName bindName) {
         PropagationDescrBuilder<CEDescrBuilder<P, T>> propagation = new PropagationDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(propagation.getDescr());
         return propagation;
@@ -187,7 +188,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     }
 
     @Override
-    public ClassificationDescrBuilder<CEDescrBuilder<P, T>> classification(String bindName) {
+    public ClassificationDescrBuilder<CEDescrBuilder<P, T>> classification(BindName bindName) {
         ClassificationDescrBuilder<CEDescrBuilder<P, T>> classification = new ClassificationDescrBuilderImpl<>(this, bindName);
         ((ConditionalElementDescr) descr).addDescr(classification.getDescr());
         return classification;

@@ -1,5 +1,6 @@
 package it.univaq.gamification.dsl.builders.lhs;
 
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
@@ -9,22 +10,22 @@ public interface BadgeCollectionDescrBuilder<P extends DescrBuilder<?, ?>>
 
     BadgeCollectionDescrBuilder<P> name(ConstraintType constraintType, String name);
 
-    BadgeCollectionDescrBuilder<P> name(ConstraintType constraintType, String name, String bindName);
+    BadgeCollectionDescrBuilder<P> name(ConstraintType constraintType, String name, BindName bindName);
 
-    BadgeCollectionDescrBuilder<P> bindName(String bindName);
+    BadgeCollectionDescrBuilder<P> bindName(BindName bindName);
 
     BadgeCollectionDescrBuilder<P> badgeEarned(ConstraintType constraintType, String badge);
 
-    BadgeCollectionDescrBuilder<P> badgeEarned(ConstraintType constraintType, String badge, String bindName);
+    BadgeCollectionDescrBuilder<P> badgeEarned(ConstraintType constraintType, String badge, BindName bindName);
 
     BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge);
 
-    BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge, String bindName);
+    BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge, BindName bindName);
 
     BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge);
 
-    BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge, String bindName);
+    BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge, BindName bindName);
 
-    BadgeCollectionDescrBuilder<P> bindBadgeEarned(String bindName);
+    BadgeCollectionDescrBuilder<P> bindBadgeEarned(BindName bindName);
 
 }

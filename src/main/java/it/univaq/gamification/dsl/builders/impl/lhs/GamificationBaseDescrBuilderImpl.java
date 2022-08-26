@@ -1,5 +1,6 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.builders.lhs.GamificationBaseDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
@@ -17,13 +18,13 @@ public class GamificationBaseDescrBuilderImpl<P extends DescrBuilder<?, ? extend
     }
 
     @Override
-    public T bind(String bindName, String value) {
+    public T bind(BindName bindName, String value) {
         ConstraintHelper.addBindConstraint(this.descr, value, bindName);
         return (T) this;
     }
 
     @Override
-    public <T1> T declare(String bindName, T1 value) {
+    public <T1> T declare(BindName bindName, T1 value) {
         ConstraintHelper.addDeclareConstraint(this.descr, value, bindName);
         return (T) this;
     }

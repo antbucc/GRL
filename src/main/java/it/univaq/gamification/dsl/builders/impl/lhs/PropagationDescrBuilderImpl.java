@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.Propagation;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.lhs.PropagationDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
@@ -19,9 +20,9 @@ public class PropagationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected PropagationDescrBuilderImpl(P parent, String bindName) {
+    protected PropagationDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
@@ -31,13 +32,13 @@ public class PropagationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public PropagationDescrBuilder<P> action(ConstraintType constraintType, String action, String bindName) {
+    public PropagationDescrBuilder<P> action(ConstraintType constraintType, String action, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, ACTION, action, bindName, true);
         return this;
     }
 
     @Override
-    public PropagationDescrBuilder<P> bindAction(String bindName) {
+    public PropagationDescrBuilder<P> bindAction(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, ACTION, bindName);
         return this;
     }
@@ -49,13 +50,13 @@ public class PropagationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public PropagationDescrBuilder<P> level(ConstraintType constraintType, Integer level, String bindName) {
+    public PropagationDescrBuilder<P> level(ConstraintType constraintType, Integer level, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, LEVEL, level, bindName, true);
         return this;
     }
 
     @Override
-    public PropagationDescrBuilder<P> bindLevel(String bindName) {
+    public PropagationDescrBuilder<P> bindLevel(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, LEVEL, bindName);
         return this;
     }

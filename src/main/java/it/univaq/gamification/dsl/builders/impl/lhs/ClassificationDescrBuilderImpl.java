@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.task.Classification;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.builders.lhs.ClassificationDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import it.univaq.gamification.dsl.utils.ConstraintType;
@@ -21,9 +22,9 @@ public class ClassificationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected ClassificationDescrBuilderImpl(P parent, String bindName) {
+    protected ClassificationDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
@@ -33,13 +34,13 @@ public class ClassificationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ClassificationDescrBuilder<P> name(ConstraintType constraintType, String name, String bindName) {
+    public ClassificationDescrBuilder<P> name(ConstraintType constraintType, String name, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, NAME, name, bindName, true);
         return this;
     }
 
     @Override
-    public ClassificationDescrBuilder<P> bindName(String bindName) {
+    public ClassificationDescrBuilder<P> bindName(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, NAME, bindName);
         return this;
     }
@@ -51,13 +52,13 @@ public class ClassificationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ClassificationDescrBuilder<P> position(ConstraintType constraintType, Integer position, String bindName) {
+    public ClassificationDescrBuilder<P> position(ConstraintType constraintType, Integer position, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, POSITION, position, bindName, false);
         return this;
     }
 
     @Override
-    public ClassificationDescrBuilder<P> bindPosition(String bindName) {
+    public ClassificationDescrBuilder<P> bindPosition(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, POSITION, bindName);
         return this;
     }
@@ -69,13 +70,13 @@ public class ClassificationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ClassificationDescrBuilder<P> score(ConstraintType constraintType, Double score, String bindName) {
-        ConstraintHelper.addConstraint(this.descr, constraintType, SCORE, score, null, false);
+    public ClassificationDescrBuilder<P> score(ConstraintType constraintType, Double score, BindName bindName) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, SCORE, score, bindName, false);
         return this;
     }
 
     @Override
-    public ClassificationDescrBuilder<P> bindScore(String bindName) {
+    public ClassificationDescrBuilder<P> bindScore(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, SCORE, bindName);
         return this;
     }
@@ -87,14 +88,14 @@ public class ClassificationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public ClassificationDescrBuilder<P> scoreType(ConstraintType constraintType, String scoreType, String bindName) {
+    public ClassificationDescrBuilder<P> scoreType(ConstraintType constraintType, String scoreType, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, SCORE_TYPE, scoreType, bindName, true);
         return this;
     }
 
     @Override
-    public ClassificationDescrBuilder<P> bindScoreType(String scoreType) {
-        ConstraintHelper.addBindConstraint(this.descr, SCORE_TYPE, scoreType);
+    public ClassificationDescrBuilder<P> bindScoreType(BindName bindName) {
+        ConstraintHelper.addBindConstraint(this.descr, SCORE_TYPE, bindName);
         return this;
     }
 }

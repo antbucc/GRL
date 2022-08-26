@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.CustomData;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.lhs.CustomDataDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
@@ -18,9 +19,9 @@ public class CustomDataDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected CustomDataDescrBuilderImpl(P parent, String bindName) {
+    protected CustomDataDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
@@ -30,13 +31,13 @@ public class CustomDataDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public <T> CustomDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, T value, String bindName) {
+    public <T> CustomDataDescrBuilder<P> fromData(ConstraintType constraintType, String key, T value, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, DATA + "[\"" +key + "\"]", value, bindName, value instanceof String);
         return this;
     }
 
     @Override
-    public CustomDataDescrBuilder<P> bindFromData(String bindName, String value) {
+    public CustomDataDescrBuilder<P> bindFromData(BindName bindName, String value) {
         ConstraintHelper.addBindConstraint(this.descr, DATA + "[\"" + value + "\"]", bindName);
         return this;
     }

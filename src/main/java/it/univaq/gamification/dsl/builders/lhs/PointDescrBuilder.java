@@ -1,5 +1,6 @@
 package it.univaq.gamification.dsl.builders.lhs;
 
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.descr.PatternDescr;
@@ -9,16 +10,16 @@ public interface PointDescrBuilder<P extends DescrBuilder<?, ?>>
 
     PointDescrBuilder<P> name(ConstraintType constraintType, String name);
 
-    PointDescrBuilder<P> name(ConstraintType constraintType, String name, String bindName);
+    PointDescrBuilder<P> name(ConstraintType constraintType, String name, BindName bindName);
 
-    PointDescrBuilder<P> bindName(String bindName);
+    PointDescrBuilder<P> bindName(BindName bindName);
 
     PointDescrBuilder<P> score(ConstraintType constraintType, double score);
 
     PointDescrBuilder<P> score(ConstraintType constraintType, String globalName);
 
-    PointDescrBuilder<P> score(ConstraintType constraintType, double score, String bindName);
+    PointDescrBuilder<P> score(ConstraintType constraintType, double score, BindName bindName);
 
-    PointDescrBuilder<P> bindScore(String bindName);
+    PointDescrBuilder<P> bindScore(BindName bindName);
 
 }

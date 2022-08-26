@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.Game;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.builders.lhs.GameDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
 import org.drools.compiler.lang.api.DescrBuilder;
@@ -17,13 +18,13 @@ public class GameDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected GameDescrBuilderImpl(P parent, String bindName) {
+    protected GameDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
-    public GameDescrBuilder<P> bindId(String bindName) {
+    public GameDescrBuilder<P> bindId(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, ID, bindName);
         return this;
     }

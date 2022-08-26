@@ -1,10 +1,12 @@
 package it.univaq.gamification.dsl.builders.lhs;
 
+import it.univaq.gamification.dsl.utils.BindName;
+
 public interface GamificationBaseDescrBuilder<P> {
 
-    P bind(String bindName, String value);
+    P bind(BindName bindName, String value);
 
-    <T> P declare(String bindName, T value);
+    <T> P declare(BindName bindName, T value);
 
     P constraint(String constraint);
 

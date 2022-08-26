@@ -1,5 +1,6 @@
 package it.univaq.gamification.dsl.builders.impl.rhs;
 
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.builders.rhs.ConsequenceBuilder;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -44,9 +45,9 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     }
 
     @Override
-    public ConsequenceBuilder<P> addBadge(String badgeCollectionRef, String badge) {
+    public ConsequenceBuilder<P> addBadge(BindName badgeCollectionRef, String badge) {
         VelocityContext velocityContext = new VelocityContext();
-        velocityContext.put("badgeCollection", badgeCollectionRef);
+        velocityContext.put("badgeCollection", badgeCollectionRef.getValue());
         velocityContext.put("badge", badge);
 
         this.addConsequence(ADD_BADGE_TEMPLATE, velocityContext);
@@ -55,11 +56,11 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     }
 
     @Override
-    public ConsequenceBuilder<P> addBadgeWithNotification(String badgeCollectionRef, String gameIdRef, String teamIdRef, String badge) {
+    public ConsequenceBuilder<P> addBadgeWithNotification(BindName badgeCollectionRef, BindName gameIdRef, BindName teamIdRef, String badge) {
         VelocityContext velocityContext = new VelocityContext();
-        velocityContext.put("badgeCollection", badgeCollectionRef);
-        velocityContext.put("gameId", gameIdRef);
-        velocityContext.put("teamId", teamIdRef);
+        velocityContext.put("badgeCollection", badgeCollectionRef.getValue());
+        velocityContext.put("gameId", gameIdRef.getValue());
+        velocityContext.put("teamId", teamIdRef.getValue());
         velocityContext.put("badge", badge);
 
         this.addConsequence(ADD_BADGE_TEMPLATE, velocityContext);
@@ -68,11 +69,11 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     }
 
     @Override
-    public ConsequenceBuilder<P> levelError(String errorScoreRef, String errorsRef, String customDataRef, String level) {
+    public ConsequenceBuilder<P> levelError(BindName errorScoreRef, BindName errorsRef, BindName customDataRef, String level) {
         VelocityContext velocityContext = new VelocityContext();
-        velocityContext.put("errorsScore", errorScoreRef);
-        velocityContext.put("errors", errorsRef);
-        velocityContext.put("customData", customDataRef);
+        velocityContext.put("errorsScore", errorScoreRef.getValue());
+        velocityContext.put("errors", errorsRef.getValue());
+        velocityContext.put("customData", customDataRef.getValue());
         velocityContext.put("level", level);
 
         this.addConsequence(LEVEL_ERROR, velocityContext);

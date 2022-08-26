@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.Player;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.lhs.PlayerDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
@@ -19,9 +20,9 @@ public class PlayerDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected PlayerDescrBuilderImpl(P parent, String bindName) {
+    protected PlayerDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
@@ -31,13 +32,13 @@ public class PlayerDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public PlayerDescrBuilder<P> bindId(String bindName) {
+    public PlayerDescrBuilder<P> bindId(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, ID, bindName);
         return this;
     }
 
     @Override
-    public PlayerDescrBuilder<P> bindTeam(String bindName) {
+    public PlayerDescrBuilder<P> bindTeam(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, TEAM, bindName);
         return this;
     }

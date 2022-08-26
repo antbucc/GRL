@@ -1,14 +1,16 @@
 package it.univaq.gamification.dsl.builders.rhs;
 
+import it.univaq.gamification.dsl.utils.BindName;
+
 public interface ConsequenceBuilder<P> {
 
     StringBuilder getConsequence();
 
-    ConsequenceBuilder<P> addBadge(String badgeCollectionRef, String badge);
+    ConsequenceBuilder<P> addBadge(BindName badgeCollectionRef, String badge);
 
-    ConsequenceBuilder<P> addBadgeWithNotification(String badgeCollectionRef, String gameIdRef, String teamIdRef, String badge);
+    ConsequenceBuilder<P> addBadgeWithNotification(BindName badgeCollectionRef, BindName gameIdRef, BindName teamIdRef, String badge);
 
-    ConsequenceBuilder<P> levelError(String errorScoreRef, String errorsRef, String customDataRef, String level);
+    ConsequenceBuilder<P> levelError(BindName errorScoreRef, BindName errorsRef, BindName customDataRef, String level);
 
     P end();
 

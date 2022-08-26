@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.Reward;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.lhs.RewardDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
@@ -21,9 +22,9 @@ public class RewardDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected RewardDescrBuilderImpl(P parent, String bindName) {
+    protected RewardDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
     @Override
@@ -33,13 +34,13 @@ public class RewardDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public RewardDescrBuilder<P> percentage(ConstraintType constraintType, String percentage, String bindName) {
+    public RewardDescrBuilder<P> percentage(ConstraintType constraintType, String percentage, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, PERCENTAGE, percentage, bindName, false);
         return this;
     }
 
     @Override
-    public RewardDescrBuilder<P> bindPercentage(String bindName) {
+    public RewardDescrBuilder<P> bindPercentage(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, PERCENTAGE, bindName);
         return this;
     }
@@ -51,25 +52,25 @@ public class RewardDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public RewardDescrBuilder<P> threshold(ConstraintType constraintType, String threshold, String bindName) {
+    public RewardDescrBuilder<P> threshold(ConstraintType constraintType, String threshold, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, THRESHOLD, threshold, bindName, false);
         return this;
     }
 
     @Override
-    public RewardDescrBuilder<P> bindThreshold(String bindName) {
+    public RewardDescrBuilder<P> bindThreshold(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, THRESHOLD, bindName);
         return this;
     }
 
     @Override
-    public RewardDescrBuilder<P> bindCalculationPointConcept(String bindName) {
+    public RewardDescrBuilder<P> bindCalculationPointConcept(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, CALCULATION_POINT_CONCEPT, bindName);
         return this;
     }
 
     @Override
-    public RewardDescrBuilder<P> bindTargetPointConcept(String bindName) {
+    public RewardDescrBuilder<P> bindTargetPointConcept(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, TARGET_POINT_CONCEPT, bindName);
         return this;
     }

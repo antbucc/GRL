@@ -14,7 +14,7 @@ public class ConstraintHelper {
         descr.addConstraint(exprConstraint);
     }
 
-    public static <T> void addConstraint(PatternDescr descr, ConstraintType constraintType, String field, T value, String bindName, Boolean quoted) {
+    public static <T> void addConstraint(PatternDescr descr, ConstraintType constraintType, String field, T value, BindName bindName, Boolean quoted) {
         String fieldToInterpolate = field;
         String valueToInterpolate;
 
@@ -26,21 +26,21 @@ public class ConstraintHelper {
 
         // Checking if a binding is needed
         if (bindName != null) {
-            fieldToInterpolate = bindName + ": " + field;
+            fieldToInterpolate = bindName.getValue() + ": " + field;
         }
 
         String constraint = fieldToInterpolate + " " + constraintType.getValue() + " " + valueToInterpolate;
         ConstraintHelper.addConstraint(descr, constraint);
     }
 
-    public static void addBindConstraint(PatternDescr descr, String field, String bindName) {
-        BindingDescr bindingConstraint = new BindingDescr(bindName, field, false);
+    public static void addBindConstraint(PatternDescr descr, String field, BindName bindName) {
+        BindingDescr bindingConstraint = new BindingDescr(bindName.getValue(), field, false);
         bindingConstraint.setResource(descr.getResource());
         descr.addConstraint(bindingConstraint);
     }
 
-    public static <T> void addDeclareConstraint(PatternDescr descr, T field, String bindName) {
-        ConstraintHelper.addConstraint(descr, bindName + ": " + (field instanceof String ? "\"" + field + "\"" : field));
+    public static <T> void addDeclareConstraint(PatternDescr descr, T field, BindName bindName) {
+        ConstraintHelper.addConstraint(descr, bindName.getValue() + ": " + (field instanceof String ? "\"" + field + "\"" : field));
     }
 
 }

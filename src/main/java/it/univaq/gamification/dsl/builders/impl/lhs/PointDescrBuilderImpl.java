@@ -1,6 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
 import eu.trentorise.game.model.PointConcept;
+import it.univaq.gamification.dsl.utils.BindName;
 import it.univaq.gamification.dsl.utils.ConstraintType;
 import it.univaq.gamification.dsl.builders.lhs.PointDescrBuilder;
 import it.univaq.gamification.dsl.utils.ConstraintHelper;
@@ -19,9 +20,9 @@ public class PointDescrBuilderImpl<P extends DescrBuilder<?, ?>>
         this.parent = parent;
     }
 
-    protected PointDescrBuilderImpl(P parent, String bindName) {
+    protected PointDescrBuilderImpl(P parent, BindName bindName) {
         this(parent);
-        this.descr.setIdentifier(bindName);
+        this.descr.setIdentifier(bindName.getValue());
     }
 
 
@@ -32,13 +33,13 @@ public class PointDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public PointDescrBuilder<P> name(ConstraintType constraintType, String name, String bindName) {
+    public PointDescrBuilder<P> name(ConstraintType constraintType, String name, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, NAME, name, bindName, true);
         return this;
     }
 
     @Override
-    public PointDescrBuilder<P> bindName(String bindName) {
+    public PointDescrBuilder<P> bindName(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, NAME, bindName);
         return this;
     }
@@ -56,13 +57,13 @@ public class PointDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
-    public PointDescrBuilder<P> score(ConstraintType constraintType, double score, String bindName) {
+    public PointDescrBuilder<P> score(ConstraintType constraintType, double score, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, SCORE, score, bindName, false);
         return this;
     }
 
     @Override
-    public PointDescrBuilder<P> bindScore(String bindName) {
+    public PointDescrBuilder<P> bindScore(BindName bindName) {
         ConstraintHelper.addBindConstraint(this.descr, SCORE, bindName);
         return this;
     }
