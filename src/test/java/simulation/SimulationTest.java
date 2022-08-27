@@ -7,7 +7,7 @@ import eu.trentorise.game.model.Player;
 import eu.trentorise.game.model.PointConcept;
 import it.univaq.gamification.simulation.builders.impl.SimulationBuilderImpl;
 import it.univaq.gamification.simulation.builders.impl.fact.*;
-import it.univaq.gamification.simulation.utils.CheckExpectationLambda;
+import it.univaq.gamification.simulation.builders.CheckExpectationLambda;
 import org.drools.compiler.lang.descr.PackageDescr;
 import org.junit.Assert;
 import org.junit.Test;

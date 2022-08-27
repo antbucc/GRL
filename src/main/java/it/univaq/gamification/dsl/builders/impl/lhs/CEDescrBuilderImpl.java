@@ -1,6 +1,6 @@
 package it.univaq.gamification.dsl.builders.impl.lhs;
 
-import it.univaq.gamification.dsl.utils.BindName;
+import it.univaq.gamification.dsl.BindName;
 import it.univaq.gamification.dsl.builders.lhs.*;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;

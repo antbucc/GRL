@@ -1,4 +1,4 @@
-package it.univaq.gamification.dsl.utils;
+package it.univaq.gamification.dsl;
 
 import org.drools.compiler.lang.descr.BindingDescr;
 import org.drools.compiler.lang.descr.ExprConstraintDescr;

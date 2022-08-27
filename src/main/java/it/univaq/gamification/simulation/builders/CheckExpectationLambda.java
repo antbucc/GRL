@@ -1,4 +1,4 @@
-package it.univaq.gamification.simulation.utils;
+package it.univaq.gamification.simulation.builders;
 
 @FunctionalInterface
 public interface CheckExpectationLambda {

@@ -1,6 +1,6 @@
 package it.univaq.gamification.dsl.builders.rhs;
 
-import it.univaq.gamification.dsl.utils.BindName;
+import it.univaq.gamification.dsl.BindName;
 
 public interface ConsequenceBuilder<P> {
 

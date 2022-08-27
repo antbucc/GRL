@@ -1,11 +1,11 @@
 package dsl;
 
-import it.univaq.gamification.dsl.utils.BindName;
+import it.univaq.gamification.dsl.BindName;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import org.drools.compiler.lang.descr.PackageDescr;
 
-import static it.univaq.gamification.dsl.utils.ConstraintType.EQ;
-import static it.univaq.gamification.dsl.utils.ConstraintType.GTE;
+import static it.univaq.gamification.dsl.ConstraintType.EQ;
+import static it.univaq.gamification.dsl.ConstraintType.GTE;
 
 public class Rules {
 

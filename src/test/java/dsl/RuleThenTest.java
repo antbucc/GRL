@@ -1,6 +1,6 @@
 package dsl;
 
-import it.univaq.gamification.dsl.utils.BindName;
+import it.univaq.gamification.dsl.BindName;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import it.univaq.gamification.utils.DrlDumper;
 import org.drools.compiler.lang.descr.PackageDescr;

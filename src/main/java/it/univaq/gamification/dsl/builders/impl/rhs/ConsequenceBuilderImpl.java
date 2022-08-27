@@ -1,6 +1,6 @@
 package it.univaq.gamification.dsl.builders.impl.rhs;
 
-import it.univaq.gamification.dsl.utils.BindName;
+import it.univaq.gamification.dsl.BindName;
 import it.univaq.gamification.dsl.builders.rhs.ConsequenceBuilder;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
