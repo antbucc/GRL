@@ -17,7 +17,7 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     private VelocityEngine velocityEngine;
 
     private final String ADD_BADGE_TEMPLATE = "/templates/addBadge.vm";
-    private final String LEVEL_ERROR = "/templates/levelError.vm";
+    private final String GAIN_LEVEL = "/templates/gainLevel.vm";
 
     public ConsequenceBuilderImpl(P parent) {
         this.parent = parent;
@@ -69,14 +69,14 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     }
 
     @Override
-    public ConsequenceBuilder<P> levelError(BindName errorScoreRef, BindName errorsRef, BindName customDataRef, String level) {
+    public ConsequenceBuilder<P> gainLevel(BindName errorScoreRef, BindName errorsRef, BindName customDataRef, String level) {
         VelocityContext velocityContext = new VelocityContext();
         velocityContext.put("errorsScore", errorScoreRef.getValue());
         velocityContext.put("errors", errorsRef.getValue());
         velocityContext.put("customData", customDataRef.getValue());
         velocityContext.put("level", level);
 
-        this.addConsequence(LEVEL_ERROR, velocityContext);
+        this.addConsequence(GAIN_LEVEL, velocityContext);
 
         return this;
     }

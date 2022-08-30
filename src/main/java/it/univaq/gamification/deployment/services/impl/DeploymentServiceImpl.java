@@ -176,7 +176,7 @@ public class DeploymentServiceImpl implements DeploymentService {
         final DrlDumper drlDumper = new DrlDumper();
 
         for (PackageDescr packageDescr : packageDescrs) {
-            // The gamification engine accepts a single rule as
+            // The gamification engine accepts a single rule as input
             RuleDescr ruleDescr = packageDescr.getRules().get(0);
             String ruleId = ruleNameIdMapping.get(ruleDescr.getName());
             String ruleDRL = drlDumper.dump(packageDescr);
@@ -194,7 +194,7 @@ public class DeploymentServiceImpl implements DeploymentService {
         Map<String, String> ruleNameIdMapping = getRuleNameIdMapping(gameId);
 
         for (PackageDescr packageDescr : packageDescrs) {
-            // The gamification engine accepts a single rule as
+            // The gamification engine accepts a single rule as input
             RuleDescr ruleDescr = packageDescr.getRules().get(0);
             String ruleId = ruleNameIdMapping.get(ruleDescr.getName());
 
@@ -203,7 +203,6 @@ public class DeploymentServiceImpl implements DeploymentService {
             } else {
                 deleteRule(gameId, ruleId);
             }
-
         }
     }
 

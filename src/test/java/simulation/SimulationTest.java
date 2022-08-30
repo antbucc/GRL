@@ -26,11 +26,15 @@ public class SimulationTest {
         // Rules
         PackageDescr addBadgeRule = Rules.getAddBadgeRule();
         // Expectations
+        CheckExpectationLambda doesNotHaveVeronaBadge = () -> Assert.assertFalse(badgeCollectionFact.getBadgeEarned().contains("Verona"));
         CheckExpectationLambda hasVeronaBadge = () -> Assert.assertTrue(badgeCollectionFact.getBadgeEarned().contains("Verona"));
 
         new SimulationBuilderImpl()
-                .addFacts(pointFact, badgeCollectionFact, gameFact, playerFact)
+                .addFacts(pointFact, badgeCollectionFact, gameFact)
                 .addRules(addBadgeRule)
+                .addExpectations(doesNotHaveVeronaBadge)
+                .simulate()
+                .addFacts(playerFact)
                 .addExpectations(hasVeronaBadge)
                 .simulate();
     }
@@ -49,11 +53,15 @@ public class SimulationTest {
         // Rules
         PackageDescr addBadgeRule = Rules.getAddBadgeRule();
         // Expectations
+        CheckExpectationLambda doesNotHaveVeronaBadge = () -> Assert.assertFalse(badgeCollectionFact.getBadgeEarned().contains("Verona"));
         CheckExpectationLambda hasVeronaBadge = () -> Assert.assertTrue(badgeCollectionFact.getBadgeEarned().contains("Verona"));
 
         new SimulationBuilderImpl()
-                .addFacts(pointFact, badgeCollectionFact, gameFact, playerFact)
+                .addFacts(pointFact, badgeCollectionFact, gameFact)
                 .addRules(addBadgeRule)
+                .addExpectations(doesNotHaveVeronaBadge)
+                .simulate()
+                .addFacts(playerFact)
                 .addExpectations(hasVeronaBadge)
                 .simulate();
     }

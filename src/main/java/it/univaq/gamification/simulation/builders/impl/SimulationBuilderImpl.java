@@ -68,7 +68,9 @@ public class SimulationBuilderImpl implements SimulationBuilder {
         knowledgeBase.addPackages(knowledgeBuilder.getKnowledgePackages());
         kieSession.fireAllRules();
         this.expectations.forEach(CheckExpectationLambda::check);
-        // TODO: Remove all expectations and rules in order to run other tests
+        // Remove all expectations
+        this.expectations.clear();
+        // TODO: Remove rules in order to run other tests (?)
         // TODO: assert knowledgeBuilder.getErrors()
         return this;
     }

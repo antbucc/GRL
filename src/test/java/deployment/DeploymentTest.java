@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class TestDeployment {
+public class DeploymentTest {
 
     @Test
     public void UpsertRule() throws IOException {

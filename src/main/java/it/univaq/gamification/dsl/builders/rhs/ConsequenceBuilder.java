@@ -10,7 +10,7 @@ public interface ConsequenceBuilder<P> {
 
     ConsequenceBuilder<P> addBadgeWithNotification(BindName badgeCollectionRef, BindName gameIdRef, BindName teamIdRef, String badge);
 
-    ConsequenceBuilder<P> levelError(BindName errorScoreRef, BindName errorsRef, BindName customDataRef, String level);
+    ConsequenceBuilder<P> gainLevel(BindName errorScoreRef, BindName errorsRef, BindName customDataRef, String level);
 
     P end();
 
