@@ -2,9 +2,9 @@ package dsl;
 
 import it.univaq.gamification.dsl.BindName;
 import it.univaq.gamification.dsl.ConstraintType;
+import it.univaq.gamification.dsl.PackageDescr;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import it.univaq.gamification.utils.DrlDumper;
-import org.drools.compiler.lang.descr.PackageDescr;
 import org.drools.core.io.impl.ByteArrayResource;
 import org.drools.verifier.Verifier;
 import org.drools.verifier.VerifierError;
@@ -37,7 +37,7 @@ public class RuleWhenTest {
 
 
     @Test
-    public void TestInputData() {
+    public void testInputData() {
         pkg = new PackageDescrBuilderImpl()
                 .name("it.gamification.something")
                 .newRule()
@@ -57,7 +57,7 @@ public class RuleWhenTest {
     }
 
     @Test
-    public void TestBadgeCollection() {
+    public void testBadgeCollection() {
         pkg = new PackageDescrBuilderImpl()
                 .name("it.gamification.something")
                 .newRule()
@@ -76,7 +76,7 @@ public class RuleWhenTest {
     }
 
     @Test
-    public void TestChallenge() {
+    public void testChallenge() {
         pkg = new PackageDescrBuilderImpl()
                 .name("it.gamification.something")
                 .newRule()
@@ -103,7 +103,7 @@ public class RuleWhenTest {
     }
 
     @Test
-    public void TestSimpleRuleGeneration() {
+    public void testSimpleRuleGeneration() {
          pkg = new PackageDescrBuilderImpl()
                 .name("it.gamification.something")
                 .newRule()
@@ -123,7 +123,7 @@ public class RuleWhenTest {
     }
 
     @Test
-    public void TestRuleGeneration() {
+    public void testRuleGeneration() {
         pkg = new PackageDescrBuilderImpl()
                 .name("it.gamification.something")
                 .newRule()
@@ -152,7 +152,7 @@ public class RuleWhenTest {
     }
 
     @Test
-    public void TestRealRuleWhen() {
+    public void testRealRuleWhen() {
         pkg = new PackageDescrBuilderImpl()
                 .name("it.gamification.something")
                 .newRule()
@@ -175,7 +175,7 @@ public class RuleWhenTest {
     }
 
     @Test
-    public void TestRealRule2When() {
+    public void testRealRule2When() {
         pkg = new PackageDescrBuilderImpl()
                 .name("it.gamification.something")
                 .newRule()

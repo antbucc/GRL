@@ -4,13 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import it.univaq.gamification.deployment.model.GameRule;
 import it.univaq.gamification.deployment.services.DeploymentService;
 import it.univaq.gamification.deployment.services.http.HttpClient;
+import it.univaq.gamification.dsl.PackageDescr;
 import it.univaq.gamification.utils.DrlDumper;
 import lombok.Builder;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.drools.compiler.lang.descr.PackageDescr;
 import org.drools.compiler.lang.descr.RuleDescr;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -63,17 +63,17 @@ public class DeploymentServiceImpl implements DeploymentService {
                 .get()
                 .build();
 
-        logger.info("Retrieving rules of game with ID {}...", gameId);
+        logger.info("PENDING - Retrieving rules of game with ID {}...", gameId);
 
         try (Response response = HttpClient.getInstance().newCall(getGames).execute()) {
             if (response.isSuccessful()) {
-                logger.info("Rules of game {} retrieved", gameId);
+                logger.info("SUCCESS - Rules of game {} retrieved", gameId);
                 gameRules = Arrays.asList(new ObjectMapper().readValue(Objects.requireNonNull(response.body()).string(), GameRule[].class));
             } else {
-                logger.error("Error while retrieving the rules:\n{}", Objects.requireNonNull(response.body()).string());
+                logger.error("ERROR - Error while retrieving the rules:\n{}", Objects.requireNonNull(response.body()).string());
             }
         } catch (IOException e) {
-            logger.error("An error occurred:\n{}", e.getMessage());
+            logger.error("ERROR - An error occurred:\n{}", e.getMessage());
             throw e;
         }
 
@@ -104,16 +104,16 @@ public class DeploymentServiceImpl implements DeploymentService {
                 .post(RequestBody.create(payload, jsonMediaType))
                 .build();
 
-        logger.info("Adding rule \"{}\" to game with ID {}...", ruleName, gameId);
+        logger.info("PENDING - Adding rule \"{}\" to game with ID {}...", ruleName, gameId);
 
         try (Response response = HttpClient.getInstance().newCall(request).execute()) {
             if (response.isSuccessful()) {
-                logger.info("Rule \"{}\" added to game with ID {}", ruleName, gameId);
+                logger.info("SUCCESS - Rule \"{}\" added to game with ID {}", ruleName, gameId);
             } else {
-                logger.error("Error while adding the rule:\n{}", Objects.requireNonNull(response.body()).string());
+                logger.error("ERROR - Error while adding the rule:\n{}", Objects.requireNonNull(response.body()).string());
             }
         } catch (IOException e) {
-            logger.error("An error occurred:\n{}", e.getMessage());
+            logger.error("ERROR - An error occurred:\n{}", e.getMessage());
             throw e;
         }
     }
@@ -133,16 +133,16 @@ public class DeploymentServiceImpl implements DeploymentService {
                 .put(RequestBody.create(payload, jsonMediaType))
                 .build();
 
-        logger.info("Editing rule \"{}\" (ID: {}) to game with ID {}...", ruleName, ruleId, gameId);
+        logger.info("PENDING - Editing rule \"{}\" (ID: {}) to game with ID {}...", ruleName, ruleId, gameId);
 
         try (Response response = HttpClient.getInstance().newCall(request).execute()) {
             if (response.isSuccessful()) {
-                logger.info("Rule \"{}\" (ID: {}) edited at game with ID {}", ruleName, ruleId, gameId);
+                logger.info("SUCCESS - Rule \"{}\" (ID: {}) edited at game with ID {}", ruleName, ruleId, gameId);
             } else {
-                logger.error("Error while editing the rule: \n{}", Objects.requireNonNull(response.body()).string());
+                logger.error("ERROR - Error while editing the rule: \n{}", Objects.requireNonNull(response.body()).string());
             }
         } catch (IOException e) {
-            logger.error("An error occurred:\n{}", e.getMessage());
+            logger.error("ERROR - An error occurred:\n{}", e.getMessage());
             throw e;
         }
     }
@@ -156,16 +156,16 @@ public class DeploymentServiceImpl implements DeploymentService {
                 .delete()
                 .build();
 
-        logger.info("Deleting rule with ID {} to game with ID {}...", ruleId, gameId);
+        logger.info("PENDING - Deleting rule with ID {} to game with ID {}...", ruleId, gameId);
 
         try (Response response = HttpClient.getInstance().newCall(request).execute()) {
             if (response.isSuccessful()) {
-                logger.info("Rule with ID {} deleted at game with ID {}", ruleId, gameId);
+                logger.info("SUCCESS - Rule with ID {} deleted at game with ID {}", ruleId, gameId);
             } else {
-                logger.error("Error while deleting the rule: \n{}", Objects.requireNonNull(response.body()).string());
+                logger.error("ERROR - Error while deleting the rule: \n{}", Objects.requireNonNull(response.body()).string());
             }
         } catch (IOException e) {
-            logger.error("An error occurred:\n{}", e.getMessage());
+            logger.error("ERROR - An error occurred:\n{}", e.getMessage());
             throw e;
         }
     }
@@ -199,7 +199,7 @@ public class DeploymentServiceImpl implements DeploymentService {
             String ruleId = ruleNameIdMapping.get(ruleDescr.getName());
 
             if (ruleId == null) {
-                logger.warn("The rule with \"{}\" does not exist for game with ID {}", ruleDescr.getName(), gameId);
+                logger.warn("WARNING - The rule with \"{}\" does not exist for game with ID {}", ruleDescr.getName(), gameId);
             } else {
                 deleteRule(gameId, ruleId);
             }

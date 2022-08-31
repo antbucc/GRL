@@ -4,13 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="Add deployment handling">
+    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamification.all.log.2022-08-21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/deployment/services/DeploymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/deployment/services/DeploymentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/deployment/services/impl/DeploymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/deployment/services/impl/DeploymentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/rhs/ConsequenceBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/rhs/ConsequenceBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/PackageDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/PackageDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PackageDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PackageDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/SimulationBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/SimulationBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/levelError.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/gainLevel.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/deployment/TestDeployment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/deployment/DeploymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/utils/DrlDumper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/utils/DrlDumper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/deployment/DeploymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/deployment/DeploymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleWhenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleWhenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/simulation/SimulationBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/simulation/SimulationBuilderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,51 +98,66 @@
       <command value="mvn clean install -D" />
       <command value="mvn install" />
       <command value="mvn dependency:purge-local-repository" />
+      <command value="mvn package" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.SimulationTest">
-    <configuration name="DeploymentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="deployment.*" />
+          <option name="PATTERN" value="dsl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="deployment" />
-      <option name="MAIN_CLASS_NAME" value="deployment.DeploymentTest" />
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeploymentTest.UpsertRule" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleThenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="deployment.*" />
+          <option name="PATTERN" value="dsl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="deployment" />
-      <option name="MAIN_CLASS_NAME" value="deployment.DeploymentTest" />
-      <option name="METHOD_NAME" value="UpsertRule" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleThenTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeploymentTest.deleteRule" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleWhenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="deployment.*" />
+          <option name="PATTERN" value="dsl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="deployment" />
-      <option name="MAIN_CLASS_NAME" value="deployment.DeploymentTest" />
-      <option name="METHOD_NAME" value="deleteRule" />
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleWhenTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulationBuilderTest.testBuilders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simulation" />
+      <option name="MAIN_CLASS_NAME" value="simulation.SimulationBuilderTest" />
+      <option name="METHOD_NAME" value="testBuilders" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -155,36 +178,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SimulationTest.TestSimulationWithFactBuilders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="simulation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="simulation" />
-      <option name="MAIN_CLASS_NAME" value="simulation.SimulationTest" />
-      <option name="METHOD_NAME" value="TestSimulationWithFactBuilders" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
+      <item itemvalue="JUnit.RuleTest" />
+      <item itemvalue="JUnit.RuleThenTest" />
+      <item itemvalue="JUnit.RuleWhenTest" />
+      <item itemvalue="JUnit.SimulationBuilderTest.testBuilders" />
       <item itemvalue="JUnit.SimulationTest" />
-      <item itemvalue="JUnit.SimulationTest.TestSimulationWithFactBuilders" />
-      <item itemvalue="JUnit.DeploymentTest" />
-      <item itemvalue="JUnit.DeploymentTest.UpsertRule" />
-      <item itemvalue="JUnit.DeploymentTest.deleteRule" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.SimulationTest" />
-        <item itemvalue="JUnit.SimulationTest.TestSimulationWithFactBuilders" />
-        <item itemvalue="JUnit.DeploymentTest.UpsertRule" />
-        <item itemvalue="JUnit.DeploymentTest" />
-        <item itemvalue="JUnit.DeploymentTest.deleteRule" />
+        <item itemvalue="JUnit.SimulationBuilderTest.testBuilders" />
+        <item itemvalue="JUnit.RuleWhenTest" />
+        <item itemvalue="JUnit.RuleThenTest" />
+        <item itemvalue="JUnit.RuleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -259,6 +266,8 @@
       <workItem from="1661582165088" duration="9331000" />
       <workItem from="1661612708622" duration="2782000" />
       <workItem from="1661767725854" duration="11000" />
+      <workItem from="1661892391456" duration="1845000" />
+      <workItem from="1661972885921" duration="4194000" />
     </task>
     <task id="LOCAL-00001" summary="From executable model generation to DRL generation">
       <created>1660230104764</created>
@@ -414,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661591856106</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Deployment improvements">
+      <created>1661892578638</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1661892578638</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +472,8 @@
     <MESSAGE value="Add levelError template and minor changes" />
     <MESSAGE value="Add BindName to reduce possible errors" />
     <MESSAGE value="Add deployment handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add deployment handling" />
+    <MESSAGE value="Deployment improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deployment improvements" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

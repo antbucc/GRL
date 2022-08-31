@@ -1,5 +1,6 @@
 package it.univaq.gamification.dsl.builders.impl;
 
+import it.univaq.gamification.dsl.PackageDescr;
 import it.univaq.gamification.dsl.builders.GlobalDescrBuilder;
 import it.univaq.gamification.dsl.builders.ImportDescrBuilder;
 import it.univaq.gamification.dsl.builders.PackageDescrBuilder;
@@ -7,7 +8,6 @@ import it.univaq.gamification.dsl.builders.RuleDescrBuilder;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.BaseDescr;
-import org.drools.compiler.lang.descr.PackageDescr;
 
 public class PackageDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBuilder, PackageDescr> implements PackageDescrBuilder {
 

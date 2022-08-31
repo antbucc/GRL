@@ -1,7 +1,7 @@
 package it.univaq.gamification.simulation.builders;
 
 
-import org.drools.compiler.lang.descr.PackageDescr;
+import it.univaq.gamification.dsl.PackageDescr;
 
 public interface SimulationBuilder {
 

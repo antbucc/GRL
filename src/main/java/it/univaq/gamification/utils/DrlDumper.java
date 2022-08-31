@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import it.univaq.gamification.dsl.PackageDescr;
 import org.drools.compiler.lang.MVELDumper;
-import org.drools.compiler.lang.descr.PackageDescr;
 import org.mvel2.integration.impl.MapVariableResolverFactory;
 import org.mvel2.optimizers.OptimizerFactory;
 import org.mvel2.templates.SimpleTemplateRegistry;

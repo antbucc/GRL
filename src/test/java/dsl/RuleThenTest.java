@@ -1,9 +1,9 @@
 package dsl;
 
 import it.univaq.gamification.dsl.BindName;
+import it.univaq.gamification.dsl.PackageDescr;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import it.univaq.gamification.utils.DrlDumper;
-import org.drools.compiler.lang.descr.PackageDescr;
 import org.junit.Test;
 
 public class RuleThenTest {
@@ -11,7 +11,7 @@ public class RuleThenTest {
     PackageDescr pkg;
 
     @Test
-    public void TestAddBadge() {
+    public void testAddBadge() {
         pkg = new PackageDescrBuilderImpl()
                 .name("it.gamification.something")
                 .newRule()

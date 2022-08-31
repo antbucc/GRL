@@ -5,10 +5,10 @@ import eu.trentorise.game.model.BadgeCollectionConcept;
 import eu.trentorise.game.model.Game;
 import eu.trentorise.game.model.Player;
 import eu.trentorise.game.model.PointConcept;
+import it.univaq.gamification.dsl.PackageDescr;
 import it.univaq.gamification.simulation.builders.impl.SimulationBuilderImpl;
 import it.univaq.gamification.simulation.builders.impl.fact.*;
 import it.univaq.gamification.simulation.builders.CheckExpectationLambda;
-import org.drools.compiler.lang.descr.PackageDescr;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class SimulationTest {
 
     @Test
-    public void TestSimulationWithFactBuilders() {
+    public void testSimulationWithFactBuilders() {
         // Facts
         PointFactBuilderImpl pointFact = PointFactBuilderImpl.builder().name("total_distance").score(1000.0).build();
         BadgeCollectionFactBuilderImpl badgeCollectionFact = BadgeCollectionFactBuilderImpl.builder().name("silver_collection").build();
@@ -40,7 +40,7 @@ public class SimulationTest {
     }
 
     @Test
-    public void TestSimulationWithObjects() {
+    public void testSimulationWithObjects() {
         // Facts
         PointConcept pointFact = new PointConcept("total_distance");
         pointFact.setScore(1000.0);

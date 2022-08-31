@@ -1,8 +1,8 @@
 package it.univaq.gamification.dsl.builders;
 
 
+import it.univaq.gamification.dsl.PackageDescr;
 import org.drools.compiler.lang.api.DescrBuilder;
-import org.drools.compiler.lang.descr.PackageDescr;
 
 public interface PackageDescrBuilder extends DescrBuilder<PackageDescrBuilder, PackageDescr> {
 

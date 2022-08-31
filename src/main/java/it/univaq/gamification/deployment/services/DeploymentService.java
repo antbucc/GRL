@@ -1,6 +1,7 @@
 package it.univaq.gamification.deployment.services;
 
-import org.drools.compiler.lang.descr.PackageDescr;
+
+import it.univaq.gamification.dsl.PackageDescr;
 
 import java.io.IOException;
 

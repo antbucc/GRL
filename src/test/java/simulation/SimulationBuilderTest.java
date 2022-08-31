@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class SimulationBuilderTest {
 
     @Test
-    public void TestBuilders() {
+    public void testBuilders() {
         GameFactBuilderImpl.builder().id("1").build();
         ActionFactBuilderImpl.builder().id("run").build();
         BadgeCollectionFactBuilderImpl.builder().id("badgeCollection").badgeEarned(new ArrayList<>(Collections.singleton("badge1"))).build();

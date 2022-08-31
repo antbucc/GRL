@@ -1,10 +1,10 @@
 package it.univaq.gamification.simulation.builders.impl;
 
+import it.univaq.gamification.dsl.PackageDescr;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import it.univaq.gamification.simulation.builders.SimulationBuilder;
 import it.univaq.gamification.simulation.builders.CheckExpectationLambda;
 import it.univaq.gamification.utils.DrlDumper;
-import org.drools.compiler.lang.descr.PackageDescr;
 import org.drools.core.impl.InternalKnowledgeBase;
 import org.drools.core.impl.KnowledgeBaseFactory;
 import org.drools.core.io.impl.ByteArrayResource;
