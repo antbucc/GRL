@@ -1,6 +1,7 @@
 package it.univaq.gamification.simulation.builders.impl;
 
 import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.simulation.SimulationError;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import it.univaq.gamification.simulation.builders.SimulationBuilder;
 import it.univaq.gamification.simulation.builders.CheckExpectationLambda;
@@ -8,10 +9,14 @@ import it.univaq.gamification.utils.DrlDumper;
 import org.drools.core.impl.InternalKnowledgeBase;
 import org.drools.core.impl.KnowledgeBaseFactory;
 import org.drools.core.io.impl.ByteArrayResource;
+import org.drools.verifier.Verifier;
+import org.drools.verifier.builder.VerifierBuilderFactory;
 import org.kie.api.io.ResourceType;
 import org.kie.api.runtime.KieSession;
 import org.kie.internal.builder.KnowledgeBuilder;
 import org.kie.internal.builder.KnowledgeBuilderFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +24,8 @@ import java.util.List;
 
 public class SimulationBuilderImpl implements SimulationBuilder {
 
+    private final Logger logger = LoggerFactory.getLogger(SimulationBuilderImpl.class);
+    private final Verifier verifier;
     private final DrlDumper drlDumper;
     private final KnowledgeBuilder knowledgeBuilder;
     private final InternalKnowledgeBase knowledgeBase;
@@ -31,6 +38,18 @@ public class SimulationBuilderImpl implements SimulationBuilder {
         knowledgeBase = KnowledgeBaseFactory.newKnowledgeBase();
         kieSession = knowledgeBase.newKieSession();
         expectations = new ArrayList<>();
+        verifier = VerifierBuilderFactory.newVerifierBuilder().newVerifier();
+    }
+
+    private boolean verifyRule(ByteArrayResource ruleDrlByteArrayResource) {
+        verifier.addResourcesToVerify(ruleDrlByteArrayResource, ResourceType.DRL);
+
+        if (!verifier.getErrors().isEmpty()) {
+            verifier.getErrors().forEach(verifierError -> logger.error(verifierError.getMessage()));
+            throw new SimulationError("Error during rule validation process");
+        }
+
+        return true;
     }
 
     @Override
@@ -52,7 +71,12 @@ public class SimulationBuilderImpl implements SimulationBuilder {
     @Override
     public SimulationBuilder addRules(PackageDescr... packageDescrs) {
         for (PackageDescr packageDescr : packageDescrs) {
-            knowledgeBuilder.add(new ByteArrayResource(drlDumper.dump(packageDescr).getBytes()), ResourceType.DRL);
+            ByteArrayResource ruleDrlByteArrayResource = new ByteArrayResource(drlDumper.dump(packageDescr).getBytes());
+
+            if (this.verifyRule(ruleDrlByteArrayResource)) {
+                knowledgeBuilder.add(ruleDrlByteArrayResource, ResourceType.DRL);
+            }
+
         }
         return this;
     }
@@ -66,12 +90,22 @@ public class SimulationBuilderImpl implements SimulationBuilder {
     @Override
     public SimulationBuilder simulate() {
         knowledgeBase.addPackages(knowledgeBuilder.getKnowledgePackages());
-        kieSession.fireAllRules();
+        int firedRules = kieSession.fireAllRules();
+        logger.info("{} rules fired", firedRules);
+        // Check expectations
         this.expectations.forEach(CheckExpectationLambda::check);
+        logger.info("Expectations verified successfully");
         // Remove all expectations
         this.expectations.clear();
+        logger.info("Expectations cleared");
+
+        if (knowledgeBuilder.hasErrors()) {
+            knowledgeBuilder.getErrors().forEach(error -> logger.error(error.getMessage()));
+            logger.error("Aborting...");
+            throw new SimulationError("Error during simulation");
+        }
+
         // TODO: Remove rules in order to run other tests (?)
-        // TODO: assert knowledgeBuilder.getErrors()
         return this;
     }
 }

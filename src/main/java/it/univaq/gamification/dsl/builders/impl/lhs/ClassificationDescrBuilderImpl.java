@@ -14,6 +14,7 @@ public class ClassificationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
 
     private final String NAME = "name";
     private final String POSITION = "position";
+    private final String CLASSIFICATION_RUN_NUMBER = "classificationRunNumber";
     private final String SCORE = "score";
     private final String SCORE_TYPE = "scoreType";
 
@@ -54,6 +55,18 @@ public class ClassificationDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     @Override
     public ClassificationDescrBuilder<P> position(ConstraintType constraintType, Integer position, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, constraintType, POSITION, position, bindName, false);
+        return this;
+    }
+
+    @Override
+    public ClassificationDescrBuilder<P> classificationRunNumber(ConstraintType constraintType, Integer classificationRunNumber) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, CLASSIFICATION_RUN_NUMBER, classificationRunNumber, null, false);
+        return this;
+    }
+
+    @Override
+    public ClassificationDescrBuilder<P> bindClassificationRunNumber(ConstraintType constraintType, Integer classificationRunNumber, BindName bindName) {
+        ConstraintHelper.addConstraint(this.descr, constraintType, CLASSIFICATION_RUN_NUMBER, classificationRunNumber, bindName, false);
         return this;
     }
 

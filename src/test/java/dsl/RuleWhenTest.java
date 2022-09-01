@@ -35,7 +35,6 @@ public class RuleWhenTest {
         }
     }
 
-
     @Test
     public void testInputData() {
         pkg = new PackageDescrBuilderImpl()

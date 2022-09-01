@@ -15,11 +15,12 @@ public class Rules {
         final BindName GAME_ID_REF = new BindName("$gameId");
 
         return new PackageDescrBuilderImpl()
-                .name("dsl")
+                .name("eu.trentorise.game.model")
                 .newImport("eu.trentorise.game.model.PointConcept")
                 .newImport("eu.trentorise.game.model.BadgeCollectionConcept")
                 .newImport("eu.trentorise.game.model.Game")
                 .newImport("eu.trentorise.game.model.Player")
+                .newImport("eu.trentorise.game.notification.BadgeNotification")
                 .newRule()
                     .name("R-add-badge Verona")
                     .when()
@@ -44,7 +45,11 @@ public class Rules {
         final String GLOBAL_SCHOOL_NAME = "const_school_name";
 
         return new PackageDescrBuilderImpl()
-                .name("package_name")
+                .name("eu.trentorise.game.model")
+                .newImport("eu.trentorise.game.model.PointConcept")
+                .newImport("eu.trentorise.game.model.BadgeCollectionConcept")
+                .newImport("eu.trentorise.game.model.Game")
+                .newImport("eu.trentorise.game.model.Player")
                 .newImport("eu.trentorise.game.notification.BadgeNotification")
                 .newGlobal(Double.class.getSimpleName(), GLOBAL_VERONA_DISTANCE)
                 .newGlobal(String.class.getSimpleName(), GLOBAL_SCHOOL_NAME)

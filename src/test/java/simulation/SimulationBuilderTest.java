@@ -14,6 +14,7 @@ public class SimulationBuilderTest {
         GameFactBuilderImpl.builder().id("1").build();
         ActionFactBuilderImpl.builder().id("run").build();
         BadgeCollectionFactBuilderImpl.builder().id("badgeCollection").badgeEarned(new ArrayList<>(Collections.singleton("badge1"))).build();
+        ClassificationFactBuilderImpl.builder().name("classification").position(2).build();
         ChallengeFactBuilderImpl.builder().id("challenge").fields(new HashMap<>()).build();
         CustomDataFactBuilderImpl.builder().data(new HashMap<>()).build();
         InputDataFactBuilderImpl.builder().data(new HashMap<>()).build();

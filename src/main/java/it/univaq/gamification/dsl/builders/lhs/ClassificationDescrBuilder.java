@@ -18,6 +18,10 @@ public interface ClassificationDescrBuilder<P extends DescrBuilder<?, ?>>
 
     ClassificationDescrBuilder<P> position(ConstraintType constraintType, Integer position, BindName bindName);
 
+    ClassificationDescrBuilder<P> classificationRunNumber(ConstraintType constraintType, Integer classificationRunNumber);
+
+    ClassificationDescrBuilder<P> bindClassificationRunNumber(ConstraintType constraintType, Integer classificationRunNumber, BindName bindName);
+
     ClassificationDescrBuilder<P> bindPosition(BindName bindName);
 
     ClassificationDescrBuilder<P> score(ConstraintType constraintType, Double score);

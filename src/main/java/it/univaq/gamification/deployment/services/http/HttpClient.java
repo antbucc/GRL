@@ -7,10 +7,6 @@ public class HttpClient {
 
     private static OkHttpClient client;
 
-    private HttpClient() {
-        client = new OkHttpClient();
-    }
-
     public static OkHttpClient getInstance() {
         if (client == null) {
             client = new OkHttpClient();
