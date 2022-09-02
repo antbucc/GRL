@@ -8,9 +8,11 @@ public interface PackageDescrBuilder extends DescrBuilder<PackageDescrBuilder, P
 
     PackageDescrBuilder name(String name);
 
-    PackageDescrBuilder newImport(String target);
+    ImportDescrBuilder newImport(String target);
 
-    PackageDescrBuilder newGlobal(String type, String identifier);
+    GlobalDescrBuilder newGlobal(String type, String identifier);
+
+    DeclareDescrBuilder newDeclare();
 
     RuleDescrBuilder newRule();
 

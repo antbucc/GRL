@@ -195,4 +195,24 @@ public class RuleWhenTest {
         verifyRule(pkg);
     }
 
+    @Test
+    public void testDeclaration() {
+        pkg = new PackageDescrBuilderImpl()
+                .name("it.gamification.something")
+                .newDeclare()
+                    .type().name("PRItinerary")
+                    .newField("length").type(Double.class.getSimpleName()).end()
+                    .newField("name").type(String.class.getSimpleName()).end()
+                .end()
+                .newRule()
+                .name("real_rule2")
+                    .when()
+                        .action().id(ConstraintType.EQ, "taskCompleted").end()
+                    .end()
+                .end()
+                .getDescr();
+
+        verifyRule(pkg);
+    }
+
 }

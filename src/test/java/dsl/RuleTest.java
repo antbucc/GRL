@@ -34,8 +34,8 @@ public class RuleTest {
 
         PackageDescr pkg = new PackageDescrBuilderImpl()
                 .name("package eu.trentorise.game.model")
-                .newImport(BadgeNotification.class.getName())
-                .newImport(Classification.class.getName())
+                .newImport(BadgeNotification.class.getName()).end()
+                .newImport(Classification.class.getName()).end()
                 .newRule()
                     .name("final classification gold badge green d1")
                         .attribute("salience", "-1000")

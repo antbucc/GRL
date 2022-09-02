@@ -1,10 +1,7 @@
 package it.univaq.gamification.dsl.builders.impl;
 
 import it.univaq.gamification.dsl.PackageDescr;
-import it.univaq.gamification.dsl.builders.GlobalDescrBuilder;
-import it.univaq.gamification.dsl.builders.ImportDescrBuilder;
-import it.univaq.gamification.dsl.builders.PackageDescrBuilder;
-import it.univaq.gamification.dsl.builders.RuleDescrBuilder;
+import it.univaq.gamification.dsl.builders.*;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.BaseDescr;
@@ -28,17 +25,22 @@ public class PackageDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBu
     }
 
     @Override
-    public PackageDescrBuilder newImport(String target) {
-        ImportDescrBuilder impl = new ImportDescrBuilderImpl(this, target);
-        this.descr.addImport(initDescr(impl));
-        return this;
+    public ImportDescrBuilder newImport(String target) {
+        ImportDescrBuilder importz = new ImportDescrBuilderImpl(this, target);
+        this.descr.addImport(initDescr(importz));
+        return importz;
     }
 
     @Override
-    public PackageDescrBuilder newGlobal(String type, String identifier) {
+    public GlobalDescrBuilder newGlobal(String type, String identifier) {
         GlobalDescrBuilder global = new GlobalDescrBuilderImpl(this, type, identifier );
         this.descr.addGlobal(initDescr(global));
-        return this;
+        return global;
+    }
+
+    @Override
+    public DeclareDescrBuilder newDeclare() {
+        return new DeclareDescrBuilderImpl(this);
     }
 
     public RuleDescrBuilder newRule() {
