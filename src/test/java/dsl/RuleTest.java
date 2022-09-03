@@ -3,7 +3,6 @@ package dsl;
 import eu.trentorise.game.notification.BadgeNotification;
 import eu.trentorise.game.task.Classification;
 import it.univaq.gamification.dsl.BindName;
-import it.univaq.gamification.dsl.ConstraintType;
 import it.univaq.gamification.dsl.PackageDescr;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import it.univaq.gamification.utils.DrlDumper;
@@ -17,10 +16,10 @@ public class RuleTest {
 
     @Test
     public void testAddBadge() {
-        String expectedResult = "packagepackage_nameimporteu.trentorise.game.notification.BadgeNotificationglobalDoubleVerona_distanceglobalStringconst_school_namerule\"R-add-badgeVerona\"salience-1000whenPointConcept(name==\"total_distance\",score>=Verona_distance)$bc:BadgeCollectionConcept(name==\"silver_collection\",badgeEarnednotcontains\"Verona\")Game($gameId:id)Player($teamId:id,$teamId==const_school_name,team==true)then$bc.getBadgeEarned().add(\"Verona\");insert(newBadgeNotification($gameId,$teamId,$bc.getName(),\"Verona\"));update($bc);end";
+        String expectedResult = "package eu.trentorise.game.model import eu.trentorise.game.model.PointConceptimport eu.trentorise.game.model.BadgeCollectionConceptimport eu.trentorise.game.model.Gameimport eu.trentorise.game.model.Playerimport eu.trentorise.game.notification.BadgeNotificationglobal Double Verona_distanceglobal String const_school_namerule \"R-add-badge Verona\"    salience -1000when    PointConcept( name == \"total_distance\", score >= Verona_distance )      $bc : BadgeCollectionConcept( name == \"silver_collection\", badgeEarned not contains \"Verona\" )      Game( $gameId : id )      Player( $teamId : id, $teamId==const_school_name, team == true )  then    $bc.getBadgeEarned().add(\"Verona\");            insert(new BadgeNotification($gameId, $teamId, \"Verona\"));    update( $bc );end";
         String drl = new DrlDumper().dump(Rules.getAddBadgeRuleWithNotification());
         System.out.println(drl);
-        Assert.assertEquals(StringUtils.deleteWhitespace(drl), StringUtils.deleteWhitespace(expectedResult));
+        Assert.assertEquals(StringUtils.deleteWhitespace(expectedResult), StringUtils.deleteWhitespace(drl));
     }
 
     // Play and Go Ferrara tests
@@ -33,7 +32,7 @@ public class RuleTest {
         final BindName BADGE_COLLECTION_REF = new BindName("bc");
 
         PackageDescr pkg = new PackageDescrBuilderImpl()
-                .name("package eu.trentorise.game.model")
+                .name("eu.trentorise.game.model")
                 .newImport(BadgeNotification.class.getName()).end()
                 .newImport(Classification.class.getName()).end()
                 .newRule()

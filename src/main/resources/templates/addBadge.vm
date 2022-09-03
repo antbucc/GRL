@@ -1,8 +1,8 @@
 ## The indent is to have a properly formatted rule
-    ${badgeCollection}.getBadgeEarned().add("${badge}");
+    ${badgeCollection}.getBadgeEarned().add(${badge});
     ## Sending notification if required
     #if (${gameId})
-        insert(new BadgeNotification(${gameId}, ${teamId}, "${badge}"));
+        insert(new BadgeNotification(${gameId}, ${teamId}, ${badge}));
 ##        insert(new BadgeNotification(${gameId}, ${teamId}, ${badgeCollection}.getName(), "${badge}"));
     #end
     update( ${badgeCollection} );

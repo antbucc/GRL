@@ -20,11 +20,19 @@ public interface BadgeCollectionDescrBuilder<P extends DescrBuilder<?, ?>>
 
     BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge);
 
+    BadgeCollectionDescrBuilder<P> badgeEarnedContains(BindName badge);
+
     BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge, BindName bindName);
+
+    BadgeCollectionDescrBuilder<P> badgeEarnedContains(BindName badge, BindName bindName);
 
     BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge);
 
+    BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(BindName badge);
+
     BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge, BindName bindName);
+
+    BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(BindName badge, BindName bindName);
 
     BadgeCollectionDescrBuilder<P> bindBadgeEarned(BindName bindName);
 

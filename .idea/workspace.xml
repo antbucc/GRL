@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="General UX improvements">
+    <list default="true" id="cff4c179-53ce-476f-a38a-df4d982042ba" name="Changes" comment="Add declare to package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/PackageDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/PackageDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PackageDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PackageDescrBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/drl.mvel" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drl.mvel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/BindName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/BindName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ConstraintHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/ConstraintHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/lhs/BadgeCollectionDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/lhs/BadgeCollectionDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/rhs/ConsequenceBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/rhs/ConsequenceBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/BadgeCollectionDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/BadgeCollectionDescrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/ConsequenceBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/ConsequenceBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addBadge.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addBadge.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/gainLevel.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/gainLevel.vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleWhenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleWhenTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +97,7 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleWhenTest.testDeclaration">
+  <component name="RunManager" selected="JUnit.RuleTest.testAddBadge">
     <configuration name="RuleTest.finalClassificationBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
@@ -106,6 +109,22 @@
       <option name="PACKAGE_NAME" value="dsl" />
       <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
       <option name="METHOD_NAME" value="finalClassificationBadge" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RuleTest.testAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
+      <option name="METHOD_NAME" value="testAddBadge" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,36 +178,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SimulationTest.testSimulationWithFactBuilders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="simulation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="simulation" />
-      <option name="MAIN_CLASS_NAME" value="simulation.SimulationTest" />
-      <option name="METHOD_NAME" value="testSimulationWithFactBuilders" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
+      <item itemvalue="JUnit.RuleTest.testAddBadge" />
       <item itemvalue="JUnit.RuleTest.finalClassificationBadge" />
       <item itemvalue="JUnit.RuleWhenTest.testChallenge" />
       <item itemvalue="JUnit.RuleWhenTest.testDeclaration" />
       <item itemvalue="JUnit.RuleWhenTest.testInputData" />
-      <item itemvalue="JUnit.SimulationTest.testSimulationWithFactBuilders" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RuleTest.testAddBadge" />
         <item itemvalue="JUnit.RuleWhenTest.testDeclaration" />
         <item itemvalue="JUnit.RuleTest.finalClassificationBadge" />
         <item itemvalue="JUnit.RuleWhenTest.testChallenge" />
         <item itemvalue="JUnit.RuleWhenTest.testInputData" />
-        <item itemvalue="JUnit.SimulationTest.testSimulationWithFactBuilders" />
       </list>
     </recent_temporary>
   </component>
@@ -266,7 +269,8 @@
       <workItem from="1661892391456" duration="1845000" />
       <workItem from="1661972885921" duration="4872000" />
       <workItem from="1662042752601" duration="14727000" />
-      <workItem from="1662131382954" duration="13240000" />
+      <workItem from="1662131382954" duration="14162000" />
+      <workItem from="1662200489992" duration="7898000" />
     </task>
     <task id="LOCAL-00001" summary="From executable model generation to DRL generation">
       <created>1660230104764</created>
@@ -443,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662067894755</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Add declare to package">
+      <created>1662156838621</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1662156838621</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +499,8 @@
     <MESSAGE value="Deployment improvements" />
     <MESSAGE value="Add inner PackageDescr" />
     <MESSAGE value="General UX improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="General UX improvements" />
+    <MESSAGE value="Add declare to package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add declare to package" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -45,24 +45,36 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
 
     @Override
     public BadgeCollectionDescrBuilder<P> badgeEarned(ConstraintType constraintType, String badge) {
-        ConstraintHelper.addConstraint(this.descr, constraintType, BADGE_EARNED, badge, null, false);
+        ConstraintHelper.addConstraint(this.descr, constraintType, BADGE_EARNED, badge, null, true);
         return this;
     }
 
     @Override
     public BadgeCollectionDescrBuilder<P> badgeEarned(ConstraintType constraintType, String badge, BindName bindName) {
-        ConstraintHelper.addConstraint(this.descr, constraintType, BADGE_EARNED, badge, bindName, false);
+        ConstraintHelper.addConstraint(this.descr, constraintType, BADGE_EARNED, badge, bindName, true);
         return this;
     }
 
     @Override
     public BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge) {
+        ConstraintHelper.addConstraint(this.descr, ConstraintType.CONTAINS, BADGE_EARNED, badge, null, true);
+        return this;
+    }
+
+    @Override
+    public BadgeCollectionDescrBuilder<P> badgeEarnedContains(BindName badge) {
         ConstraintHelper.addConstraint(this.descr, ConstraintType.CONTAINS, BADGE_EARNED, badge, null, false);
         return this;
     }
 
     @Override
     public BadgeCollectionDescrBuilder<P> badgeEarnedContains(String badge, BindName bindName) {
+        ConstraintHelper.addConstraint(this.descr, ConstraintType.CONTAINS, BADGE_EARNED, badge, bindName, true);
+        return this;
+    }
+
+    @Override
+    public BadgeCollectionDescrBuilder<P> badgeEarnedContains(BindName badge, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, ConstraintType.CONTAINS, BADGE_EARNED, badge, bindName, false);
         return this;
     }
@@ -74,7 +86,19 @@ public class BadgeCollectionDescrBuilderImpl<P extends DescrBuilder<?, ?>>
     }
 
     @Override
+    public BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(BindName badge) {
+        ConstraintHelper.addConstraint(this.descr, ConstraintType.NOT_CONTAINS, BADGE_EARNED, badge, null, false);
+        return this;
+    }
+
+    @Override
     public BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(String badge, BindName bindName) {
+        ConstraintHelper.addConstraint(this.descr, ConstraintType.NOT_CONTAINS, BADGE_EARNED, badge, bindName, true);
+        return this;
+    }
+
+    @Override
+    public BadgeCollectionDescrBuilder<P> badgeEarnedNotContains(BindName badge, BindName bindName) {
         ConstraintHelper.addConstraint(this.descr, ConstraintType.NOT_CONTAINS, BADGE_EARNED, badge, bindName, false);
         return this;
     }
