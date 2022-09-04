@@ -1,10 +1,7 @@
 package it.univaq.gamification.dsl.builders.rhs.builders.impl;
 
 import it.univaq.gamification.dsl.Global;
-import it.univaq.gamification.dsl.binders.BadgeCollectionBind;
-import it.univaq.gamification.dsl.binders.Bind;
-import it.univaq.gamification.dsl.binders.CustomDataBind;
-import it.univaq.gamification.dsl.binders.PointBind;
+import it.univaq.gamification.dsl.binders.*;
 import it.univaq.gamification.dsl.Operator;
 import it.univaq.gamification.dsl.ValueHelper;
 import it.univaq.gamification.dsl.builders.rhs.builders.ConsequenceBuilder;
@@ -27,6 +24,7 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     private final String ADD_BADGE_TEMPLATE = "/templates/addBadge.vm";
     private final String GAIN_LEVEL = "/templates/gainLevel.vm";
     private final String INCREASE_SCORE = "/templates/increaseScore.vm";
+    private final String COMPLETE_CHALLENGE = "/templates/completeChallenge.vm";
     private final String INSERT = "/templates/insert.vm";
 
     public ConsequenceBuilderImpl(P parent) {
@@ -142,6 +140,16 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     @Override
     public ConsequenceBuilder<P> increaseScore(PointBind pointBind, Global amount) {
         return this.updateScore(pointBind, Operator.PLUS, amount);
+    }
+
+    @Override
+    public ConsequenceBuilder<P> completeChallenge(ChallengeBind challengeBind) {
+        VelocityContext velocityContext = new VelocityContext();
+        velocityContext.put("challenge", challengeBind);
+
+        this.addConsequence(COMPLETE_CHALLENGE, velocityContext);
+
+        return this;
     }
 
     private ConsequenceBuilder<P> insert(VelocityContext velocityContext) {

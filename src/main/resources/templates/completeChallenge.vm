@@ -1,0 +1,3 @@
+## The indent is to have a properly formatted rule
+    ${challenge}.completed();
+    update(${challenge});

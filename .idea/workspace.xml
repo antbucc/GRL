@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamification.all.log.2022-09-02" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/builders/CEDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/builders/CEDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/builders/impl/CEDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/lhs/builders/impl/CEDescrBuilderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/ConsequenceBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/ConsequenceBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/impl/ConsequenceBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/impl/ConsequenceBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/increaseScore.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/increaseScore.vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,11 +105,35 @@
       <updated>1662308400732</updated>
       <workItem from="1662308403539" duration="2392000" />
       <workItem from="1662311213639" duration="115000" />
-      <workItem from="1662311404043" duration="1255000" />
+      <workItem from="1662311404043" duration="1454000" />
+      <workItem from="1662325907406" duration="1269000" />
     </task>
+    <task id="LOCAL-00001" summary="Add more consequences">
+      <created>1662312817429</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662312817429</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add more consequences" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add more consequences" />
   </component>
 </project>

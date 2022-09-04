@@ -1,10 +1,7 @@
 package it.univaq.gamification.dsl.builders.rhs.builders;
 
 import it.univaq.gamification.dsl.Global;
-import it.univaq.gamification.dsl.binders.BadgeCollectionBind;
-import it.univaq.gamification.dsl.binders.Bind;
-import it.univaq.gamification.dsl.binders.CustomDataBind;
-import it.univaq.gamification.dsl.binders.PointBind;
+import it.univaq.gamification.dsl.binders.*;
 
 public interface ConsequenceBuilder<P> {
 
@@ -27,6 +24,8 @@ public interface ConsequenceBuilder<P> {
     ConsequenceBuilder<P> increaseScore(PointBind pointBind, Bind amount);
 
     ConsequenceBuilder<P> increaseScore(PointBind pointBind, Global amount);
+
+    ConsequenceBuilder<P> completeChallenge(ChallengeBind challengeBind);
 
     ConsequenceBuilder<P> insert(Class<?> clazz);
 
