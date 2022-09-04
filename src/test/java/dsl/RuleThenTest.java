@@ -1,7 +1,7 @@
 package dsl;
 
-import it.univaq.gamification.dsl.BindName;
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.binders.BadgeCollectionBind;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import it.univaq.gamification.utils.DrlDumper;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class RuleThenTest {
                         // when
                     .end()
                     .then()
-                        .addBadge(new BindName("$bc"), "Verona")
+                        .addBadge(new BadgeCollectionBind("$bc"), "Verona")
                     .end()
                 .end()
                 .getDescr();

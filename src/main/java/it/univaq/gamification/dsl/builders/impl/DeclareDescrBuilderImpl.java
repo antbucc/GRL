@@ -1,6 +1,6 @@
 package it.univaq.gamification.dsl.builders.impl;
 
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.dsl.builders.DeclareDescrBuilder;
 import it.univaq.gamification.dsl.builders.PackageDescrBuilder;
 import it.univaq.gamification.dsl.builders.TypeDeclarationDescrBuilder;

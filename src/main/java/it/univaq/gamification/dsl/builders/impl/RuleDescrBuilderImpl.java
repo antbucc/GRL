@@ -1,11 +1,11 @@
 package it.univaq.gamification.dsl.builders.impl;
 
-import it.univaq.gamification.dsl.builders.impl.lhs.CEDescrBuilderImpl;
-import it.univaq.gamification.dsl.builders.impl.rhs.ConsequenceBuilderImpl;
-import it.univaq.gamification.dsl.builders.lhs.CEDescrBuilder;
+import it.univaq.gamification.dsl.builders.lhs.builders.impl.CEDescrBuilderImpl;
+import it.univaq.gamification.dsl.builders.rhs.builders.impl.ConsequenceBuilderImpl;
+import it.univaq.gamification.dsl.builders.lhs.builders.CEDescrBuilder;
 import it.univaq.gamification.dsl.builders.PackageDescrBuilder;
 import it.univaq.gamification.dsl.builders.RuleDescrBuilder;
-import it.univaq.gamification.dsl.builders.rhs.ConsequenceBuilder;
+import it.univaq.gamification.dsl.builders.rhs.builders.ConsequenceBuilder;
 import org.drools.compiler.lang.api.AttributeDescrBuilder;
 import org.drools.compiler.lang.api.impl.AttributeDescrBuilderImpl;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;

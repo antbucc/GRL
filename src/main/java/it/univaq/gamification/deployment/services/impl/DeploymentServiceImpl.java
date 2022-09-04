@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import it.univaq.gamification.deployment.model.GameRule;
 import it.univaq.gamification.deployment.services.DeploymentService;
 import it.univaq.gamification.deployment.services.http.HttpClient;
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.utils.DrlDumper;
 import lombok.Builder;
 import okhttp3.MediaType;

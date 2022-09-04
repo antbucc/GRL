@@ -5,7 +5,7 @@ import eu.trentorise.game.model.BadgeCollectionConcept;
 import eu.trentorise.game.model.Game;
 import eu.trentorise.game.model.Player;
 import eu.trentorise.game.model.PointConcept;
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.simulation.builders.impl.SimulationBuilderImpl;
 import it.univaq.gamification.simulation.builders.impl.fact.*;
 import it.univaq.gamification.simulation.builders.CheckExpectationLambda;

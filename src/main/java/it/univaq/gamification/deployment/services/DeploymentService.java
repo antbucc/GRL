@@ -1,7 +1,7 @@
 package it.univaq.gamification.deployment.services;
 
 
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 
 import java.io.IOException;
 

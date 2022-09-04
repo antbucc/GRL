@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import org.drools.compiler.lang.MVELDumper;
 import org.mvel2.integration.impl.MapVariableResolverFactory;
 import org.mvel2.optimizers.OptimizerFactory;

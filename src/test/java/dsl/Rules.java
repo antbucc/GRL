@@ -1,18 +1,20 @@
 package dsl;
 
-import it.univaq.gamification.dsl.BindName;
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.binders.BadgeCollectionBind;
+import it.univaq.gamification.dsl.binders.Bind;
+import it.univaq.gamification.dsl.Global;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 
-import static it.univaq.gamification.dsl.ConstraintType.EQ;
-import static it.univaq.gamification.dsl.ConstraintType.GTE;
+import static it.univaq.gamification.dsl.builders.lhs.ConstraintType.EQ;
+import static it.univaq.gamification.dsl.builders.lhs.ConstraintType.GTE;
 
 public class Rules {
 
     public static PackageDescr getAddBadgeRule() {
         final String BADGE_NAME = "Verona";
-        final BindName BADGE_COLLECTION_REF = new BindName("$bc");
-        final BindName GAME_ID_REF = new BindName("$gameId");
+        final BadgeCollectionBind BADGE_COLLECTION_REF = new BadgeCollectionBind("$bc");
+        final Bind GAME_ID_REF = new Bind("$gameId");
 
         return new PackageDescrBuilderImpl()
                 .name("eu.trentorise.game.model")
@@ -38,11 +40,11 @@ public class Rules {
 
     public static PackageDescr getAddBadgeRuleWithNotification() {
         final String BADGE_NAME = "Verona";
-        final BindName BADGE_COLLECTION_REF = new BindName("$bc");
-        final BindName TEAM_ID_REF = new BindName("$teamId");
-        final BindName GAME_ID_REF = new BindName("$gameId");
-        final String GLOBAL_VERONA_DISTANCE = "Verona_distance";
-        final String GLOBAL_SCHOOL_NAME = "const_school_name";
+        final BadgeCollectionBind BADGE_COLLECTION_REF = new BadgeCollectionBind("$bc");
+        final Bind TEAM_ID_REF = new Bind("$teamId");
+        final Bind GAME_ID_REF = new Bind("$gameId");
+        final Global GLOBAL_VERONA_DISTANCE = new Global("Verona_distance");
+        final Global GLOBAL_SCHOOL_NAME = new Global("const_school_name");
 
         return new PackageDescrBuilderImpl()
                 .name("eu.trentorise.game.model")

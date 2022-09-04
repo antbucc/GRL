@@ -1,6 +1,6 @@
 package it.univaq.gamification.simulation.builders.impl;
 
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.simulation.SimulationError;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import it.univaq.gamification.simulation.builders.SimulationBuilder;

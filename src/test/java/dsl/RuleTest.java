@@ -2,15 +2,17 @@ package dsl;
 
 import eu.trentorise.game.notification.BadgeNotification;
 import eu.trentorise.game.task.Classification;
-import it.univaq.gamification.dsl.BindName;
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.binders.BadgeCollectionBind;
+import it.univaq.gamification.dsl.binders.Bind;
+import it.univaq.gamification.dsl.binders.ClassificationBind;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import it.univaq.gamification.utils.DrlDumper;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static it.univaq.gamification.dsl.ConstraintType.EQ;
+import static it.univaq.gamification.dsl.builders.lhs.ConstraintType.EQ;
 
 public class RuleTest {
 
@@ -26,10 +28,10 @@ public class RuleTest {
 
     @Test
     public void finalClassificationBadge() {
-        final BindName CLASSIFICATION_REF = new BindName("c");
-        final BindName GAME_ID_REF = new BindName("gameId");
-        final BindName PLAYER_ID_REF = new BindName("playerId");
-        final BindName BADGE_COLLECTION_REF = new BindName("bc");
+        final ClassificationBind CLASSIFICATION_REF = new ClassificationBind("c");
+        final Bind GAME_ID_REF = new Bind("gameId");
+        final Bind PLAYER_ID_REF = new Bind("playerId");
+        final BadgeCollectionBind BADGE_COLLECTION_REF = new BadgeCollectionBind("bc");
 
         PackageDescr pkg = new PackageDescrBuilderImpl()
                 .name("eu.trentorise.game.model")

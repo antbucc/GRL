@@ -1,7 +1,8 @@
 package it.univaq.gamification.dsl.builders.impl;
 
-import it.univaq.gamification.dsl.PackageDescr;
 import it.univaq.gamification.dsl.builders.*;
+import it.univaq.gamification.dsl.Global;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.BaseDescr;
@@ -32,8 +33,8 @@ public class PackageDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBu
     }
 
     @Override
-    public GlobalDescrBuilder newGlobal(String type, String identifier) {
-        GlobalDescrBuilder global = new GlobalDescrBuilderImpl(this, type, identifier );
+    public GlobalDescrBuilder newGlobal(String type, Global globalName) {
+        GlobalDescrBuilder global = new GlobalDescrBuilderImpl(this, type, globalName);
         this.descr.addGlobal(initDescr(global));
         return global;
     }

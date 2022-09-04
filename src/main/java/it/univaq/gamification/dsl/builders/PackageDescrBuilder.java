@@ -1,7 +1,8 @@
 package it.univaq.gamification.dsl.builders;
 
 
-import it.univaq.gamification.dsl.PackageDescr;
+import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
+import it.univaq.gamification.dsl.Global;
 import org.drools.compiler.lang.api.DescrBuilder;
 
 public interface PackageDescrBuilder extends DescrBuilder<PackageDescrBuilder, PackageDescr> {
@@ -10,7 +11,7 @@ public interface PackageDescrBuilder extends DescrBuilder<PackageDescrBuilder, P
 
     ImportDescrBuilder newImport(String target);
 
-    GlobalDescrBuilder newGlobal(String type, String identifier);
+    GlobalDescrBuilder newGlobal(String type, Global global);
 
     DeclareDescrBuilder newDeclare();
 
