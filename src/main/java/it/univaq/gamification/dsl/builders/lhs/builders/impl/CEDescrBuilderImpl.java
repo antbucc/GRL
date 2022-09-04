@@ -1,6 +1,8 @@
 package it.univaq.gamification.dsl.builders.lhs.builders.impl;
 
 import it.univaq.gamification.dsl.binders.*;
+import it.univaq.gamification.dsl.builders.PatternDescrBuilder;
+import it.univaq.gamification.dsl.builders.impl.PatternDescrBuilderImpl;
 import it.univaq.gamification.dsl.builders.lhs.builders.*;
 import org.drools.compiler.lang.api.DescrBuilder;
 import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
@@ -17,7 +19,7 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
     public CEDescrBuilder<CEDescrBuilder<P, T>, AndDescr> and() {
         AndDescr andDescr = new AndDescr();
         ((ConditionalElementDescr) descr).addDescr(andDescr);
-        return new CEDescrBuilderImpl<>( this, andDescr);
+        return new CEDescrBuilderImpl<>(this, andDescr);
     }
 
     public CEDescrBuilder<CEDescrBuilder<P, T>, OrDescr> or() {
@@ -36,6 +38,13 @@ public class CEDescrBuilderImpl<P extends DescrBuilder<? , ?>, T extends Annotat
         CEDescrBuilder<CEDescrBuilder<P, T>, ExistsDescr> exists = new CEDescrBuilderImpl<>(this, new ExistsDescr());
         ((ConditionalElementDescr) descr).addDescr(exists.getDescr());
         return exists;
+    }
+
+    @Override
+    public PatternDescrBuilder<CEDescrBuilder<P, T>> pattern(String type) {
+        PatternDescrBuilder<CEDescrBuilder<P, T>> pattern = new PatternDescrBuilderImpl<>(this, type);
+        ((ConditionalElementDescr) descr).addDescr(pattern.getDescr());
+        return pattern;
     }
 
     // GAMIFICATION ELEMENT BUILDERS

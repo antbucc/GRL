@@ -1,5 +1,6 @@
 package dsl;
 
+import eu.trentorise.game.model.PointConcept;
 import eu.trentorise.game.notification.BadgeNotification;
 import eu.trentorise.game.task.Classification;
 import it.univaq.gamification.dsl.binders.BadgeCollectionBind;
@@ -52,9 +53,14 @@ public class RuleTest {
                             .name(EQ, "green leaves")
                             .badgeEarnedNotContains("gold-medal-green-1")
                         .end()
+                        .not()
+                            .pattern("PRItinerary").end()
+                        .end()
                     .end()
                     .then()
                         .addBadgeWithNotification(BADGE_COLLECTION_REF, GAME_ID_REF, PLAYER_ID_REF, "gold-medal-green-1")
+                        .insert(PointConcept.class)
+                        .insert(PointConcept.class, BADGE_COLLECTION_REF, 20, "string")
                     .end()
                 .end()
                 .getDescr();

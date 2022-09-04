@@ -14,6 +14,8 @@ import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 
 import java.io.StringWriter;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 
 public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
@@ -25,6 +27,7 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     private final String ADD_BADGE_TEMPLATE = "/templates/addBadge.vm";
     private final String GAIN_LEVEL = "/templates/gainLevel.vm";
     private final String INCREASE_SCORE = "/templates/increaseScore.vm";
+    private final String INSERT = "/templates/insert.vm";
 
     public ConsequenceBuilderImpl(P parent) {
         this.parent = parent;
@@ -139,6 +142,28 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     @Override
     public ConsequenceBuilder<P> increaseScore(PointBind pointBind, Global amount) {
         return this.updateScore(pointBind, Operator.PLUS, amount);
+    }
+
+    private ConsequenceBuilder<P> insert(VelocityContext velocityContext) {
+        this.addConsequence(INSERT, velocityContext);
+        return this;
+    }
+
+    @Override
+    public ConsequenceBuilder<P> insert(Class<?> clazz) {
+        VelocityContext velocityContext = new VelocityContext();
+        velocityContext.put("class", clazz.getSimpleName());
+
+        return this.insert(velocityContext);
+    }
+
+    @Override
+    public ConsequenceBuilder<P> insert(Class<?> clazz, Object... parameters) {
+        VelocityContext velocityContext = new VelocityContext();
+        velocityContext.put("class", clazz.getSimpleName());
+        velocityContext.put("parameters", Arrays.stream(parameters).map(ValueHelper::processValue).toArray());
+
+        return this.insert(velocityContext);
     }
 
     @Override

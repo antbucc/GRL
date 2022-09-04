@@ -25,7 +25,12 @@ public interface ConsequenceBuilder<P> {
     ConsequenceBuilder<P> increaseScore(PointBind pointBind, Double amount);
 
     ConsequenceBuilder<P> increaseScore(PointBind pointBind, Bind amount);
+
     ConsequenceBuilder<P> increaseScore(PointBind pointBind, Global amount);
+
+    ConsequenceBuilder<P> insert(Class<?> clazz);
+
+    ConsequenceBuilder<P> insert(Class<?> clazz, Object... parameters);
 
     P end();
 
