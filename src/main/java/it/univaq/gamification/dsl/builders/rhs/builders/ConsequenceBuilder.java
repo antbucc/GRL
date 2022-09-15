@@ -25,11 +25,21 @@ public interface ConsequenceBuilder<P> {
 
     ConsequenceBuilder<P> increaseScore(PointBind pointBind, Global amount);
 
+    ConsequenceBuilder<P> incrementScore(PointBind pointBind, Double amount);
+
+    ConsequenceBuilder<P> incrementScore(PointBind pointBind, Bind amount);
+
+    ConsequenceBuilder<P> incrementScore(PointBind pointBind, Global amount);
+
     ConsequenceBuilder<P> completeChallenge(ChallengeBind challengeBind);
 
     ConsequenceBuilder<P> insert(Class<?> clazz);
 
     ConsequenceBuilder<P> insert(Class<?> clazz, Object... parameters);
+
+    ConsequenceBuilder<P> log(String message);
+
+    ConsequenceBuilder<P> freeRHS(String javaCode);
 
     P end();
 

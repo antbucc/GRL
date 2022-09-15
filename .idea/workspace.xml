@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="">
+    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Add completeChallenge consequence and general improvements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/ConsequenceBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/ConsequenceBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/impl/ConsequenceBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/impl/ConsequenceBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/increaseScore.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/increaseScore.vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,8 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/ConsequenceBuilder.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/templates/addBadge.vm" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/templates/insert.vm" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/dsl/RuleWhenTest.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/dsl/Rules.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -64,15 +65,24 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;a558ca155dcf35c8f036df2564c26067&quot;
   }
 }</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="mvn dependency:tree" />
+      <command value="mvn dependecy:purge" />
+      <command value="mvn dependecy:purge-local" />
+      <command value="mvn dependecy:purge -local" />
+      <command value="mvn install -U" />
+      <command value="mvn dependency:resolve" />
+      <command value="mvn install" />
+      <command value="mvn clean install" />
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.RuleTest.testAddBadge">
     <configuration name="RuleTest.finalClassificationBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
@@ -89,8 +99,75 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RuleTest.testAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
+      <option name="METHOD_NAME" value="testAddBadge" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RuleWhenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleWhenTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RuleWhenTest.testInputData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleWhenTest" />
+      <option name="METHOD_NAME" value="testInputData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulationTest.testSimulationWithFactBuilders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simulation" />
+      <option name="MAIN_CLASS_NAME" value="simulation.SimulationTest" />
+      <option name="METHOD_NAME" value="testSimulationWithFactBuilders" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RuleTest.testAddBadge" />
+        <item itemvalue="JUnit.SimulationTest.testSimulationWithFactBuilders" />
+        <item itemvalue="JUnit.RuleWhenTest.testInputData" />
+        <item itemvalue="JUnit.RuleWhenTest" />
         <item itemvalue="JUnit.RuleTest.finalClassificationBadge" />
       </list>
     </recent_temporary>
@@ -106,7 +183,15 @@
       <workItem from="1662308403539" duration="2392000" />
       <workItem from="1662311213639" duration="115000" />
       <workItem from="1662311404043" duration="1454000" />
-      <workItem from="1662325907406" duration="1269000" />
+      <workItem from="1662325907406" duration="1595000" />
+      <workItem from="1662386364714" duration="4123000" />
+      <workItem from="1662449348721" duration="644000" />
+      <workItem from="1662469288850" duration="807000" />
+      <workItem from="1662478651615" duration="6334000" />
+      <workItem from="1662485002036" duration="4198000" />
+      <workItem from="1662618053617" duration="1284000" />
+      <workItem from="1663171226764" duration="18000" />
+      <workItem from="1663241262506" duration="1698000" />
     </task>
     <task id="LOCAL-00001" summary="Add more consequences">
       <created>1662312817429</created>
@@ -115,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662312817429</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add completeChallenge consequence and general improvements">
+      <created>1662327507894</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662327507894</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +226,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add more consequences" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add more consequences" />
+    <MESSAGE value="Add completeChallenge consequence and general improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add completeChallenge consequence and general improvements" />
   </component>
 </project>

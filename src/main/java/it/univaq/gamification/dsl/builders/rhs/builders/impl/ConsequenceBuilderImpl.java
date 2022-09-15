@@ -12,7 +12,6 @@ import org.apache.velocity.runtime.RuntimeConstants;
 
 import java.io.StringWriter;
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 
 public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
@@ -24,8 +23,11 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
     private final String ADD_BADGE_TEMPLATE = "/templates/addBadge.vm";
     private final String GAIN_LEVEL = "/templates/gainLevel.vm";
     private final String INCREASE_SCORE = "/templates/increaseScore.vm";
+    private final String INCREMENT_SCORE = "/templates/incrementScore.vm";
     private final String COMPLETE_CHALLENGE = "/templates/completeChallenge.vm";
     private final String INSERT = "/templates/insert.vm";
+    private final String LOG = "/templates/log.vm";
+    private final String FREE_RHS = "/templates/freeRHS.vm";
 
     public ConsequenceBuilderImpl(P parent) {
         this.parent = parent;
@@ -116,30 +118,45 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
         return this.gainLevelCreator(errorScoreBind, errorsBind, customDataBind, level);
     }
 
-    private <T> ConsequenceBuilder<P> updateScore(Bind pointConceptBind, Operator operator, T amount) {
+    private <T> ConsequenceBuilder<P> updateBaseScore(Bind pointConceptBind, Operator operator, T amount, String template) {
         VelocityContext velocityContext = new VelocityContext();
         velocityContext.put("pc", pointConceptBind.getValue());
         velocityContext.put("operator", operator.getValue());
         velocityContext.put("amount", ValueHelper.processValue(amount));
 
-        this.addConsequence(INCREASE_SCORE, velocityContext);
+        this.addConsequence(template, velocityContext);
 
         return this;
     }
 
     @Override
     public ConsequenceBuilder<P> increaseScore(PointBind pointBind, Double amount) {
-        return this.updateScore(pointBind, Operator.PLUS, amount);
+        return this.updateBaseScore(pointBind, Operator.PLUS, amount, INCREASE_SCORE);
     }
 
     @Override
     public ConsequenceBuilder<P> increaseScore(PointBind pointBind, Bind amount) {
-        return this.updateScore(pointBind, Operator.PLUS, amount);
+        return this.updateBaseScore(pointBind, Operator.PLUS, amount, INCREASE_SCORE);
     }
 
     @Override
     public ConsequenceBuilder<P> increaseScore(PointBind pointBind, Global amount) {
-        return this.updateScore(pointBind, Operator.PLUS, amount);
+        return this.updateBaseScore(pointBind, Operator.PLUS, amount, INCREASE_SCORE);
+    }
+
+    @Override
+    public ConsequenceBuilder<P> incrementScore(PointBind pointBind, Double amount) {
+        return this.updateBaseScore(pointBind, Operator.PLUS, amount, INCREMENT_SCORE);
+    }
+
+    @Override
+    public ConsequenceBuilder<P> incrementScore(PointBind pointBind, Bind amount) {
+        return this.updateBaseScore(pointBind, Operator.PLUS, amount, INCREMENT_SCORE);
+    }
+
+    @Override
+    public ConsequenceBuilder<P> incrementScore(PointBind pointBind, Global amount) {
+        return this.updateBaseScore(pointBind, Operator.PLUS, amount, INCREMENT_SCORE);
     }
 
     @Override
@@ -172,6 +189,26 @@ public class ConsequenceBuilderImpl<P> implements ConsequenceBuilder<P> {
         velocityContext.put("parameters", Arrays.stream(parameters).map(ValueHelper::processValue).toArray());
 
         return this.insert(velocityContext);
+    }
+
+    @Override
+    public ConsequenceBuilder<P> log(String message) {
+        VelocityContext velocityContext = new VelocityContext();
+        velocityContext.put("message", ValueHelper.processValue(message));
+
+        this.addConsequence(LOG, velocityContext);
+
+        return this;
+    }
+
+    @Override
+    public ConsequenceBuilder<P> freeRHS(String javaCode) {
+        VelocityContext velocityContext = new VelocityContext();
+        velocityContext.put("javaCode", javaCode);
+
+        this.addConsequence(FREE_RHS, velocityContext);
+
+        return this;
     }
 
     @Override
