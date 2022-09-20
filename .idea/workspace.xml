@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Add completeChallenge consequence and general improvements">
+    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Add RHS templates">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/ConsequenceBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/ConsequenceBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/impl/ConsequenceBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/rhs/builders/impl/ConsequenceBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/RuleDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/RuleDescrBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/deployment/DeploymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/deployment/DeploymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,23 +58,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;a558ca155dcf35c8f036df2564c26067&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/stefanomartella/Desktop/Tesi/code/smartcampus.gamification",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "spring.configuration.checksum": "a558ca155dcf35c8f036df2564c26067"
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn dependency:tree" />
@@ -79,22 +86,21 @@
       <command value="mvn dependency:resolve" />
       <command value="mvn install" />
       <command value="mvn clean install" />
+      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.univaq.gamification -DartifactId=gamification-dsl -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
+      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.smartcommunitylab.gamification -DartifactId=game-engine.core -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleTest.testAddBadge">
-    <configuration name="RuleTest.finalClassificationBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SimulationTest.testSimulationWithFactBuilders">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="listeners.Main" />
       <module name="gamification-dsl" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dsl.*" />
+          <option name="PATTERN" value="listeners.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dsl" />
-      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
-      <option name="METHOD_NAME" value="finalClassificationBadge" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleWhenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleThenTest.testAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
         <pattern>
@@ -124,8 +130,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dsl" />
-      <option name="MAIN_CLASS_NAME" value="dsl.RuleWhenTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleThenTest" />
+      <option name="METHOD_NAME" value="testAddBadge" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -164,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RuleTest.testAddBadge" />
         <item itemvalue="JUnit.SimulationTest.testSimulationWithFactBuilders" />
+        <item itemvalue="JUnit.RuleThenTest.testAddBadge" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RuleTest.testAddBadge" />
         <item itemvalue="JUnit.RuleWhenTest.testInputData" />
-        <item itemvalue="JUnit.RuleWhenTest" />
-        <item itemvalue="JUnit.RuleTest.finalClassificationBadge" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +198,12 @@
       <workItem from="1662485002036" duration="4198000" />
       <workItem from="1662618053617" duration="1284000" />
       <workItem from="1663171226764" duration="18000" />
-      <workItem from="1663241262506" duration="1698000" />
+      <workItem from="1663241262506" duration="8702000" />
+      <workItem from="1663399836342" duration="6736000" />
+      <workItem from="1663435163518" duration="428000" />
+      <workItem from="1663576566428" duration="12266000" />
+      <workItem from="1663655693052" duration="8690000" />
+      <workItem from="1663678684336" duration="676000" />
     </task>
     <task id="LOCAL-00001" summary="Add more consequences">
       <created>1662312817429</created>
@@ -207,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662327507894</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add RHS templates">
+      <created>1663250163153</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663250163153</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +246,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add more consequences" />
     <MESSAGE value="Add completeChallenge consequence and general improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add completeChallenge consequence and general improvements" />
+    <MESSAGE value="Add RHS templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add RHS templates" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

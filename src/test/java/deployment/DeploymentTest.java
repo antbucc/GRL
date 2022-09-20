@@ -25,14 +25,14 @@ public class DeploymentTest {
     public void upsertRule() throws IOException {
         final String gameId = "62df8ddc0055b0275113d374";
 
-        deploymentService.upsert(gameId, Rules.getAddBadgeRule());
+        deploymentService.upsert(gameId, Rules.getAddBadgeRule1());
     }
 
     @Test
     public void deleteRule() throws IOException {
         final String gameId = "62df8ddc0055b0275113d374";
 
-        deploymentService.delete(gameId, Rules.getAddBadgeRule());
+        deploymentService.delete(gameId, Rules.getAddBadgeRule1());
     }
 
 }

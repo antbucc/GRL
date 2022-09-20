@@ -9,7 +9,7 @@ import it.univaq.gamification.dsl.binders.ClassificationBind;
 import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.dsl.builders.impl.PackageDescrBuilderImpl;
 import it.univaq.gamification.utils.DrlDumper;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 

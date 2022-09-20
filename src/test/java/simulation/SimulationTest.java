@@ -18,24 +18,45 @@ public class SimulationTest {
 
     @Test
     public void testSimulationWithFactBuilders() {
+        // package eu.trentorise.game.model
+        //
+        // import eu.trentorise.game.model.PointConcept
+        // import eu.trentorise.game.model.BadgeCollectionConcept
+        // import eu.trentorise.game.model.Game
+        // import eu.trentorise.game.model.Player
+        // import eu.trentorise.game.notification.BadgeNotification
+        //
+        // rule "R-add-badge Verona"
+        // when
+        //     PointConcept( name == "total_distance", score >= 10.0 )
+        //     $bc : BadgeCollectionConcept( name == "silver_collection", badgeEarned not contains "Verona" )
+        //     Game( $gameId : id )
+        //     Player( team == false )
+        // then
+        //     $bc.getBadgeEarned().add("Verona");
+        //     update( $bc );
+        // end
+
         // Facts
         PointFactBuilderImpl pointFact = PointFactBuilderImpl.builder().name("total_distance").score(1000.0).build();
         BadgeCollectionFactBuilderImpl badgeCollectionFact = BadgeCollectionFactBuilderImpl.builder().name("silver_collection").build();
         GameFactBuilderImpl gameFact = GameFactBuilderImpl.builder().id("1").build();
         PlayerFactBuilderImpl playerFact = PlayerFactBuilderImpl.builder().id("1").build();
         // Rules
-        PackageDescr addBadgeRule = Rules.getAddBadgeRule();
+        PackageDescr addBadgeRule1 = Rules.getAddBadgeRule1();
+        PackageDescr addBadgeRule2 = Rules.getAddBadgeRule2();
         // Expectations
-        CheckExpectationLambda doesNotHaveVeronaBadge = () -> Assert.assertFalse(badgeCollectionFact.getBadgeEarned().contains("Verona"));
-        CheckExpectationLambda hasVeronaBadge = () -> Assert.assertTrue(badgeCollectionFact.getBadgeEarned().contains("Verona"));
+        CheckExpectationLambda doesNotHaveVeronaBadge = () -> Assert.assertFalse(badgeCollectionFact.getBadgeEarned().contains("Verona 1"));
+        CheckExpectationLambda hasVeronaBadge1 = () -> Assert.assertTrue(badgeCollectionFact.getBadgeEarned().contains("Verona 1"));
+        CheckExpectationLambda hasVeronaBadge2 = () -> Assert.assertTrue(badgeCollectionFact.getBadgeEarned().contains("Verona 2"));
 
         new SimulationBuilderImpl()
                 .addFacts(pointFact, badgeCollectionFact, gameFact)
-                .addRules(addBadgeRule)
+                .addRules(addBadgeRule1, addBadgeRule2)
                 .addExpectations(doesNotHaveVeronaBadge)
                 .simulate()
                 .addFacts(playerFact)
-                .addExpectations(hasVeronaBadge)
+                .addExpectations(hasVeronaBadge1, hasVeronaBadge2)
                 .simulate();
     }
 
@@ -51,7 +72,7 @@ public class SimulationTest {
         gameFact.setId("1");
         Player playerFact = new Player("1");
         // Rules
-        PackageDescr addBadgeRule = Rules.getAddBadgeRule();
+        PackageDescr addBadgeRule = Rules.getAddBadgeRule1();
         // Expectations
         CheckExpectationLambda doesNotHaveVeronaBadge = () -> Assert.assertFalse(badgeCollectionFact.getBadgeEarned().contains("Verona"));
         CheckExpectationLambda hasVeronaBadge = () -> Assert.assertTrue(badgeCollectionFact.getBadgeEarned().contains("Verona"));

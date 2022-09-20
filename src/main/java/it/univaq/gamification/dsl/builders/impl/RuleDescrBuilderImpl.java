@@ -37,7 +37,6 @@ public class RuleDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBuild
         return consequenceBuilder;
     }
 
-
     @Override
     public AttributeDescrBuilder<RuleDescrBuilder> attribute(String name) {
         AttributeDescrBuilder<RuleDescrBuilder> attribute = new AttributeDescrBuilderImpl<>(this, name);

@@ -11,8 +11,8 @@ import static it.univaq.gamification.dsl.builders.lhs.ConstraintType.GTE;
 
 public class Rules {
 
-    public static PackageDescr getAddBadgeRule() {
-        final String BADGE_NAME = "Verona";
+    public static PackageDescr getAddBadgeRule1() {
+        final String BADGE_NAME = "Verona 1";
         final BadgeCollectionBind BADGE_COLLECTION_REF = new BadgeCollectionBind("$bc");
         final Bind GAME_ID_REF = new Bind("$gameId");
 
@@ -24,7 +24,7 @@ public class Rules {
                 .newImport("eu.trentorise.game.model.Player").end()
                 .newImport("eu.trentorise.game.notification.BadgeNotification").end()
                 .newRule()
-                    .name("R-add-badge Verona")
+                    .name("R-add-badge Verona 1")
                     .when()
                         .point().name(EQ, "total_distance").score(GTE, 10.0).end()
                         .badgeCollection(BADGE_COLLECTION_REF).name(EQ, "silver_collection").badgeEarnedNotContains(BADGE_NAME).end()
@@ -33,6 +33,38 @@ public class Rules {
                     .end()
                     .then()
                         .addBadge(BADGE_COLLECTION_REF, BADGE_NAME)
+                    .end()
+                .end()
+                .getDescr();
+    }
+
+    public static PackageDescr getAddBadgeRule2() {
+        final String BADGE_NAME_1 = "Verona 1";
+        final String BADGE_NAME_2 = "Verona 2";
+        final BadgeCollectionBind BADGE_COLLECTION_REF = new BadgeCollectionBind("$bc");
+        final Bind GAME_ID_REF = new Bind("$gameId");
+
+        return new PackageDescrBuilderImpl()
+                .name("eu.trentorise.game.model")
+                .newImport("eu.trentorise.game.model.PointConcept").end()
+                .newImport("eu.trentorise.game.model.BadgeCollectionConcept").end()
+                .newImport("eu.trentorise.game.model.Game").end()
+                // .newImport("eu.trentorise.game.model.Player").end()
+                .newImport("eu.trentorise.game.notification.BadgeNotification").end()
+                .newRule()
+                    .name("R-add-badge Verona 2")
+                    .when()
+                        .point().name(EQ, "total_distance").score(GTE, 10.0).end()
+                        .badgeCollection(BADGE_COLLECTION_REF)
+                            .name(EQ, "silver_collection")
+                            .badgeEarnedContains(BADGE_NAME_1)
+                            .badgeEarnedNotContains(BADGE_NAME_2)
+                        .end()
+                        .game().bindId(GAME_ID_REF).end()
+                        .player().team(false).end()
+                    .end()
+                    .then()
+                        .addBadge(BADGE_COLLECTION_REF, BADGE_NAME_2)
                     .end()
                 .end()
                 .getDescr();

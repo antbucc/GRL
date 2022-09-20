@@ -2,6 +2,7 @@ package it.univaq.gamification.simulation.builders.impl;
 
 import it.univaq.gamification.dsl.builders.lhs.PackageDescr;
 import it.univaq.gamification.simulation.SimulationError;
+import it.univaq.gamification.simulation.TrackingAgendaEventListener;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import it.univaq.gamification.simulation.builders.SimulationBuilder;
 import it.univaq.gamification.simulation.builders.CheckExpectationLambda;
@@ -37,6 +38,8 @@ public class SimulationBuilderImpl implements SimulationBuilder {
         knowledgeBuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
         knowledgeBase = KnowledgeBaseFactory.newKnowledgeBase();
         kieSession = knowledgeBase.newKieSession();
+        TrackingAgendaEventListener agendaEventListener = new TrackingAgendaEventListener();
+        kieSession.addEventListener(agendaEventListener);
         expectations = new ArrayList<>();
         verifier = VerifierBuilderFactory.newVerifierBuilder().newVerifier();
     }
@@ -90,8 +93,12 @@ public class SimulationBuilderImpl implements SimulationBuilder {
     @Override
     public SimulationBuilder simulate() {
         knowledgeBase.addPackages(knowledgeBuilder.getKnowledgePackages());
-        int firedRules = kieSession.fireAllRules();
-        logger.info("{} rules fired", firedRules);
+
+        // Firing all rules
+        int totalFiredRules = kieSession.fireAllRules();
+        // List fired rules
+        logger.info("Total fired rules: {}", totalFiredRules);
+
         // Check expectations
         this.expectations.forEach(CheckExpectationLambda::check);
         logger.info("Expectations verified successfully");
@@ -99,6 +106,7 @@ public class SimulationBuilderImpl implements SimulationBuilder {
         this.expectations.clear();
         logger.info("Expectations cleared");
 
+        // Eventually print errors
         if (knowledgeBuilder.hasErrors()) {
             knowledgeBuilder.getErrors().forEach(error -> logger.error(error.getMessage()));
             logger.error("Aborting...");
