@@ -25,6 +25,7 @@ public class Rules {
                 .newImport("eu.trentorise.game.notification.BadgeNotification").end()
                 .newRule()
                     .name("R-add-badge Verona 1")
+                    .attribute("salience", "1000")
                     .when()
                         .point().name(EQ, "total_distance").score(GTE, 10.0).end()
                         .badgeCollection(BADGE_COLLECTION_REF).name(EQ, "silver_collection").badgeEarnedNotContains(BADGE_NAME).end()

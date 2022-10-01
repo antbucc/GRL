@@ -6,12 +6,18 @@ import it.univaq.gamification.simulation.TrackingAgendaEventListener;
 import it.univaq.gamification.simulation.builders.GameFactBuilder;
 import it.univaq.gamification.simulation.builders.SimulationBuilder;
 import it.univaq.gamification.simulation.builders.CheckExpectationLambda;
+import it.univaq.gamification.simulation.graph.GraphVisualizer;
+import it.univaq.gamification.simulation.graph.RelationshipEdge;
 import it.univaq.gamification.utils.DrlDumper;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.drools.core.impl.InternalKnowledgeBase;
 import org.drools.core.impl.KnowledgeBaseFactory;
 import org.drools.core.io.impl.ByteArrayResource;
 import org.drools.verifier.Verifier;
 import org.drools.verifier.builder.VerifierBuilderFactory;
+import org.jgrapht.Graph;
+import org.jgrapht.graph.DefaultDirectedGraph;
 import org.kie.api.io.ResourceType;
 import org.kie.api.runtime.KieSession;
 import org.kie.internal.builder.KnowledgeBuilder;
@@ -19,9 +25,10 @@ import org.kie.internal.builder.KnowledgeBuilderFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class SimulationBuilderImpl implements SimulationBuilder {
 
@@ -32,16 +39,30 @@ public class SimulationBuilderImpl implements SimulationBuilder {
     private final InternalKnowledgeBase knowledgeBase;
     private final KieSession kieSession;
     private final List<CheckExpectationLambda> expectations;
+    private final CSVPrinter csvPrinter;
+    private final Graph<String, RelationshipEdge> stateGraph;
+    private final List<AssertionError> expectationErrors;
 
     public SimulationBuilderImpl() {
+        try {
+            FileWriter fileWriter = new FileWriter(new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS").format(new Date()) + ".csv");
+            this.csvPrinter = new CSVPrinter(fileWriter, CSVFormat.DEFAULT
+                    .withHeader("Rule", "Salience", "Timestamp", "Starting state", "Final state")
+                    .withDelimiter(';'));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         drlDumper = new DrlDumper();
         knowledgeBuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
         knowledgeBase = KnowledgeBaseFactory.newKnowledgeBase();
         kieSession = knowledgeBase.newKieSession();
-        TrackingAgendaEventListener agendaEventListener = new TrackingAgendaEventListener();
+        stateGraph = new DefaultDirectedGraph<>(RelationshipEdge.class);
+        TrackingAgendaEventListener agendaEventListener = new TrackingAgendaEventListener(csvPrinter, stateGraph);
         kieSession.addEventListener(agendaEventListener);
         expectations = new ArrayList<>();
         verifier = VerifierBuilderFactory.newVerifierBuilder().newVerifier();
+        expectationErrors = new ArrayList<>();
     }
 
     private boolean verifyRule(ByteArrayResource ruleDrlByteArrayResource) {
@@ -100,8 +121,18 @@ public class SimulationBuilderImpl implements SimulationBuilder {
         logger.info("Total fired rules: {}", totalFiredRules);
 
         // Check expectations
-        this.expectations.forEach(CheckExpectationLambda::check);
-        logger.info("Expectations verified successfully");
+        try {
+            this.expectations.forEach(CheckExpectationLambda::check);
+        } catch (AssertionError e) {
+            expectationErrors.add(e);
+        }
+
+        if (expectationErrors.size() > 0) {
+            logger.error("Assertion failure");
+        } else {
+            logger.info("Expectations verified successfully");
+        }
+
         // Remove all expectations
         this.expectations.clear();
         logger.info("Expectations cleared");
@@ -115,5 +146,26 @@ public class SimulationBuilderImpl implements SimulationBuilder {
 
         // TODO: Remove rules in order to run other tests (?)
         return this;
+    }
+
+    @Override
+    public void simulateAndClose() {
+        this.simulate();
+
+        // Print csv
+        try {
+            this.csvPrinter.flush();
+            this.csvPrinter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Show graph
+        new GraphVisualizer(stateGraph, expectationErrors).visualize();
+
+        // Throw error if at least one
+        if (expectationErrors.size() > 0) {
+            throw expectationErrors.get(0);
+        }
     }
 }

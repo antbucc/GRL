@@ -15,4 +15,6 @@ public interface SimulationBuilder {
 
     SimulationBuilder simulate();
 
+    void simulateAndClose();
+
 }
