@@ -1,6 +1,6 @@
 package graph;
 
-import com.mxgraph.layout.mxCircleLayout;
+import com.mxgraph.layout.hierarchical.mxHierarchicalLayout;
 import com.mxgraph.swing.mxGraphComponent;
 import eu.trentorise.game.model.*;
 import eu.trentorise.game.model.Action;
@@ -59,21 +59,23 @@ public class TestGraph {
         frame.setLayout(new BorderLayout());
 
         Graph<String, RelationshipEdge> graph = new DefaultDirectedGraph<>(RelationshipEdge.class);
-        graph.addVertex("1 - PointConcept{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='bronze_collection'}");
+        graph.addVertex("1 - <html><strong style=\"color: blue\">PointConcept</strong>{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='bronze_collection'}</html>");
         graph.addVertex("2 - PointConcept{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='silver_collection'}");
         graph.addVertex("3 - PointConcept{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='gold_collection'}");
-        graph.addEdge("1 - PointConcept{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='bronze_collection'}", "2 - PointConcept{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='silver_collection'}", new RelationshipEdge("Edge1"));
+        graph.addEdge("1 - <html><strong style=\"color: blue\">PointConcept</strong>{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='bronze_collection'}</html>", "2 - PointConcept{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='silver_collection'}", new RelationshipEdge("Edge1"));
         graph.addEdge("2 - PointConcept{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='silver_collection'}", "3 - PointConcept{name=''} --- BadgeCollectionConcept{earnedBadges=[], name='gold_collection'}", new RelationshipEdge("Edge2"));
 
         JGraphXAdapter<String, RelationshipEdge> graphAdapter = new JGraphXAdapter<>(graph);
-        mxCircleLayout layout = new mxCircleLayout(graphAdapter);
+        mxHierarchicalLayout layout = new mxHierarchicalLayout(graphAdapter);
         layout.execute(graphAdapter.getDefaultParent());
 
         mxGraphComponent graphComponent = new mxGraphComponent(graphAdapter);
         graphComponent.setConnectable(false);
+        graphComponent.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         graphComponent.getGraph().setAllowDanglingEdges(false);
         graphComponent.getGraph().setCellsEditable(false);
         graphComponent.getGraph().setEdgeLabelsMovable(false);
+        graphComponent.getGraph().setHtmlLabels(true);
         graphComponent.getVerticalScrollBar().setUnitIncrement(16);
 
         String[] gameElements = {

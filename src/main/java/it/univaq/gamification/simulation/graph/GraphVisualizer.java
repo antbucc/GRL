@@ -1,32 +1,29 @@
 package it.univaq.gamification.simulation.graph;
 
-import com.mxgraph.layout.mxCircleLayout;
+import com.mxgraph.layout.hierarchical.mxHierarchicalLayout;
 import com.mxgraph.swing.mxGraphComponent;
 import eu.trentorise.game.model.*;
 import eu.trentorise.game.task.Classification;
 import it.univaq.gamification.simulation.Constants;
 import org.jgrapht.Graph;
 import org.jgrapht.ext.JGraphXAdapter;
-
 import javax.swing.*;
 import javax.swing.Action;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.*;
 import java.util.List;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class GraphVisualizer  {
     private final Graph<String, RelationshipEdge> graph;
     private final Set<String> selectedElements;
     private final JTextField searchField;
-    private final List<AssertionError> expectationErrors;
+    private final Map<AssertionError, List<String>> expectationErrors;
 
-    public GraphVisualizer(Graph<String, RelationshipEdge> graph, List<AssertionError> expectationErrors) throws HeadlessException {
+    public GraphVisualizer(Graph<String, RelationshipEdge> graph, Map<AssertionError, List<String>> expectationErrors) throws HeadlessException {
         this.graph = graph;
         this.expectationErrors = expectationErrors;
         this.selectedElements = new HashSet<>();
@@ -62,14 +59,16 @@ public class GraphVisualizer  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JGraphXAdapter<String, RelationshipEdge> graphAdapter = new JGraphXAdapter<>(graph);
-        mxCircleLayout layout = new mxCircleLayout(graphAdapter);
+        mxHierarchicalLayout layout = new mxHierarchicalLayout(graphAdapter);
         layout.execute(graphAdapter.getDefaultParent());
 
         mxGraphComponent graphComponent = new mxGraphComponent(graphAdapter);
         graphComponent.setConnectable(false);
+        graphComponent.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         graphComponent.getGraph().setAllowDanglingEdges(false);
         graphComponent.getGraph().setCellsEditable(false);
         graphComponent.getGraph().setEdgeLabelsMovable(false);
+        graphComponent.getGraph().setHtmlLabels(true);
         graphComponent.getVerticalScrollBar().setUnitIncrement(16);
 
         String[] gameElements = {
@@ -110,7 +109,7 @@ public class GraphVisualizer  {
         // Checkboxes and label
         JPanel checkboxesContainer = new JPanel();
         checkboxesContainer.setLayout(new GridLayout(2, 1));
-        JLabel checkboxLabel = new JLabel("Filtra per elementi di gioco:");
+        JLabel checkboxLabel = new JLabel("Filter by game elements:");
         checkboxLabel.setMinimumSize(new Dimension(200, 200));
         checkboxLabel.setFont(new Font(javax.swing.UIManager.getDefaults().getFont("Label.font").getName(), Font.BOLD, 20));
         checkboxesContainer.add(checkboxLabel);
@@ -119,13 +118,11 @@ public class GraphVisualizer  {
         // Input and label
         JPanel searchContainer = new JPanel();
         searchContainer.setLayout(new GridLayout(2, 1));
-        JLabel searchLabel = new JLabel("Filtra per valore:");
+        JLabel searchLabel = new JLabel("Filter by value:");
         searchLabel.setMinimumSize(new Dimension(200, 200));
         searchLabel.setFont(new Font(javax.swing.UIManager.getDefaults().getFont("Label.font").getName(), Font.BOLD, 20));
         searchContainer.add(searchLabel);
-        searchField.getDocument().addDocumentListener((SimpleDocumentListener) e -> {
-            this.applyFilters(graphAdapter);
-        });
+        searchField.getDocument().addDocumentListener((SimpleDocumentListener) e -> this.applyFilters(graphAdapter));
         searchContainer.add(searchField);
 
         topSection.add(checkboxesContainer);
@@ -139,7 +136,9 @@ public class GraphVisualizer  {
         // Add errors if present
         if (expectationErrors.size() > 0) {
             DefaultListModel<String> errors = new DefaultListModel<>();
-            expectationErrors.forEach(e -> errors.addElement(String.format("Asserzione fallita: %s", e.getMessage())));
+            expectationErrors.forEach((key, value) ->
+                    errors.addElement(String.format("Assertion failed: %s - Related rules=[%s]", key.getMessage(), String.join(", ", value)))
+            );
             JList<String> errorsList = new JList<>(errors);
             errorsList.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
             errorsList.setFont(new Font(javax.swing.UIManager.getDefaults().getFont("Label.font").getName(), Font.BOLD, 14));
@@ -152,6 +151,8 @@ public class GraphVisualizer  {
         frame.add(topSection, BorderLayout.NORTH);
         frame.add(splitPane, BorderLayout.CENTER);
         frame.setVisible(true);
+        // Workaround to center vertex content on first render
+        graphAdapter.refresh();
 
         Object lock = new Object();
         // The main thread will wait for the frame to close before moving on

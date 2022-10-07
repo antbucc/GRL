@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Add states change tracker on logs">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Add graph generation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/TrackingAgendaEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/TrackingAgendaEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/SimulationBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/SimulationBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/graph/GraphVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/graph/GraphVisualizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/graph/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graph/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/graph/TestGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graph/TestGraph.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,8 +85,8 @@
       <command value="mvn install" />
       <command value="mvn clean install" />
       <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.univaq.gamification -DartifactId=gamification-dsl -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
-      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.smartcommunitylab.gamification -DartifactId=game-engine.core -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
       <command value="mvn package" />
+      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.smartcommunitylab.gamification -DartifactId=game-engine.core -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.SimulationTest.testSimulationWithFactBuilders">
@@ -193,7 +191,15 @@
       <workItem from="1664454191708" duration="10000" />
       <workItem from="1664569591660" duration="10824000" />
       <workItem from="1664607581738" duration="8978000" />
-      <workItem from="1664620765664" duration="9109000" />
+      <workItem from="1664620765664" duration="10031000" />
+      <workItem from="1664701680993" duration="293000" />
+      <workItem from="1664713922760" duration="204000" />
+      <workItem from="1664722070929" duration="30000" />
+      <workItem from="1664747365383" duration="664000" />
+      <workItem from="1664825847801" duration="3643000" />
+      <workItem from="1664865147397" duration="885000" />
+      <workItem from="1665001932123" duration="2367000" />
+      <workItem from="1665159714412" duration="5233000" />
     </task>
     <task id="LOCAL-00001" summary="Add more consequences">
       <created>1662312817429</created>
@@ -223,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663679732361</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add graph generation">
+      <created>1664632873643</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664632873643</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +258,8 @@
     <MESSAGE value="Add completeChallenge consequence and general improvements" />
     <MESSAGE value="Add RHS templates" />
     <MESSAGE value="Add states change tracker on logs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add states change tracker on logs" />
+    <MESSAGE value="Add graph generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add graph generation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

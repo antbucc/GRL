@@ -9,8 +9,7 @@ import it.univaq.gamification.simulation.builders.CheckExpectationLambda;
 import it.univaq.gamification.simulation.graph.GraphVisualizer;
 import it.univaq.gamification.simulation.graph.RelationshipEdge;
 import it.univaq.gamification.utils.DrlDumper;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
+import org.drools.compiler.lang.descr.RuleDescr;
 import org.drools.core.impl.InternalKnowledgeBase;
 import org.drools.core.impl.KnowledgeBaseFactory;
 import org.drools.core.io.impl.ByteArrayResource;
@@ -25,9 +24,6 @@ import org.kie.internal.builder.KnowledgeBuilderFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class SimulationBuilderImpl implements SimulationBuilder {
@@ -39,30 +35,35 @@ public class SimulationBuilderImpl implements SimulationBuilder {
     private final InternalKnowledgeBase knowledgeBase;
     private final KieSession kieSession;
     private final List<CheckExpectationLambda> expectations;
-    private final CSVPrinter csvPrinter;
+    // private final CSVPrinter csvPrinter;
     private final Graph<String, RelationshipEdge> stateGraph;
-    private final List<AssertionError> expectationErrors;
+    private final Map<AssertionError, List<String>> expectationErrors;
+    private final Map<String, Boolean> rulesEnabledMapping;
+    private final List<String> lastAddedRules;
 
     public SimulationBuilderImpl() {
-        try {
-            FileWriter fileWriter = new FileWriter(new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS").format(new Date()) + ".csv");
-            this.csvPrinter = new CSVPrinter(fileWriter, CSVFormat.DEFAULT
-                    .withHeader("Rule", "Salience", "Timestamp", "Starting state", "Final state")
-                    .withDelimiter(';'));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        // try {
+        //     FileWriter fileWriter = new FileWriter(new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS").format(new Date()) + ".csv");
+        //     this.csvPrinter = new CSVPrinter(fileWriter, CSVFormat.DEFAULT
+        //             .withHeader("Rule", "Salience", "Timestamp", "Starting state", "Final state")
+        //             .withDelimiter(';'));
+        // } catch (IOException e) {
+        //     throw new RuntimeException(e);
+        // }
 
         drlDumper = new DrlDumper();
+        rulesEnabledMapping = new HashMap<>();
         knowledgeBuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
         knowledgeBase = KnowledgeBaseFactory.newKnowledgeBase();
         kieSession = knowledgeBase.newKieSession();
         stateGraph = new DefaultDirectedGraph<>(RelationshipEdge.class);
-        TrackingAgendaEventListener agendaEventListener = new TrackingAgendaEventListener(csvPrinter, stateGraph);
-        kieSession.addEventListener(agendaEventListener);
+        // TrackingAgendaEventListener agendaEventListener = new TrackingAgendaEventListener(csvPrinter, stateGraph);
+        expectationErrors = new LinkedHashMap<>();
+        lastAddedRules = new ArrayList<>();
         expectations = new ArrayList<>();
         verifier = VerifierBuilderFactory.newVerifierBuilder().newVerifier();
-        expectationErrors = new ArrayList<>();
+        TrackingAgendaEventListener agendaEventListener = new TrackingAgendaEventListener(stateGraph, rulesEnabledMapping);
+        kieSession.addEventListener(agendaEventListener);
     }
 
     private boolean verifyRule(ByteArrayResource ruleDrlByteArrayResource) {
@@ -94,11 +95,20 @@ public class SimulationBuilderImpl implements SimulationBuilder {
 
     @Override
     public SimulationBuilder addRules(PackageDescr... packageDescrs) {
-        for (PackageDescr packageDescr : packageDescrs) {
-            ByteArrayResource ruleDrlByteArrayResource = new ByteArrayResource(drlDumper.dump(packageDescr).getBytes());
+        // Remove previously added rules
+        lastAddedRules.clear();
 
-            if (this.verifyRule(ruleDrlByteArrayResource)) {
-                knowledgeBuilder.add(ruleDrlByteArrayResource, ResourceType.DRL);
+        for (PackageDescr packageDescr : packageDescrs) {
+            ByteArrayResource packageDrlByteArrayResource = new ByteArrayResource(drlDumper.dump(packageDescr).getBytes());
+
+            if (this.verifyRule(packageDrlByteArrayResource)) {
+                knowledgeBuilder.add(packageDrlByteArrayResource, ResourceType.DRL);
+            }
+
+            for (RuleDescr rule : packageDescr.getRules()) {
+                String ruleName = rule.getName();
+                lastAddedRules.add(ruleName);
+                rulesEnabledMapping.put(ruleName, true);
             }
 
         }
@@ -115,8 +125,8 @@ public class SimulationBuilderImpl implements SimulationBuilder {
     public SimulationBuilder simulate() {
         knowledgeBase.addPackages(knowledgeBuilder.getKnowledgePackages());
 
-        // Firing all rules
-        int totalFiredRules = kieSession.fireAllRules();
+        // Firing all rules only if enabled
+        int totalFiredRules = kieSession.fireAllRules(match -> rulesEnabledMapping.get(match.getRule().getName()));
         // List fired rules
         logger.info("Total fired rules: {}", totalFiredRules);
 
@@ -124,7 +134,7 @@ public class SimulationBuilderImpl implements SimulationBuilder {
         try {
             this.expectations.forEach(CheckExpectationLambda::check);
         } catch (AssertionError e) {
-            expectationErrors.add(e);
+            expectationErrors.put(e, lastAddedRules);
         }
 
         if (expectationErrors.size() > 0) {
@@ -144,7 +154,6 @@ public class SimulationBuilderImpl implements SimulationBuilder {
             throw new SimulationError("Error during simulation");
         }
 
-        // TODO: Remove rules in order to run other tests (?)
         return this;
     }
 
@@ -153,19 +162,19 @@ public class SimulationBuilderImpl implements SimulationBuilder {
         this.simulate();
 
         // Print csv
-        try {
-            this.csvPrinter.flush();
-            this.csvPrinter.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        // try {
+        //     this.csvPrinter.flush();
+        //     this.csvPrinter.close();
+        // } catch (IOException e) {
+        //     throw new RuntimeException(e);
+        // }
 
         // Show graph
         new GraphVisualizer(stateGraph, expectationErrors).visualize();
 
         // Throw error if at least one
         if (expectationErrors.size() > 0) {
-            throw expectationErrors.get(0);
+            throw expectationErrors.entrySet().iterator().next().getKey();
         }
     }
 }
