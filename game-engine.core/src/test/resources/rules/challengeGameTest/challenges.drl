@@ -1,0 +1,17 @@
+package eu.trentorise.game.model
+lock-on-active
+import eu.trentorise.game.core.Utility;
+
+global Utility utils;
+
+rule "challenge"
+when
+    $challenge : ChallengeConcept(modelName == "prize")
+    $pc : PointConcept(name == "green leaves")
+then
+	utils.log("Challenge PRIZE winner");
+	$challenge.completed();
+	$pc.increment(100d);
+    update($pc);
+end
+

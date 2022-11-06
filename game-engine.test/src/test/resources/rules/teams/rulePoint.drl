@@ -1,0 +1,122 @@
+package eu.trentorise.game.model
+
+
+global Integer steps_per_100m;
+
+import eu.trentorise.game.core.Utility;
+
+global Utility utils;
+
+
+rule "R1-player execution"
+when
+    InputData( $distance : data["meters-walked"] != null)
+    $pc : PointConcept(name == "steps")
+    Player($playerId: id)
+then
+	utils.log("Player execution");
+    Long steps = Math.round((double) $distance);  
+    $pc.setScore($pc.getScore() + steps); 
+    utils.log("Player " +$playerId + " increases of "+steps+" steps");
+    update($pc);
+    // propagate rule to my teams
+    insert(new UpdateTeams());
+end
+
+
+
+rule "R3-team execution"
+when
+    Player($playerId: id, team == true)
+then
+    utils.log("Team execution");
+     // propagate rule to team members
+    insert(new UpdateMembers());
+end
+
+
+
+rule "Player to Team prop: points"
+when
+    Player($playerId: id, team == true)
+    $pc : PointConcept(name == "steps")
+	Member($distance : inputData["meters-walked"] != null)
+	Propagation(action == null, $level : level)
+then
+    utils.log("Player to team: points");
+    Long steps = Math.round((double) $distance);  
+    Long score = steps/ (2 * $level);
+    $pc.setScore($pc.getScore() + score); 
+    utils.log("Team " +$playerId + " increases of "+score+" steps");  
+    update($pc);
+    insert(new UpdateTeams());
+    insert(new UpdateMembers());
+end
+
+rule "Player to Team prop: badge"
+no-loop
+when
+    Player($playerId: id, team == true)
+    $pc : PointConcept(name == "steps")
+	Member()
+	Propagation(action == "gained-poi_1")
+then
+    utils.log("Player to team: badge");
+    $pc.setScore($pc.getScore() + 10); 
+    utils.log("Team " +$playerId + " increases of "+10+" steps");  
+    update($pc);
+    insert(new UpdateTeams());
+    insert(new UpdateMembers());
+end
+
+
+rule "Player to Team prop: badge 2"
+no-loop
+when
+    Player($playerId: id, team == true)
+    $bc : BadgeCollectionConcept($b : 'team_bump_1', name =="itinerary", badgeEarned not contains $b) 
+	Member()
+	Propagation(action == "gained-poi_3")
+then
+    utils.log("Player to team: badge 2");
+    $bc.getBadgeEarned().add($b); 
+    utils.log("Team " +$playerId + " gained bagde "+$b);  
+    update($bc);
+    insert(new UpdateTeams());
+    insert(new UpdateMembers());
+end
+
+
+
+rule "Team to Player prop: badge"
+no-loop
+when 
+    $pc : PointConcept(name == "steps")
+    Player($playerId: id)
+    Propagation(action == "gained-team_1")
+then
+	utils.log("Team to player: badge");
+    $pc.setScore($pc.getScore() + 1); 
+    utils.log("Player " +$playerId + " increases of 1 steps");
+    update($pc);
+    insert(new UpdateTeams());
+    insert(new UpdateMembers());
+    
+end
+
+
+rule "Team to Player prop: points"
+no-loop
+when 
+    $pc : PointConcept(name == "steps")
+    Player($playerId: id)
+    Team($distance : inputData["meters-walked"] != null)
+then
+	utils.log("Team to player: points");
+	Long steps = Math.round((double) $distance);
+    $pc.setScore($pc.getScore() + steps/10); 
+    utils.log("Player " +$playerId + " increases of " + steps/10 + " steps");
+    update($pc);
+    insert(new UpdateTeams());
+    insert(new UpdateMembers());
+end

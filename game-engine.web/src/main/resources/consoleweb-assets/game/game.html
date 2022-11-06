@@ -1,0 +1,38 @@
+<!--
+
+       Copyright 2015 Fondazione Bruno Kessler - Trento RISE
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+
+<div class="row">
+	<div class="col-md-12 text-center">
+		<uib-alert ng-if="alerts.loadGameError" type="danger">{{'messages:msg_load_games_error' | i18next}}</uib-alert>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<span class="glyphicon glyphicon-menu-left" id="back" ng-click="goToUrl('#/home'+'#' + game.id)"></span>
+		<h3 id="game-name">{{gameName}}</h3>
+		<p id="game-id"><b>(gameId: {{game.id}})</b></p>
+		<div style="margin-top: 10px"><a href="" ng-click="goToUrl('#/game-monitor/' + game.id)">< game monitor</a></div>
+	</div>
+</div>
+<div class="row">
+	<div ng-show="!new" class="col-md-2" id="side-menu" data-ng-include="'game-menu/game-menu.html'"></div>
+	<div class="col-md-10" id="main-container">
+		<div data-ng-include="viewName+'/'+viewName+'.html'" class="container-fluid"></div>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+/target
+.settings/
+.classpath
+.project
+playerstorage
+*.log
+*.log.*

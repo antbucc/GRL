@@ -1,2 +1,0 @@
-## The indent is to have a properly formatted rule
-    utils.log(${message});

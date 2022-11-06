@@ -1,3 +1,0 @@
-## The indent is to have a properly formatted rule
-    ${pc}.increment(${amount});
-    update(${pc});

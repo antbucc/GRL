@@ -1,4 +1,0 @@
-## The indent is to have a properly formatted rule
-    ## The cast id added to handle all possible cases
-    ${pc}.setScore(${pc}.getScore() ${operator} (Double) ${amount});
-    update(${pc});

@@ -1,4 +1,0 @@
-## The indent is to have a properly formatted rule
-    modify(${errorsScore}) { setScore((double) ${errors}); }
-    modify(${customData}) { put("level", ${level}); }
-    insert(new AlreadyLevelUp());
