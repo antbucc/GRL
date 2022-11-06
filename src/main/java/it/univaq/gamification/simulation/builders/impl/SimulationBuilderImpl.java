@@ -101,14 +101,16 @@ public class SimulationBuilderImpl implements SimulationBuilder {
         for (PackageDescr packageDescr : packageDescrs) {
             ByteArrayResource packageDrlByteArrayResource = new ByteArrayResource(drlDumper.dump(packageDescr).getBytes());
 
-            if (this.verifyRule(packageDrlByteArrayResource)) {
-                knowledgeBuilder.add(packageDrlByteArrayResource, ResourceType.DRL);
-            }
-
             for (RuleDescr rule : packageDescr.getRules()) {
                 String ruleName = rule.getName();
                 lastAddedRules.add(ruleName);
                 rulesEnabledMapping.put(ruleName, true);
+            }
+
+            // TODO: Remove rule from package if it is already present in rulesEnabledMapping
+
+            if (this.verifyRule(packageDrlByteArrayResource)) {
+                knowledgeBuilder.add(packageDrlByteArrayResource, ResourceType.DRL);
             }
 
         }

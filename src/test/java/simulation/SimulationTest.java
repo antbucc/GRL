@@ -38,25 +38,25 @@ public class SimulationTest {
         // end
 
         // Facts
-        PointFactBuilderImpl pointFact = PointFactBuilderImpl.builder().name("total_distance").score(1000.0).build();
-        BadgeCollectionFactBuilderImpl badgeCollectionFact = BadgeCollectionFactBuilderImpl.builder().name("silver_collection").build();
-        GameFactBuilderImpl gameFact = GameFactBuilderImpl.builder().id("1").build();
+        PointFactBuilderImpl pointFact = PointFactBuilderImpl.builder().name("total_distance").score(30.0).build();
+        BadgeCollectionFactBuilderImpl badgeCollectionFact = BadgeCollectionFactBuilderImpl.builder().name("badge_collection").build();
         PlayerFactBuilderImpl playerFact = PlayerFactBuilderImpl.builder().id("1").build();
         // Rules
         PackageDescr addBadgeRule1 = Rules.getAddBadgeRule1();
         PackageDescr addBadgeRule2 = Rules.getAddBadgeRule2();
         // Expectations
-        CheckExpectationLambda doesNotHaveVeronaBadge = () -> Assert.assertFalse("Non contiene il badge 'Verona 1'", badgeCollectionFact.getBadgeEarned().contains("Verona 1"));
-        CheckExpectationLambda hasVeronaBadge1 = () -> Assert.assertTrue("Contiene il badge 'Verona 1'", badgeCollectionFact.getBadgeEarned().contains("Verona 1"));
-        CheckExpectationLambda hasVeronaBadge2 = () -> Assert.assertFalse("Non contiene il badge 'Verona 2'", badgeCollectionFact.getBadgeEarned().contains("Verona 2"));
+        CheckExpectationLambda doesNotHaveProBadge = () -> Assert.assertFalse("Does not contain 'pro-badge' badge", badgeCollectionFact.getBadgeEarned().contains("pro-badge"));
+        CheckExpectationLambda hasProBadge = () -> Assert.assertTrue("Does contain 'pro-badge' badge", badgeCollectionFact.getBadgeEarned().contains("pro-badge"));
+        CheckExpectationLambda hasProBadge2 = () -> Assert.assertTrue("Does contain 'pro-badge-2' badge", badgeCollectionFact.getBadgeEarned().contains("pro-badge-2"));
 
         new SimulationBuilderImpl()
-                .addFacts(pointFact, badgeCollectionFact, gameFact)
-                .addRules(addBadgeRule1, addBadgeRule2)
-                .addExpectations(doesNotHaveVeronaBadge)
+                .addFacts(pointFact, badgeCollectionFact)
+                .addRules(addBadgeRule1)
+                .addRules(addBadgeRule2)
+                .addExpectations(doesNotHaveProBadge)
                 .simulate()
                 .addFacts(playerFact)
-                .addExpectations(hasVeronaBadge1, hasVeronaBadge2)
+                .addExpectations(hasProBadge, hasProBadge2)
                 .simulateAndClose();
     }
 

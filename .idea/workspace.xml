@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Add graph generation">
+    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Graph improvements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/TrackingAgendaEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/TrackingAgendaEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/builders/impl/SimulationBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/graph/GraphVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/graph/GraphVisualizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/graph/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graph/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/graph/TestGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graph/TestGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/simulation/SimulationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,8 +84,8 @@
       <command value="mvn install" />
       <command value="mvn clean install" />
       <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.univaq.gamification -DartifactId=gamification-dsl -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
-      <command value="mvn package" />
       <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.smartcommunitylab.gamification -DartifactId=game-engine.core -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
+      <command value="mvn package" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.SimulationTest.testSimulationWithFactBuilders">
@@ -103,16 +102,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
+    <configuration name="TestGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="graph.TestGraph" />
       <module name="gamification-dsl" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="graph.TestGraph" />
+    <configuration name="RuleTest.testAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dsl" />
+      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
+      <option name="METHOD_NAME" value="testAddBadge" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,10 +154,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.SimulationTest.testSimulationWithFactBuilders" />
+        <item itemvalue="JUnit.RuleTest.testAddBadge" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestGraph.testGraph" />
         <item itemvalue="Application.TestGraph" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +207,16 @@
       <workItem from="1664825847801" duration="3643000" />
       <workItem from="1664865147397" duration="885000" />
       <workItem from="1665001932123" duration="2367000" />
-      <workItem from="1665159714412" duration="5233000" />
+      <workItem from="1665159714412" duration="5909000" />
+      <workItem from="1665173659640" duration="355000" />
+      <workItem from="1665220604679" duration="7000" />
+      <workItem from="1665308167533" duration="416000" />
+      <workItem from="1665308791995" duration="5631000" />
+      <workItem from="1665432387524" duration="605000" />
+      <workItem from="1666124907570" duration="1789000" />
+      <workItem from="1666189763642" duration="4926000" />
+      <workItem from="1667216456194" duration="1349000" />
+      <workItem from="1667296077514" duration="2715000" />
     </task>
     <task id="LOCAL-00001" summary="Add more consequences">
       <created>1662312817429</created>
@@ -236,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664632873643</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Graph improvements">
+      <created>1665165294740</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665165294740</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +283,8 @@
     <MESSAGE value="Add RHS templates" />
     <MESSAGE value="Add states change tracker on logs" />
     <MESSAGE value="Add graph generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add graph generation" />
+    <MESSAGE value="Graph improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Graph improvements" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
