@@ -13,8 +13,8 @@ import org.kie.api.runtime.rule.Match;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Timestamp;
-import java.time.Instant;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -108,7 +108,7 @@ public class TrackingAgendaEventListener extends DefaultAgendaEventListener  {
 
         String ruleName = rule.getName();
         Salience ruleSalience = rule.getSalience();
-        String ruleTimestamp = String.valueOf(Timestamp.from(Instant.now()));
+        String ruleTimestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.sss").format(new Date());
 
         this.stateGraph.addVertex(after);
         this.stateGraph.addEdge(before, after, new RelationshipEdge(String.format(

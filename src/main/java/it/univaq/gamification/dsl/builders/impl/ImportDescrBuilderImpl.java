@@ -8,9 +8,9 @@ import org.drools.compiler.lang.descr.ImportDescr;
 
 public class ImportDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBuilder, ImportDescr> implements ImportDescrBuilder {
 
-    protected ImportDescrBuilderImpl(PackageDescrBuilder parent, String target) {
+    protected ImportDescrBuilderImpl(PackageDescrBuilder parent, Class<?> target) {
         super(parent, new ImportDescr());
-        this.descr.setTarget(target);
+        this.descr.setTarget(target.getName());
     }
 
 }

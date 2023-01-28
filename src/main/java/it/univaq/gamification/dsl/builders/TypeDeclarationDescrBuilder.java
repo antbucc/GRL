@@ -8,7 +8,7 @@ public interface TypeDeclarationDescrBuilder
         AnnotatedDescrBuilder<TypeDeclarationDescrBuilder>,
         AbstractClassTypeDeclarationBuilder<TypeDeclarationDescr> {
 
-    TypeDeclarationDescrBuilder name(String type);
+    TypeDeclarationDescrBuilder name(Class<?> type);
 
     TypeDeclarationDescrBuilder superType(String type);
 

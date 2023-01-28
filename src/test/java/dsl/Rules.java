@@ -1,6 +1,10 @@
 package dsl;
 
+import eu.trentorise.game.model.BadgeCollectionConcept;
+import eu.trentorise.game.model.Game;
+import eu.trentorise.game.model.Player;
 import eu.trentorise.game.model.PointConcept;
+import eu.trentorise.game.notification.BadgeNotification;
 import it.univaq.gamification.dsl.binders.BadgeCollectionBind;
 import it.univaq.gamification.dsl.binders.Bind;
 import it.univaq.gamification.dsl.Global;
@@ -19,11 +23,11 @@ public class Rules {
 
         PackageDescr packageDescrBuilder = new PackageDescrBuilderImpl()
                 .name("eu.trentorise.game.model")
-                .newImport(PointConcept.class.getName()).end()
-                .newImport("eu.trentorise.game.model.BadgeCollectionConcept").end()
-                .newImport("eu.trentorise.game.model.Game").end()
-                .newImport("eu.trentorise.game.model.Player").end()
-                .newImport("eu.trentorise.game.notification.BadgeNotification").end()
+                .newImport(PointConcept.class).end()
+                .newImport(BadgeCollectionConcept.class).end()
+                .newImport(Game.class).end()
+                .newImport(Player.class).end()
+                .newImport(BadgeNotification.class).end()
                 .newRule()
                     .name("Add pro-badge")
                     .attribute("salience", "1000")
@@ -49,11 +53,11 @@ public class Rules {
 
         return new PackageDescrBuilderImpl()
                 .name("eu.trentorise.game.model")
-                .newImport("eu.trentorise.game.model.PointConcept").end()
-                .newImport("eu.trentorise.game.model.BadgeCollectionConcept").end()
-                .newImport("eu.trentorise.game.model.Game").end()
+                .newImport(PointConcept.class).end()
+                .newImport(BadgeCollectionConcept.class).end()
+                .newImport(Game.class).end()
                 // .newImport("eu.trentorise.game.model.Player").end()
-                .newImport("eu.trentorise.game.notification.BadgeNotification").end()
+                .newImport(BadgeNotification.class).end()
                 .newRule()
                     .name("Add pro-badge-2")
                     .when()
@@ -77,18 +81,18 @@ public class Rules {
         final BadgeCollectionBind BADGE_COLLECTION_REF = new BadgeCollectionBind("$bc");
         final Bind TEAM_ID_REF = new Bind("$teamId");
         final Bind GAME_ID_REF = new Bind("$gameId");
-        final Global GLOBAL_VERONA_DISTANCE = new Global("Verona_distance");
-        final Global GLOBAL_SCHOOL_NAME = new Global("const_school_name");
+        final Global GLOBAL_VERONA_DISTANCE = new Global(Double.class, "Verona_distance");
+        final Global GLOBAL_SCHOOL_NAME = new Global(String.class, "const_school_name");
 
         return new PackageDescrBuilderImpl()
                 .name("eu.trentorise.game.model")
-                .newImport("eu.trentorise.game.model.PointConcept").end()
-                .newImport("eu.trentorise.game.model.BadgeCollectionConcept").end()
-                .newImport("eu.trentorise.game.model.Game").end()
-                .newImport("eu.trentorise.game.model.Player").end()
-                .newImport("eu.trentorise.game.notification.BadgeNotification").end()
-                .newGlobal(Double.class.getSimpleName(), GLOBAL_VERONA_DISTANCE).end()
-                .newGlobal(String.class.getSimpleName(), GLOBAL_SCHOOL_NAME).end()
+                .newImport(PointConcept.class).end()
+                .newImport(BadgeCollectionConcept.class).end()
+                .newImport(Game.class).end()
+                .newImport(Player.class).end()
+                .newImport(BadgeNotification.class).end()
+                .newGlobal(GLOBAL_VERONA_DISTANCE).end()
+                .newGlobal(GLOBAL_SCHOOL_NAME).end()
                 .newRule()
                     .name("R-add-badge Verona")
                     .attribute("salience", "-1000")

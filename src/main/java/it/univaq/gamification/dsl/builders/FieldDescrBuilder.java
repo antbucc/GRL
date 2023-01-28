@@ -14,7 +14,7 @@ public interface FieldDescrBuilder<T extends DescrBuilder<?,?>>
 
     FieldDescrBuilder<T> name(String name);
 
-    FieldDescrBuilder<T> type(String type);
+    FieldDescrBuilder<T> type(Class<?> type);
 
     FieldDescrBuilder<T> initialValue(String value);
 }

@@ -8,5 +8,5 @@ public interface AbstractClassTypeDeclarationBuilder<T extends BaseDescr>
         extends
         DescrBuilder<PackageDescrBuilder, T> {
 
-     FieldDescrBuilder<AbstractClassTypeDeclarationBuilder<T>> newField(String name );
+     FieldDescrBuilder<AbstractClassTypeDeclarationBuilder<T>> newField(String name);
 }

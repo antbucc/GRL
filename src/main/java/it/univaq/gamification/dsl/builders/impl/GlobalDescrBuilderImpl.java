@@ -7,10 +7,10 @@ import org.drools.compiler.lang.api.impl.BaseDescrBuilderImpl;
 import org.drools.compiler.lang.descr.GlobalDescr;
 
 public class GlobalDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBuilder, GlobalDescr> implements GlobalDescrBuilder {
-    protected GlobalDescrBuilderImpl(PackageDescrBuilder parent, String type, Global global) {
+    protected GlobalDescrBuilderImpl(PackageDescrBuilder parent, String type, String globalName) {
         super(parent, new GlobalDescr());
         this.descr.setType(type);
-        this.descr.setIdentifier(global.getIdentifier());
+        this.descr.setIdentifier(globalName);
     }
 
 }

@@ -17,8 +17,8 @@ public class TypeDeclarationDescrBuilderImpl extends BaseDescrBuilderImpl<Packag
         super(parent, new TypeDeclarationDescr());
     }
 
-    public TypeDeclarationDescrBuilder name(String type) {
-        descr.setTypeName(type);
+    public TypeDeclarationDescrBuilder name(Class<?> type) {
+        descr.setTypeName(type.getSimpleName());
         return this;
     }
 

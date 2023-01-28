@@ -7,6 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Global {
 
+    private final Class<?> type;
     private final String identifier;
 
     @Override

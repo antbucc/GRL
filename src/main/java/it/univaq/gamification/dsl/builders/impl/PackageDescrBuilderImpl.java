@@ -26,17 +26,17 @@ public class PackageDescrBuilderImpl extends BaseDescrBuilderImpl<PackageDescrBu
     }
 
     @Override
-    public ImportDescrBuilder newImport(String target) {
+    public ImportDescrBuilder newImport(Class<?> target) {
         ImportDescrBuilder importz = new ImportDescrBuilderImpl(this, target);
         this.descr.addImport(initDescr(importz));
         return importz;
     }
 
     @Override
-    public GlobalDescrBuilder newGlobal(String type, Global globalName) {
-        GlobalDescrBuilder global = new GlobalDescrBuilderImpl(this, type, globalName);
-        this.descr.addGlobal(initDescr(global));
-        return global;
+    public GlobalDescrBuilder newGlobal(Global global) {
+        GlobalDescrBuilder aGlobal = new GlobalDescrBuilderImpl(this, global.getType().getSimpleName(), global.getIdentifier());
+        this.descr.addGlobal(initDescr(aGlobal));
+        return aGlobal;
     }
 
     @Override

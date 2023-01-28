@@ -32,8 +32,8 @@ public class FieldDescrBuilderImpl<T extends DescrBuilder<?,?>> extends BaseDesc
         return this;
     }
 
-    public FieldDescrBuilder<T> type(String type) {
-        descr.setPattern(new PatternDescr(type));
+    public FieldDescrBuilder<T> type(Class<?> type) {
+        descr.setPattern(new PatternDescr(type.getSimpleName()));
         return this;
     }
 
