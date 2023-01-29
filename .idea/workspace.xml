@@ -9,7 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Usability improvements">
+    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="chore: add .jar and minor changes">
+      <change afterPath="$PROJECT_DIR$/gamification-dsl-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" afterDir="false" />
@@ -261,7 +262,7 @@
       <workItem from="1673774011117" duration="5000000" />
       <workItem from="1674896216679" duration="16036000" />
       <workItem from="1674991542644" duration="337000" />
-      <workItem from="1674991949645" duration="6542000" />
+      <workItem from="1674991949645" duration="7252000" />
     </task>
     <task id="LOCAL-00001" summary="Add more consequences">
       <created>1662312817429</created>
@@ -312,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674913632824</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="chore: add .jar and minor changes">
+      <created>1675017173934</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675017173934</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +345,8 @@
     <MESSAGE value="Add graph generation" />
     <MESSAGE value="Graph improvements" />
     <MESSAGE value="Usability improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Usability improvements" />
+    <MESSAGE value="chore: add .jar and minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: add .jar and minor changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
