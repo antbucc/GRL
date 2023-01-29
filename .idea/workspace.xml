@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="DSL" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Graph improvements">
+    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="Usability improvements">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/AbstractClassTypeDeclarationBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/AbstractClassTypeDeclarationBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/FieldDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/FieldDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/PackageDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/PackageDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/TypeDeclarationDescrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/TypeDeclarationDescrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/FieldDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/FieldDescrBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GlobalDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/GlobalDescrBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/ImportDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/ImportDescrBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PackageDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/PackageDescrBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/TypeDeclarationDescrBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/dsl/builders/impl/TypeDeclarationDescrBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/TrackingAgendaEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/gamification/simulation/TrackingAgendaEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleWhenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleWhenTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,31 +52,34 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
+  <component name="NamedScopeManager">
+    <scope name="DSL" pattern="src:it.univaq.gamification.deployment.services.*||src:it.univaq.gamification.dsl.*||src:it.univaq.gamification.dsl.binders.*||src:it.univaq.gamification.dsl.builders.*||src:it.univaq.gamification.dsl.builders.lhs.*||src:it.univaq.gamification.dsl.builders.lhs.builders.*||src:it.univaq.gamification.dsl.builders.rhs.builders.*||src:it.univaq.gamification.simulation.builders.impl.fact.*||src:it.univaq.gamification.simulation.builders.*||src:it.univaq.gamification.simulation.*||src:it.univaq.gamification.deployment.model.*" />
+  </component>
   <component name="ProjectId" id="2EJKlLPrqxMWxsi0lW0nY7DpUJv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/stefanomartella/Desktop/Università/Tesi/code/ferrara-play-and-go-with-dsl&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d41d8cd98f00b204e9800998ecf8427e&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/stefanomartella/Desktop/Universita/Tesi/code/ferrara-play-and-go-with-dsl",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "copyright",
+    "spring.configuration.checksum": "d41d8cd98f00b204e9800998ecf8427e"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dsl" />
@@ -102,9 +98,10 @@
       <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.univaq.gamification -DartifactId=gamification-dsl -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
       <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.smartcommunitylab.gamification -DartifactId=game-engine.core -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
       <command value="mvn package" />
+      <command value="mvn javadoc" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleTest.finalClassificationBadge">
+  <component name="RunManager" selected="JUnit.RuleThenTest.testAddBadge">
     <configuration name="RuleTest.finalClassificationBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gamification-dsl" />
       <extension name="coverage">
@@ -186,9 +183,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RuleThenTest.testAddBadge" />
         <item itemvalue="JUnit.RuleTest.finalClassificationBadge" />
         <item itemvalue="JUnit.RuleWhenTest" />
-        <item itemvalue="JUnit.RuleThenTest.testAddBadge" />
         <item itemvalue="JUnit.RuleTest.testAddBadge" />
         <item itemvalue="JUnit.SimulationTest.testSimulationWithFactBuilders" />
       </list>
@@ -262,7 +259,9 @@
       <workItem from="1671724695805" duration="727000" />
       <workItem from="1671812895232" duration="1119000" />
       <workItem from="1673774011117" duration="5000000" />
-      <workItem from="1674896216679" duration="11233000" />
+      <workItem from="1674896216679" duration="16036000" />
+      <workItem from="1674991542644" duration="337000" />
+      <workItem from="1674991949645" duration="6542000" />
     </task>
     <task id="LOCAL-00001" summary="Add more consequences">
       <created>1662312817429</created>
@@ -306,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665165294740</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Usability improvements">
+      <created>1674913632824</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674913632824</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +336,8 @@
     <MESSAGE value="Add states change tracker on logs" />
     <MESSAGE value="Add graph generation" />
     <MESSAGE value="Graph improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Graph improvements" />
+    <MESSAGE value="Usability improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Usability improvements" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

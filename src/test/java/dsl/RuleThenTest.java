@@ -12,15 +12,22 @@ public class RuleThenTest {
 
     @Test
     public void testAddBadge() {
+        final String BADGE_NAME = "green-badge";
+        final BadgeCollectionBind BADGE_COLLECTION_BIND = new BadgeCollectionBind("badgeCollection");
+
         pkg = new PackageDescrBuilderImpl()
-                .name("it.gamification.something")
+                .name("eu.trentorise.game.model")
+                .newImport(BadgeCollectionBind.class).end()
                 .newRule()
-                    .name("input_data_test")
+                    .name("my_amazing_rule")
                     .when()
-                        // when
+                        .badgeCollection(BADGE_COLLECTION_BIND)
+                            .badgeEarnedNotContains(BADGE_NAME)
+                        .end()
                     .end()
                     .then()
-                        .addBadge(new BadgeCollectionBind("$bc"), "Verona")
+                        .addBadge(BADGE_COLLECTION_BIND, BADGE_NAME)
+                        .log(String.format("The %s badge has been assigned", BADGE_NAME))
                     .end()
                 .end()
                 .getDescr();
