@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="chore: add .jar and minor changes">
-      <change afterPath="$PROJECT_DIR$/gamification-dsl-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4cdf48c4-3332-4aa4-a157-cd1aa6d700e2" name="Changes" comment="chore: remove .jar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/RuleThenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dsl/Rules.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,15 +67,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/stefanomartella/Desktop/Universita/Tesi/code/ferrara-play-and-go-with-dsl",
+    "last_opened_file_path": "C:/Users/stefanomartella/Desktop/Universita/Tesi/code/smartcampus.gamification",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.6827586",
     "settings.editor.selected.configurable": "copyright",
     "spring.configuration.checksum": "d41d8cd98f00b204e9800998ecf8427e"
   }
@@ -91,55 +90,39 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn dependency:tree" />
       <command value="mvn dependecy:purge" />
       <command value="mvn dependecy:purge-local" />
       <command value="mvn dependecy:purge -local" />
       <command value="mvn install -U" />
       <command value="mvn dependency:resolve" />
       <command value="mvn install" />
-      <command value="mvn clean install" />
-      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.univaq.gamification -DartifactId=gamification-dsl -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
-      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.smartcommunitylab.gamification -DartifactId=game-engine.core -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
-      <command value="mvn package" />
       <command value="mvn javadoc" />
+      <command value="mvn clean install" />
+      <command value="mvn dependency:tree" />
+      <command value="mvn clean install -U" />
+      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.univaq.gamification -DartifactId=gamification-dsl -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
+      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Universita\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.univaq.gamification -DartifactId=gamification-dsl -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
+      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.smartcommunitylab.gamification -DartifactId=game-engine.core -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
+      <command value="mvn install:install-file -Dfile=C:\Users\stefanomartella\Desktop\Universita\Tesi\code\smartcampus.gamification\game-engine-core\target\game-engine.core-4.0.0-SNAPSHOT.jar -DgroupId=it.smartcommunitylab.gamification -DartifactId=game-engine.core -Dversion=4.0.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true" />
+      <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RuleThenTest.testAddBadge">
-    <configuration name="RuleTest.finalClassificationBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
+  <component name="RunManager" selected="JUnit.SimulationTest.testSimulationWithFactBuilders">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="graph.Main" />
+      <module name="dsl4gar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dsl.*" />
+          <option name="PATTERN" value="graph.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dsl" />
-      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
-      <option name="METHOD_NAME" value="finalClassificationBadge" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RuleTest.testAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dsl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dsl" />
-      <option name="MAIN_CLASS_NAME" value="dsl.RuleTest" />
-      <option name="METHOD_NAME" value="testAddBadge" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="RuleThenTest.testAddBadge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
+      <module name="dsl4gar" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="dsl.*" />
@@ -154,23 +137,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RuleWhenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
+    <configuration name="SimulationBuilderTest.testBuilders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dsl4gar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dsl.*" />
+          <option name="PATTERN" value="simulation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dsl" />
-      <option name="MAIN_CLASS_NAME" value="dsl.RuleWhenTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="simulation" />
+      <option name="MAIN_CLASS_NAME" value="simulation.SimulationBuilderTest" />
+      <option name="METHOD_NAME" value="testBuilders" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="SimulationTest.testSimulationWithFactBuilders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gamification-dsl" />
+      <module name="dsl4gar" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="simulation.*" />
@@ -185,13 +169,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SimulationTest.testSimulationWithObjects" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dsl4gar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simulation" />
+      <option name="MAIN_CLASS_NAME" value="simulation.SimulationTest" />
+      <option name="METHOD_NAME" value="testSimulationWithObjects" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RuleThenTest.testAddBadge" />
-        <item itemvalue="JUnit.RuleTest.finalClassificationBadge" />
-        <item itemvalue="JUnit.RuleWhenTest" />
-        <item itemvalue="JUnit.RuleTest.testAddBadge" />
         <item itemvalue="JUnit.SimulationTest.testSimulationWithFactBuilders" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SimulationTest.testSimulationWithObjects" />
+        <item itemvalue="JUnit.SimulationBuilderTest.testBuilders" />
+        <item itemvalue="JUnit.RuleThenTest.testAddBadge" />
       </list>
     </recent_temporary>
   </component>
@@ -265,7 +265,10 @@
       <workItem from="1673774011117" duration="5000000" />
       <workItem from="1674896216679" duration="16036000" />
       <workItem from="1674991542644" duration="337000" />
-      <workItem from="1674991949645" duration="7252000" />
+      <workItem from="1674991949645" duration="8516000" />
+      <workItem from="1675034630141" duration="2828000" />
+      <workItem from="1675037477618" duration="7000" />
+      <workItem from="1675037516246" duration="3400000" />
     </task>
     <task id="LOCAL-00001" summary="Add more consequences">
       <created>1662312817429</created>
@@ -323,7 +326,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675017173934</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="chore: add .jar and minor changes">
+      <created>1675017339631</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675017339631</updated>
+    </task>
+    <task id="LOCAL-00010" summary="chore: remove .jar">
+      <created>1675017741685</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1675017741685</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +366,8 @@
     <MESSAGE value="Graph improvements" />
     <MESSAGE value="Usability improvements" />
     <MESSAGE value="chore: add .jar and minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add .jar and minor changes" />
+    <MESSAGE value="chore: remove .jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: remove .jar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

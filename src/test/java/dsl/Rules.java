@@ -21,7 +21,7 @@ public class Rules {
         final BadgeCollectionBind BADGE_COLLECTION_REF = new BadgeCollectionBind("$bc");
         final Bind GAME_ID_REF = new Bind("$gameId");
 
-        PackageDescr packageDescrBuilder = new PackageDescrBuilderImpl()
+        return new PackageDescrBuilderImpl()
                 .name("eu.trentorise.game.model")
                 .newImport(PointConcept.class).end()
                 .newImport(BadgeCollectionConcept.class).end()
@@ -41,8 +41,6 @@ public class Rules {
                     .end()
                 .end()
                 .getDescr();
-
-        return packageDescrBuilder;
     }
 
     public static PackageDescr getAddBadgeRule2() {
